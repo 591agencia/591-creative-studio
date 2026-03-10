@@ -110,7 +110,7 @@
         
         <!-- Video de Fondo Difuminado (Optimizado vía YouTube Iframe) -->
         <div class="absolute inset-0 w-full h-full z-0 pointer-events-none video-mask flex items-center justify-center overflow-hidden bg-[#041010]">
-            <!-- Truco Corporativo: Escalar el iframe al 200% oculta los títulos y controles de YouTube, dejando un fondo limpio -->
+            <!-- Truco Corporativo: Escalar el iframe al 200% oculta los títulos y controles de YouTube -->
             <iframe 
                 class="absolute w-[250vw] h-[250vh] md:w-[150vw] md:h-[150vh] min-w-full min-h-full opacity-20 pointer-events-none" 
                 src="https://www.youtube.com/embed/sqVGSxYMrr8?autoplay=1&mute=1&controls=0&loop=1&playlist=sqVGSxYMrr8&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1" 
@@ -135,58 +135,61 @@
             </div>
         </div>
 
-        <!-- Efecto de lente de cámara de fondo (Superpuesto al video) -->
+        <!-- Efecto de lente de cámara de fondo -->
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] border-[1px] border-[#F2F2F2]/5 rounded-full -z-0 pointer-events-none"></div>
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border-[1px] border-[#F2F2F2]/10 rounded-full -z-0 pointer-events-none"></div>
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#F24607]/5 rounded-full blur-[80px] -z-0 pointer-events-none"></div>
     </header>
 
-    <!-- SEPARADOR DINÁMICO: MARQUESINA DE SERVICIOS -->
-    <div class="relative w-full bg-[#F24607] py-4 md:py-5 z-20 -rotate-2 scale-[1.05] shadow-[0_0_30px_rgba(242,70,7,0.2)] mt-8 mb-16">
-        <div class="animate-marquee flex items-center">
-            <!-- Bloque 1 (Primera mitad) -->
-            <div class="flex items-center gap-8 px-4 text-[#0A2626] font-black text-2xl md:text-3xl lg:text-4xl uppercase tracking-widest whitespace-nowrap">
-                <span>Producción Audiovisual</span>
-                <span class="text-[#F2F2F2] opacity-80">✦</span>
-                <span>Social Media Marketing</span>
-                <span class="text-[#F2F2F2] opacity-80">✦</span>
-                <span>Automatizaciones</span>
-                <span class="text-[#F2F2F2] opacity-80">✦</span>
-                <span>Podcasts</span>
-                <span class="text-[#F2F2F2] opacity-80">✦</span>
-                <span>Producción Audiovisual</span>
-                <span class="text-[#F2F2F2] opacity-80">✦</span>
-                <span>Social Media Marketing</span>
-                <span class="text-[#F2F2F2] opacity-80">✦</span>
-                <span>Automatizaciones</span>
-                <span class="text-[#F2F2F2] opacity-80">✦</span>
-                <span>Podcasts</span>
-                <span class="text-[#F2F2F2] opacity-80">✦</span>
-            </div>
-            <!-- Bloque 2 (Segunda mitad, copia exacta para scroll infinito impecable) -->
-            <div class="flex items-center gap-8 px-4 text-[#0A2626] font-black text-2xl md:text-3xl lg:text-4xl uppercase tracking-widest whitespace-nowrap">
-                <span>Producción Audiovisual</span>
-                <span class="text-[#F2F2F2] opacity-80">✦</span>
-                <span>Social Media Marketing</span>
-                <span class="text-[#F2F2F2] opacity-80">✦</span>
-                <span>Automatizaciones</span>
-                <span class="text-[#F2F2F2] opacity-80">✦</span>
-                <span>Podcasts</span>
-                <span class="text-[#F2F2F2] opacity-80">✦</span>
-                <span>Producción Audiovisual</span>
-                <span class="text-[#F2F2F2] opacity-80">✦</span>
-                <span>Social Media Marketing</span>
-                <span class="text-[#F2F2F2] opacity-80">✦</span>
-                <span>Automatizaciones</span>
-                <span class="text-[#F2F2F2] opacity-80">✦</span>
-                <span>Podcasts</span>
-                <span class="text-[#F2F2F2] opacity-80">✦</span>
+    <!-- SEPARADOR DINÁMICO: MARQUESINA DE SERVICIOS (Solución Overflow Mobile) -->
+    <div class="w-full overflow-hidden relative z-20 mt-16 mb-24 py-8">
+        <!-- El contenedor interior rotado, extendido para no mostrar bordes cortados -->
+        <div class="relative w-[110%] -left-[5%] bg-[#F24607] py-4 md:py-5 -rotate-2 shadow-[0_0_30px_rgba(242,70,7,0.2)] flex">
+            <div class="animate-marquee flex items-center">
+                <!-- Bloque 1 (Primera mitad) -->
+                <div class="flex items-center gap-8 px-4 text-[#0A2626] font-black text-2xl md:text-3xl lg:text-4xl uppercase tracking-widest whitespace-nowrap">
+                    <span>Producción Audiovisual</span>
+                    <span class="text-[#F2F2F2] opacity-80">✦</span>
+                    <span>Social Media Marketing</span>
+                    <span class="text-[#F2F2F2] opacity-80">✦</span>
+                    <span>Automatizaciones</span>
+                    <span class="text-[#F2F2F2] opacity-80">✦</span>
+                    <span>Podcasts</span>
+                    <span class="text-[#F2F2F2] opacity-80">✦</span>
+                    <span>Producción Audiovisual</span>
+                    <span class="text-[#F2F2F2] opacity-80">✦</span>
+                    <span>Social Media Marketing</span>
+                    <span class="text-[#F2F2F2] opacity-80">✦</span>
+                    <span>Automatizaciones</span>
+                    <span class="text-[#F2F2F2] opacity-80">✦</span>
+                    <span>Podcasts</span>
+                    <span class="text-[#F2F2F2] opacity-80">✦</span>
+                </div>
+                <!-- Bloque 2 (Segunda mitad, copia exacta para scroll infinito impecable) -->
+                <div class="flex items-center gap-8 px-4 text-[#0A2626] font-black text-2xl md:text-3xl lg:text-4xl uppercase tracking-widest whitespace-nowrap">
+                    <span>Producción Audiovisual</span>
+                    <span class="text-[#F2F2F2] opacity-80">✦</span>
+                    <span>Social Media Marketing</span>
+                    <span class="text-[#F2F2F2] opacity-80">✦</span>
+                    <span>Automatizaciones</span>
+                    <span class="text-[#F2F2F2] opacity-80">✦</span>
+                    <span>Podcasts</span>
+                    <span class="text-[#F2F2F2] opacity-80">✦</span>
+                    <span>Producción Audiovisual</span>
+                    <span class="text-[#F2F2F2] opacity-80">✦</span>
+                    <span>Social Media Marketing</span>
+                    <span class="text-[#F2F2F2] opacity-80">✦</span>
+                    <span>Automatizaciones</span>
+                    <span class="text-[#F2F2F2] opacity-80">✦</span>
+                    <span>Podcasts</span>
+                    <span class="text-[#F2F2F2] opacity-80">✦</span>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- PORTAFOLIO CORPORATIVO (Las 6 áreas del PDF) -->
-    <section id="portafolio" class="px-6 py-24 bg-[#0A2626] relative z-10">
+    <section id="portafolio" class="px-6 pb-24 bg-[#0A2626] relative z-10">
         <div class="max-w-7xl mx-auto">
             <div class="reveal fade-bottom text-center mb-20">
                 <h2 class="text-4xl md:text-5xl font-bold mb-4">Nuestras especialidades</h2>
@@ -290,7 +293,7 @@
         <div class="max-w-6xl mx-auto px-6 mb-6">
             <p class="text-xs text-[#F2F2F2]/40 uppercase tracking-widest font-bold text-center">Corporaciones que confían en nuestra óptica</p>
         </div>
-        <!-- Marquesina infinita -->
+        <!-- Marquesina infinita asegurada contra scroll -->
         <div class="relative w-full overflow-hidden flex bg-[#041010]">
             <!-- Gradientes laterales para difuminar -->
             <div class="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-[#041010] to-transparent z-10 pointer-events-none"></div>

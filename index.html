@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>591 Creative Studio | Agencia de Producción y Marketing</title>
+    <!-- Tailwind CSS Integrado -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+        
+        /* MOTOR DE ANIMACIONES CORPORATIVAS */
+        .reveal {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .fade-bottom { transform: translateY(40px); }
+        .fade-bottom.active { transform: translateY(0); }
+        
+        .fade-left { transform: translateX(-40px); }
+        .fade-left.active { transform: translateX(0); }
+        
+        .fade-right { transform: translateX(40px); }
+        .fade-right.active { transform: translateX(0); }
+
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Efecto de marquesina para los logos de clientes */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-scroll {
+            display: flex;
+            width: 200%;
+            animation: scroll 45s linear infinite;
+        }
+        .animate-scroll:hover {
+            animation-play-state: paused;
+        }
+
+        /* Marquesina Inclinada (Servicios Core) */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 50s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        /* Imagenes de portafolio con overlay oscuro */
+        .portfolio-img-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 38, 38, 0.95) 0%, rgba(10, 38, 38, 0.2) 100%);
+            transition: opacity 0.5s ease;
+        }
+
+        /* Máscara de difuminado para el video de fondo */
+        .video-mask {
+            -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+            mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-[#0A2626] text-[#F2F2F2] font-sans selection:bg-[#F24607] selection:text-[#F2F2F2] overflow-x-hidden">
+
+    <!-- NAVEGACIÓN SMART -->
+    <nav id="main-nav" class="fixed top-0 w-full z-50 bg-[#0A2626]/80 backdrop-blur-md border-b border-[#F2F2F2]/10 px-6 py-4 transition-transform duration-500 ease-in-out">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <!-- Logo y Nombre -->
+            <div class="flex items-center justify-center">
+                <img src="logo.jpg" alt="Logo" class="h-14 w-auto object-contain rounded-md transition-transform hover:scale-105" onerror="this.style.display='none'">
+                <span class="ml-4 text-xl md:text-2xl font-bold tracking-wide text-[#F2F2F2]">591 Creative Studio</span>
+            </div>
+            
+            <!-- Pestañas de Navegación -->
+            <div class="hidden lg:flex space-x-8">
+                <!-- Pestaña Activa -->
+                <a href="index.html" class="text-[#F24607] font-semibold border-b-2 border-[#F24607] pb-1 text-sm">La Agencia</a>
+                
+                <!-- Enlaces a otros módulos -->
+                <a href="marketing-ia.html" class="text-[#F2F2F2]/70 hover:text-[#F24607] transition-colors font-medium text-sm">Marketing + IA</a>
+                <a href="audiovisual.html" class="text-[#F2F2F2]/70 hover:text-[#F24607] transition-colors font-medium text-sm">Audiovisual</a>
+                <a href="podcasts.html" class="text-[#F2F2F2]/70 hover:text-[#F24607] transition-colors font-medium text-sm">Podcasts</a>
+            </div>
+
+            <a href="#ecosistemas" class="hidden md:flex items-center gap-2 bg-[#F24607] hover:bg-[#d13c06] transition-colors text-[#F2F2F2] px-5 py-2 rounded-sm font-semibold text-sm hover:shadow-[0_0_15px_rgba(242,70,7,0.4)]">
+                Ver Soluciones
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION: LA AGENCIA -->
+    <header class="relative px-6 pt-40 pb-20 md:pt-48 md:pb-32 overflow-hidden border-b border-[#F2F2F2]/5 min-h-[90vh] flex items-center justify-center">
+        
+        <!-- Video de Fondo Difuminado (Optimizado vía YouTube Iframe) -->
+        <div class="absolute inset-0 w-full h-full z-0 pointer-events-none video-mask flex items-center justify-center overflow-hidden bg-[#041010]">
+            <!-- Truco Corporativo: Escalar el iframe al 200% oculta los títulos y controles de YouTube, dejando un fondo limpio -->
+            <iframe 
+                class="absolute w-[250vw] h-[250vh] md:w-[150vw] md:h-[150vh] min-w-full min-h-full opacity-20 pointer-events-none" 
+                src="https://www.youtube.com/embed/sqVGSxYMrr8?autoplay=1&mute=1&controls=0&loop=1&playlist=sqVGSxYMrr8&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1" 
+                frameborder="0" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <h1 class="reveal fade-bottom delay-100 text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                Somos lo que <span class="text-[#F24607]">hacemos.</span>
+            </h1>
+            <p class="reveal fade-bottom delay-200 text-lg md:text-2xl text-[#F2F2F2]/70 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
+                En 591 Creative Studio dejamos que la calidad de nuestra producción hable por nosotros. Transformamos la visión de marcas líderes en piezas de <strong class="text-white font-semibold">alta ingeniería visual.</strong>
+            </p>
+
+            <div class="reveal fade-bottom delay-300 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#portafolio" class="bg-[#F24607] hover:bg-[#d13c06] hover:scale-105 transition-all duration-300 px-8 py-4 rounded-sm font-bold text-lg flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(242,70,7,0.3)]">
+                    Explorar el Portafolio
+                </a>
+            </div>
+        </div>
+
+        <!-- Efecto de lente de cámara de fondo (Superpuesto al video) -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] border-[1px] border-[#F2F2F2]/5 rounded-full -z-0 pointer-events-none"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border-[1px] border-[#F2F2F2]/10 rounded-full -z-0 pointer-events-none"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#F24607]/5 rounded-full blur-[80px] -z-0 pointer-events-none"></div>
+    </header>
+
+    <!-- SEPARADOR DINÁMICO: MARQUESINA DE SERVICIOS -->
+    <div class="relative w-full bg-[#F24607] py-4 md:py-5 z-20 -rotate-2 scale-[1.05] shadow-[0_0_30px_rgba(242,70,7,0.2)] mt-8 mb-16">
+        <div class="animate-marquee flex items-center">
+            <!-- Bloque 1 (Primera mitad) -->
+            <div class="flex items-center gap-8 px-4 text-[#0A2626] font-black text-2xl md:text-3xl lg:text-4xl uppercase tracking-widest whitespace-nowrap">
+                <span>Producción Audiovisual</span>
+                <span class="text-[#F2F2F2] opacity-80">✦</span>
+                <span>Social Media Marketing</span>
+                <span class="text-[#F2F2F2] opacity-80">✦</span>
+                <span>Automatizaciones</span>
+                <span class="text-[#F2F2F2] opacity-80">✦</span>
+                <span>Podcasts</span>
+                <span class="text-[#F2F2F2] opacity-80">✦</span>
+                <span>Producción Audiovisual</span>
+                <span class="text-[#F2F2F2] opacity-80">✦</span>
+                <span>Social Media Marketing</span>
+                <span class="text-[#F2F2F2] opacity-80">✦</span>
+                <span>Automatizaciones</span>
+                <span class="text-[#F2F2F2] opacity-80">✦</span>
+                <span>Podcasts</span>
+                <span class="text-[#F2F2F2] opacity-80">✦</span>
+            </div>
+            <!-- Bloque 2 (Segunda mitad, copia exacta para scroll infinito impecable) -->
+            <div class="flex items-center gap-8 px-4 text-[#0A2626] font-black text-2xl md:text-3xl lg:text-4xl uppercase tracking-widest whitespace-nowrap">
+                <span>Producción Audiovisual</span>
+                <span class="text-[#F2F2F2] opacity-80">✦</span>
+                <span>Social Media Marketing</span>
+                <span class="text-[#F2F2F2] opacity-80">✦</span>
+                <span>Automatizaciones</span>
+                <span class="text-[#F2F2F2] opacity-80">✦</span>
+                <span>Podcasts</span>
+                <span class="text-[#F2F2F2] opacity-80">✦</span>
+                <span>Producción Audiovisual</span>
+                <span class="text-[#F2F2F2] opacity-80">✦</span>
+                <span>Social Media Marketing</span>
+                <span class="text-[#F2F2F2] opacity-80">✦</span>
+                <span>Automatizaciones</span>
+                <span class="text-[#F2F2F2] opacity-80">✦</span>
+                <span>Podcasts</span>
+                <span class="text-[#F2F2F2] opacity-80">✦</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PORTAFOLIO CORPORATIVO (Las 6 áreas del PDF) -->
+    <section id="portafolio" class="px-6 py-24 bg-[#0A2626] relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="reveal fade-bottom text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Nuestras especialidades</h2>
+                <p class="text-[#F2F2F2]/70 max-w-2xl mx-auto text-lg">Una compilación técnica de nuestros mejores proyectos, segmentados por área de ejecución audiovisual.</p>
+            </div>
+
+            <!-- Grid de 6 Tarjetas (Basado en el PDF) -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- 01: Reels y Redes -->
+                <div class="reveal fade-bottom delay-100 group relative h-[400px] rounded-sm overflow-hidden bg-[#041010] border border-[#F2F2F2]/10 hover:border-[#F24607]/50 transition-colors duration-500 cursor-pointer">
+                    <!-- Imagen de fondo (Placeholder de alta calidad) -->
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop" alt="Redes Sociales" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                    <div class="portfolio-img-overlay group-hover:bg-[#0A2626]/80"></div>
+                    
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end z-10">
+                        <div class="text-[#F24607] font-extrabold text-5xl mb-2 opacity-80 group-hover:opacity-100 transition-opacity">01</div>
+                        <h3 class="text-2xl font-bold text-white mb-2 leading-tight">Piezas Audiovisuales para Redes Sociales</h3>
+                        <p class="text-[#F2F2F2]/70 text-sm h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 overflow-hidden mt-2 border-t border-[#F24607]/30 pt-4">
+                            Campañas de alto impacto para Tramontina, Mercantil Santa Cruz, Fexpocruz y Fair Play. Formatos verticales optimizados para retención.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 02: Spots Publicitarios -->
+                <div class="reveal fade-bottom delay-200 group relative h-[400px] rounded-sm overflow-hidden bg-[#041010] border border-[#F2F2F2]/10 hover:border-[#F24607]/50 transition-colors duration-500 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?q=80&w=1000&auto=format&fit=crop" alt="Spots Publicitarios" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                    <div class="portfolio-img-overlay group-hover:bg-[#0A2626]/80"></div>
+                    
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end z-10">
+                        <div class="text-[#F24607] font-extrabold text-5xl mb-2 opacity-80 group-hover:opacity-100 transition-opacity">02</div>
+                        <h3 class="text-2xl font-bold text-white mb-2 leading-tight">Spots Publicitarios y Comerciales</h3>
+                        <p class="text-[#F2F2F2]/70 text-sm h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 overflow-hidden mt-2 border-t border-[#F24607]/30 pt-4">
+                            Producciones orientadas a conversión masiva. Comerciales de TV y plataformas digitales para Univalle, Hexa y campañas mundiales.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 03: Corporativos e Institucionales -->
+                <div class="reveal fade-bottom delay-300 group relative h-[400px] rounded-sm overflow-hidden bg-[#041010] border border-[#F2F2F2]/10 hover:border-[#F24607]/50 transition-colors duration-500 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000&auto=format&fit=crop" alt="Institucional" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                    <div class="portfolio-img-overlay group-hover:bg-[#0A2626]/80"></div>
+                    
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end z-10">
+                        <div class="text-[#F24607] font-extrabold text-5xl mb-2 opacity-80 group-hover:opacity-100 transition-opacity">03</div>
+                        <h3 class="text-2xl font-bold text-white mb-2 leading-tight">Spots Corporativos e Institucionales</h3>
+                        <p class="text-[#F2F2F2]/70 text-sm h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 overflow-hidden mt-2 border-t border-[#F24607]/30 pt-4">
+                            Construcción de imagen empresarial. Videos de certificación "Top Employer", documentales y promocionales para hotelería de lujo (Palacio de Sal, Wyndham).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 04: Streaming y Eventos -->
+                <div class="reveal fade-bottom delay-100 group relative h-[400px] rounded-sm overflow-hidden bg-[#041010] border border-[#F2F2F2]/10 hover:border-[#F24607]/50 transition-colors duration-500 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1516280440502-6c245c33e213?q=80&w=1000&auto=format&fit=crop" alt="Streaming" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                    <div class="portfolio-img-overlay group-hover:bg-[#0A2626]/80"></div>
+                    
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end z-10">
+                        <div class="text-[#F24607] font-extrabold text-5xl mb-2 opacity-80 group-hover:opacity-100 transition-opacity">04</div>
+                        <h3 class="text-2xl font-bold text-white mb-2 leading-tight">Streamings y Cobertura de Eventos</h3>
+                        <p class="text-[#F2F2F2]/70 text-sm h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 overflow-hidden mt-2 border-t border-[#F24607]/30 pt-4">
+                            After movies y transmisiones en vivo para congresos internacionales, lanzamientos automotrices (Volkswagen, Audi, Citroen) y experiencias corporativas.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 05: Animación 3D y 2D -->
+                <div class="reveal fade-bottom delay-200 group relative h-[400px] rounded-sm overflow-hidden bg-[#041010] border border-[#F2F2F2]/10 hover:border-[#F24607]/50 transition-colors duration-500 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop" alt="Animación 3D" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                    <div class="portfolio-img-overlay group-hover:bg-[#0A2626]/80"></div>
+                    
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end z-10">
+                        <div class="text-[#F24607] font-extrabold text-5xl mb-2 opacity-80 group-hover:opacity-100 transition-opacity">05</div>
+                        <h3 class="text-2xl font-bold text-white mb-2 leading-tight">Animaciones 3D y 2D</h3>
+                        <p class="text-[#F2F2F2]/70 text-sm h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 overflow-hidden mt-2 border-t border-[#F24607]/30 pt-4">
+                            Modelado y motion graphics para explicar productos complejos. Desarrollos para Laboratorios COFAR, Pagos de WhatsApp (Luka) y Corredores Ecológicos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 06: Detrás de Cámaras -->
+                <div class="reveal fade-bottom delay-300 group relative h-[400px] rounded-sm overflow-hidden bg-[#041010] border border-[#F2F2F2]/10 hover:border-[#F24607]/50 transition-colors duration-500 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1589886364020-f57930353c29?q=80&w=1000&auto=format&fit=crop" alt="Detrás de Cámaras" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                    <div class="portfolio-img-overlay group-hover:bg-[#0A2626]/80"></div>
+                    
+                    <div class="absolute inset-0 p-8 flex flex-col justify-end z-10">
+                        <div class="text-[#F24607] font-extrabold text-5xl mb-2 opacity-80 group-hover:opacity-100 transition-opacity">06</div>
+                        <h3 class="text-2xl font-bold text-white mb-2 leading-tight">El Detrás de Cámaras</h3>
+                        <p class="text-[#F2F2F2]/70 text-sm h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 overflow-hidden mt-2 border-t border-[#F24607]/30 pt-4">
+                            Un vistazo a nuestro rigor técnico: iluminación industrial, equipos de cine, dirección de arte y el talento humano que hace posible la magia audiovisual.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST BADGES (CLIENTES DEL PDF) -->
+    <section class="py-10 bg-[#041010] border-t border-b border-[#F2F2F2]/5 overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 mb-6">
+            <p class="text-xs text-[#F2F2F2]/40 uppercase tracking-widest font-bold text-center">Corporaciones que confían en nuestra óptica</p>
+        </div>
+        <!-- Marquesina infinita -->
+        <div class="relative w-full overflow-hidden flex bg-[#041010]">
+            <!-- Gradientes laterales para difuminar -->
+            <div class="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-[#041010] to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-[#041010] to-transparent z-10 pointer-events-none"></div>
+            
+            <div class="animate-scroll flex items-center gap-16 px-8 text-[#F2F2F2]/50 font-bold text-xl md:text-2xl whitespace-nowrap">
+                <!-- Primera Tanda -->
+                <span>MERCANTIL SANTA CRUZ</span>
+                <span class="text-[#F24607]">•</span>
+                <span>VOLKSWAGEN</span>
+                <span class="text-[#F24607]">•</span>
+                <span>BISA SEGUROS</span>
+                <span class="text-[#F24607]">•</span>
+                <span>AUDI</span>
+                <span class="text-[#F24607]">•</span>
+                <span>TRAMONTINA</span>
+                <span class="text-[#F24607]">•</span>
+                <span>UNIVALLE</span>
+                <span class="text-[#F24607]">•</span>
+                <span>KÄRCHER</span>
+                <span class="text-[#F24607]">•</span>
+                <span>COFAR</span>
+                <span class="text-[#F24607]">•</span>
+                <!-- Segunda Tanda (Copia exacta para el loop infinito) -->
+                <span>MERCANTIL SANTA CRUZ</span>
+                <span class="text-[#F24607]">•</span>
+                <span>VOLKSWAGEN</span>
+                <span class="text-[#F24607]">•</span>
+                <span>BISA SEGUROS</span>
+                <span class="text-[#F24607]">•</span>
+                <span>AUDI</span>
+                <span class="text-[#F24607]">•</span>
+                <span>TRAMONTINA</span>
+                <span class="text-[#F24607]">•</span>
+                <span>UNIVALLE</span>
+                <span class="text-[#F24607]">•</span>
+                <span>KÄRCHER</span>
+                <span class="text-[#F24607]">•</span>
+                <span>COFAR</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ENRUTADOR A PLANES DE INVERSIÓN (ECOSISTEMAS) -->
+    <section id="ecosistemas" class="px-6 py-24 bg-[#061818] border-t border-[#F2F2F2]/5 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="reveal fade-bottom text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Nuestros Servicios</h2>
+                <p class="text-[#F2F2F2]/70 max-w-2xl mx-auto text-lg">Su empresa requiere soluciones específicas. Seleccione el ecosistema que desea implementar y revise nuestros planes de inversión corporativa.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Tarjeta Enrutador 1 -->
+                <a href="marketing-ia.html" class="reveal fade-bottom delay-100 block group bg-[#0A2626] border border-[#F2F2F2]/20 hover:border-[#F24607] p-8 rounded-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(242,70,7,0.15)]">
+                    <div class="w-14 h-14 bg-[#041010] border border-[#F2F2F2]/10 rounded-sm flex items-center justify-center text-[#F24607] mb-6 group-hover:scale-110 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white">Marketing + IA</h3>
+                    <p class="text-[#F2F2F2]/60 text-sm mb-6">Gestión integral de Social Media (planes tradicionales) y ecosistemas de automatización avanzada con IA para calificación de leads.</p>
+                    <span class="text-[#F24607] font-semibold flex items-center gap-2 text-sm group-hover:gap-3 transition-all">Ver Planes Mensuales <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                </a>
+
+                <!-- Tarjeta Enrutador 2 -->
+                <a href="audiovisual.html" class="reveal fade-bottom delay-200 block group bg-[#0A2626] border border-[#F2F2F2]/20 hover:border-[#F24607] p-8 rounded-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(242,70,7,0.15)]">
+                    <div class="w-14 h-14 bg-[#041010] border border-[#F2F2F2]/10 rounded-sm flex items-center justify-center text-[#F24607] mb-6 group-hover:scale-110 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white">Prod. Audiovisual</h3>
+                    <p class="text-[#F2F2F2]/60 text-sm mb-6">Desarrollo de spots publicitarios, institucionales, cobertura de eventos y animación 3D de alto nivel.</p>
+                    <span class="text-[#F24607] font-semibold flex items-center gap-2 text-sm group-hover:gap-3 transition-all">Ver Paquetes de Producción <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                </a>
+
+                <!-- Tarjeta Enrutador 3 -->
+                <a href="podcasts.html" class="reveal fade-bottom delay-300 block group bg-[#0A2626] border border-[#F2F2F2]/20 hover:border-[#F24607] p-8 rounded-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(242,70,7,0.15)]">
+                    <div class="w-14 h-14 bg-[#041010] border border-[#F2F2F2]/10 rounded-sm flex items-center justify-center text-[#F24607] mb-6 group-hover:scale-110 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white">Podcasts</h3>
+                    <p class="text-[#F2F2F2]/60 text-sm mb-6">Estudios equipados y dirección técnica para la grabación y edición de videopodcasts corporativos.</p>
+                    <span class="text-[#F24607] font-semibold flex items-center gap-2 text-sm group-hover:gap-3 transition-all">Ver Alquiler y Planes <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#041010] py-12 px-6 border-t border-[#F2F2F2]/10 relative z-10">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center justify-center">
+                 <img src="logo.jpg" alt="591 Creative Studio Logo" class="h-10 w-auto object-contain rounded-md" onerror="this.style.display='none'">
+            </div>
+            <div class="text-[#F2F2F2]/50 text-sm text-center md:text-right">
+                <p>© 2026 591 Creative Studio. Todos los derechos reservados.</p>
+                <p class="mt-1">Santa Cruz de la Sierra, Bolivia. Especialistas Audiovisuales.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DE INTERSECTION OBSERVER PARA ANIMACIONES Y SMART NAV -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const revealOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            reveals.forEach(element => {
+                revealOnScroll.observe(element);
+            });
+
+            // Lógica Smart Header
+            const navbar = document.getElementById('main-nav');
+            let lastScrollY = window.scrollY;
+
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.scrollY;
+                
+                if (currentScrollY > lastScrollY && currentScrollY > 80) {
+                    navbar.style.transform = 'translateY(-100%)';
+                } else {
+                    navbar.style.transform = 'translateY(0)';
+                }
+                
+                lastScrollY = currentScrollY;
+            }, { passive: true });
+        });
+    </script>
+</body>
+</html>

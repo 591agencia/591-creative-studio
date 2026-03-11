@@ -48,20 +48,6 @@
             animation-play-state: paused;
         }
 
-        /* Marquesina Inclinada (Servicios Core) */
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-            display: flex;
-            width: max-content;
-            animation: marquee 50s linear infinite;
-        }
-        .animate-marquee:hover {
-            animation-play-state: paused;
-        }
-
         /* Imagenes de portafolio con overlay oscuro */
         .portfolio-img-overlay {
             position: absolute;
@@ -99,8 +85,10 @@
                 <a href="podcasts.html" class="text-[#F2F2F2]/70 hover:text-[#F24607] transition-colors font-medium text-sm">Podcasts</a>
             </div>
 
-            <a href="#ecosistemas" class="hidden md:flex items-center gap-2 bg-[#F24607] hover:bg-[#d13c06] transition-colors text-[#F2F2F2] px-5 py-2 rounded-sm font-semibold text-sm hover:shadow-[0_0_15px_rgba(242,70,7,0.4)]">
-                Ver Soluciones
+            <!-- CTA 1: Barra de Navegación -->
+            <a href="https://wa.me/59177693829?text=Hola,%20deseo%20comunicarme%20con%20un%20asesor%20de%20591%20Creative%20Studio." target="_blank" rel="noopener noreferrer" class="hidden md:flex items-center gap-2 bg-[#F24607] hover:bg-[#d13c06] transition-colors text-[#F2F2F2] px-5 py-2 rounded-sm font-semibold text-sm hover:shadow-[0_0_15px_rgba(242,70,7,0.4)]">
+                Contáctanos
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
             </a>
         </div>
     </nav>
@@ -123,7 +111,11 @@
             </p>
 
             <div class="reveal fade-bottom delay-300 flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#portafolio" class="bg-[#F24607] hover:bg-[#d13c06] hover:scale-105 transition-all duration-300 px-8 py-4 rounded-sm font-bold text-lg flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(242,70,7,0.3)]">
+                <!-- CTA 2: Cabecera Principal -->
+                <a href="https://wa.me/59177693829?text=Hola,%20deseo%20iniciar%20un%20proyecto%20con%20591%20Creative%20Studio." target="_blank" rel="noopener noreferrer" class="bg-[#F24607] hover:bg-[#d13c06] hover:scale-105 transition-all duration-300 px-8 py-4 rounded-sm font-bold text-lg flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(242,70,7,0.3)]">
+                    Iniciar Proyecto
+                </a>
+                <a href="#portafolio" class="bg-transparent border border-[#F2F2F2]/30 hover:border-[#F2F2F2] transition-all duration-300 px-8 py-4 rounded-sm font-bold text-lg flex items-center justify-center gap-2">
                     Explorar el Portafolio
                 </a>
             </div>
@@ -135,55 +127,8 @@
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#F24607]/5 rounded-full blur-[80px] -z-0 pointer-events-none"></div>
     </header>
 
-    <!-- SEPARADOR DINÁMICO: MARQUESINA DE SERVICIOS (Solución Overflow Mobile) -->
-    <div class="w-full overflow-hidden relative z-20 mt-16 mb-24 py-8">
-        <!-- El contenedor interior rotado, extendido para no mostrar bordes cortados -->
-        <div class="relative w-[110%] -left-[5%] bg-[#F24607] py-4 md:py-5 -rotate-2 shadow-[0_0_30px_rgba(242,70,7,0.2)] flex">
-            <div class="animate-marquee flex items-center">
-                <!-- Bloque 1 (Primera mitad) -->
-                <div class="flex items-center gap-8 px-4 text-[#0A2626] font-black text-2xl md:text-3xl lg:text-4xl uppercase tracking-widest whitespace-nowrap">
-                    <span>Producción Audiovisual</span>
-                    <span class="text-[#F2F2F2] opacity-80">✦</span>
-                    <span>Social Media Marketing</span>
-                    <span class="text-[#F2F2F2] opacity-80">✦</span>
-                    <span>Automatizaciones</span>
-                    <span class="text-[#F2F2F2] opacity-80">✦</span>
-                    <span>Podcasts</span>
-                    <span class="text-[#F2F2F2] opacity-80">✦</span>
-                    <span>Producción Audiovisual</span>
-                    <span class="text-[#F2F2F2] opacity-80">✦</span>
-                    <span>Social Media Marketing</span>
-                    <span class="text-[#F2F2F2] opacity-80">✦</span>
-                    <span>Automatizaciones</span>
-                    <span class="text-[#F2F2F2] opacity-80">✦</span>
-                    <span>Podcasts</span>
-                    <span class="text-[#F2F2F2] opacity-80">✦</span>
-                </div>
-                <!-- Bloque 2 (Segunda mitad, copia exacta para scroll infinito impecable) -->
-                <div class="flex items-center gap-8 px-4 text-[#0A2626] font-black text-2xl md:text-3xl lg:text-4xl uppercase tracking-widest whitespace-nowrap">
-                    <span>Producción Audiovisual</span>
-                    <span class="text-[#F2F2F2] opacity-80">✦</span>
-                    <span>Social Media Marketing</span>
-                    <span class="text-[#F2F2F2] opacity-80">✦</span>
-                    <span>Automatizaciones</span>
-                    <span class="text-[#F2F2F2] opacity-80">✦</span>
-                    <span>Podcasts</span>
-                    <span class="text-[#F2F2F2] opacity-80">✦</span>
-                    <span>Producción Audiovisual</span>
-                    <span class="text-[#F2F2F2] opacity-80">✦</span>
-                    <span>Social Media Marketing</span>
-                    <span class="text-[#F2F2F2] opacity-80">✦</span>
-                    <span>Automatizaciones</span>
-                    <span class="text-[#F2F2F2] opacity-80">✦</span>
-                    <span>Podcasts</span>
-                    <span class="text-[#F2F2F2] opacity-80">✦</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- PORTAFOLIO CORPORATIVO (Las 6 áreas del PDF) -->
-    <section id="portafolio" class="px-6 pb-24 bg-[#0A2626] relative z-10">
+    <section id="portafolio" class="px-6 pt-24 pb-16 bg-[#0A2626] relative z-10">
         <div class="max-w-7xl mx-auto">
             <div class="reveal fade-bottom text-center mb-20">
                 <h2 class="text-4xl md:text-5xl font-bold mb-4">Nuestras especialidades</h2>
@@ -279,6 +224,15 @@
                 </div>
 
             </div>
+
+            <!-- CTA 3: Debajo del Portafolio -->
+            <div class="reveal fade-bottom mt-20 mb-8 text-center">
+                <a href="https://wa.me/59177693829?text=Hola,%20me%20gustaría%20solicitar%20una%20cotización%20sobre%20sus%20servicios%20de%20producción." target="_blank" rel="noopener noreferrer" class="group inline-flex items-center justify-center gap-3 md:gap-4 text-[#F24607] hover:text-[#d13c06] transition-all duration-300 font-black text-3xl md:text-4xl lg:text-5xl uppercase tracking-widest">
+                    Contáctanos
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:translate-x-3"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </div>
+
         </div>
     </section>
 
@@ -355,7 +309,7 @@
                     <div class="w-14 h-14 bg-[#041010] border border-[#F2F2F2]/10 rounded-sm flex items-center justify-center text-[#F24607] mb-6 group-hover:scale-110 transition-transform">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/></svg>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 text-white">Prod. de Contenido para RRSS</h3>
+                    <h3 class="text-2xl font-bold mb-3 text-white">Prod. Audiovisual</h3>
                     <p class="text-[#F2F2F2]/60 text-sm mb-6">Desarrollo de spots publicitarios, institucionales, cobertura de eventos y animación 3D de alto nivel.</p>
                     <span class="text-[#F24607] font-semibold flex items-center gap-2 text-sm group-hover:gap-3 transition-all">Ver Paquetes de Producción <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
                 </a>
@@ -373,8 +327,63 @@
         </div>
     </section>
 
+    <!-- CONTACTO ESTRATÉGICO (FORMULARIO A WHATSAPP) -->
+    <section id="contacto" class="px-6 py-24 bg-[#041010] border-t border-[#F2F2F2]/5 relative z-10">
+        <div class="max-w-4xl mx-auto">
+            <div class="reveal fade-bottom text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Contacto Estratégico</h2>
+                <p class="text-[#F2F2F2]/70 text-lg">Comuníquese con nuestro equipo de directores para estructurar la próxima campaña de su empresa. Procesaremos su solicitud de inmediato vía WhatsApp.</p>
+            </div>
+
+            <div class="reveal fade-bottom delay-100 bg-[#0A2626] border border-[#F2F2F2]/10 p-8 md:p-12 rounded-sm shadow-2xl">
+                <form id="wa-form" class="space-y-6">
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Campo: Nombre -->
+                        <div class="space-y-2">
+                            <label for="wp-name" class="block text-sm font-semibold text-[#F2F2F2]/90">Nombre Completo <span class="text-[#F24607]">*</span></label>
+                            <input type="text" id="wp-name" required class="w-full bg-[#041010] border border-[#F2F2F2]/20 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#F24607] transition-colors" placeholder="Ej. Carlos Mendoza">
+                        </div>
+                        
+                        <!-- Campo: Empresa -->
+                        <div class="space-y-2">
+                            <label for="wp-company" class="block text-sm font-semibold text-[#F2F2F2]/90">Empresa / Marca <span class="text-[#F24607]">*</span></label>
+                            <input type="text" id="wp-company" required class="w-full bg-[#041010] border border-[#F2F2F2]/20 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#F24607] transition-colors" placeholder="Nombre de su organización">
+                        </div>
+                    </div>
+
+                    <!-- Campo: Servicio -->
+                    <div class="space-y-2">
+                        <label for="wp-service" class="block text-sm font-semibold text-[#F2F2F2]/90">Servicio de Interés <span class="text-[#F24607]">*</span></label>
+                        <select id="wp-service" required class="w-full bg-[#041010] border border-[#F2F2F2]/20 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#F24607] transition-colors appearance-none">
+                            <option value="" disabled selected>Seleccione un área de especialidad</option>
+                            <option value="Producción Audiovisual Corporativa">Producción Audiovisual Corporativa</option>
+                            <option value="Marketing Digital + IA">Marketing Digital + Inteligencia Artificial</option>
+                            <option value="Producción de Podcasts">Producción de Podcasts</option>
+                            <option value="Cobertura de Eventos / Streaming">Cobertura de Eventos / Streaming</option>
+                            <option value="Consulta General">Consulta General / Otro</option>
+                        </select>
+                    </div>
+
+                    <!-- Campo: Detalles -->
+                    <div class="space-y-2">
+                        <label for="wp-details" class="block text-sm font-semibold text-[#F2F2F2]/90">Detalles del Proyecto <span class="text-[#F24607]">*</span></label>
+                        <textarea id="wp-details" required rows="4" class="w-full bg-[#041010] border border-[#F2F2F2]/20 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#F24607] transition-colors resize-none" placeholder="Describa brevemente los objetivos de su proyecto o campaña..."></textarea>
+                    </div>
+
+                    <!-- Botón de Envío del Formulario -->
+                    <button type="submit" class="w-full bg-[#F24607] hover:bg-[#d13c06] text-white font-bold text-lg py-4 rounded-sm transition-all duration-300 shadow-[0_10px_20px_rgba(242,70,7,0.2)] flex items-center justify-center gap-2 hover:scale-[1.01]">
+                        Enviar solicitud por WhatsApp
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4Z"/></svg>
+                    </button>
+                    <p class="text-center text-xs text-[#F2F2F2]/40 mt-4">Su información será compilada y enviada de forma segura a través de la aplicación WhatsApp.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <!-- FOOTER -->
-    <footer class="bg-[#041010] py-12 px-6 border-t border-[#F2F2F2]/10 relative z-10">
+    <footer class="bg-[#020808] py-12 px-6 border-t border-[#F2F2F2]/10 relative z-10">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center justify-center">
                  <img src="logo.jpg" alt="591 Creative Studio Logo" class="h-10 w-auto object-contain rounded-md" onerror="this.style.display='none'">
@@ -386,8 +395,7 @@
         </div>
     </footer>
 
-    <!-- SCRIPT GENERAL: OBSERVER, SMART NAV Y YOUTUBE API PARA LOOP PERFECTO -->
-    <!-- ESTE CÓDIGO ES VITAL PARA QUE LA PÁGINA NO SE VEA EN BLANCO -->
+    <!-- SCRIPT GENERAL -->
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
         // 1. Control de Animaciones (Scroll Reveal)
@@ -428,9 +436,33 @@
                 
                 lastScrollY = currentScrollY;
             }, { passive: true });
+
+            // 3. Lógica del Formulario hacia WhatsApp
+            const waForm = document.getElementById('wa-form');
+            if (waForm) {
+                waForm.addEventListener('submit', function(event) {
+                    event.preventDefault(); // Evita que la página se recargue
+
+                    // Capturar valores
+                    const name = document.getElementById('wp-name').value.trim();
+                    const company = document.getElementById('wp-company').value.trim();
+                    const service = document.getElementById('wp-service').value;
+                    const details = document.getElementById('wp-details').value.trim();
+
+                    // Construir el mensaje formateado para WhatsApp (usando asteriscos para negritas)
+                    const textMessage = `*NUEVO CONTACTO CORPORATIVO*%0A%0A*Nombre:* ${name}%0A*Empresa:* ${company}%0A*Servicio de Interés:* ${service}%0A*Detalles del Proyecto:* ${details}`;
+                    
+                    // Número de teléfono oficial
+                    const phone = "59177693829";
+
+                    // Crear el link final de la API y abrirlo en una pestaña nueva
+                    const waUrl = `https://wa.me/${phone}?text=${textMessage}`;
+                    window.open(waUrl, '_blank');
+                });
+            }
         });
 
-        // 3. Lógica de YouTube API para Forzar Loop Infinito
+        // 4. Lógica de YouTube API para Forzar Loop Infinito
         var bgPlayer;
         function onYouTubeIframeAPIReady() {
             bgPlayer = new YT.Player('bg-video', {
@@ -454,7 +486,7 @@
                         event.target.playVideo();
                     },
                     'onStateChange': function(event) {
-                        // Forzar reinicio exacto cuando el video termina (Estado 0 = Terminado)
+                        // Forzar reinicio exacto cuando el video termina
                         if (event.data === YT.PlayerState.ENDED) {
                             event.target.seekTo(0);
                             event.target.playVideo();
@@ -466,8 +498,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-

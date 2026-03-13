@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcasts Corporativos | 591 Creative Studio</title>
+    <!-- Tailwind CSS Integrado -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+        
+        /* MOTOR DE ANIMACIONES CORPORATIVAS */
+        .reveal {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .fade-bottom { transform: translateY(40px); }
+        .fade-bottom.active { transform: translateY(0); }
+        
+        .fade-left { transform: translateX(-40px); }
+        .fade-left.active { transform: translateX(0); }
+        
+        .fade-right { transform: translateX(40px); }
+        .fade-right.active { transform: translateX(0); }
+
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Contenedor VSL Responsive */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: 0 0 40px rgba(242, 70, 7, 0.15);
+            border: 1px solid rgba(242, 242, 242, 0.1);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* SISTEMA DE PARTÍCULAS (FONDO SUTIL Y ELEGANTE) */
+        @keyframes float-particle {
+            0% { transform: translate(0, 0) rotate(0deg); opacity: 0.04; }
+            33% { transform: translate(30px, -40px) rotate(15deg); opacity: 0.12; }
+            66% { transform: translate(-20px, -20px) rotate(-10deg); opacity: 0.04; }
+            100% { transform: translate(0, 0) rotate(0deg); opacity: 0.04; }
+        }
+        .bg-particle {
+            position: absolute;
+            animation: float-particle 25s infinite ease-in-out;
+            pointer-events: none;
+            z-index: 0;
+            color: #F2F2F2;
+        }
+        /* Distribución base de partículas */
+        .particle-1 { top: 15%; left: 8%; animation-delay: 0s; width: 24px; }
+        .particle-2 { top: 65%; left: 12%; animation-delay: -5s; width: 32px; color: #F24607; }
+        .particle-3 { top: 20%; right: 10%; animation-delay: -12s; width: 28px; }
+        .particle-4 { top: 75%; right: 15%; animation-delay: -18s; width: 26px; }
+        .particle-5 { top: 40%; left: 25%; animation-delay: -8s; width: 18px; }
+        .particle-6 { top: 35%; right: 28%; animation-delay: -22s; width: 20px; color: #F24607; }
+        .particle-7 { top: 10%; right: 25%; animation-delay: -2s; width: 22px; color: #F24607; }
+        .particle-8 { top: 85%; left: 20%; animation-delay: -15s; width: 28px; }
+        .particle-9 { top: 55%; right: 5%; animation-delay: -7s; width: 24px; }
+        .particle-10 { top: 45%; left: 5%; animation-delay: -20s; width: 18px; }
+        .particle-11 { top: 80%; right: 35%; animation-delay: -10s; width: 26px; color: #F24607; }
+        .particle-12 { top: 25%; left: 35%; animation-delay: -25s; width: 34px; }
+        .particle-13 { top: 5%; left: 45%; animation-delay: -3s; width: 20px; }
+        .particle-14 { top: 80%; left: 40%; animation-delay: -11s; width: 25px; color: #F24607; }
+        .particle-15 { top: 35%; left: 65%; animation-delay: -19s; width: 30px; }
+        .particle-16 { top: 60%; right: 45%; animation-delay: -4s; width: 18px; }
+        .particle-17 { top: 90%; right: 10%; animation-delay: -14s; width: 22px; }
+        .particle-18 { top: 15%; right: 40%; animation-delay: -23s; width: 28px; color: #F24607; }
+        .particle-19 { top: 50%; left: 15%; animation-delay: -1s; width: 26px; }
+        .particle-20 { top: 70%; right: 25%; animation-delay: -16s; width: 24px; }
+    </style>
+</head>
+<body class="min-h-screen bg-[#0A2626] text-[#F2F2F2] font-sans selection:bg-[#F24607] selection:text-[#F2F2F2] overflow-x-hidden">
+
+    <!-- NAVEGACIÓN SMART -->
+    <nav id="main-nav" class="fixed top-0 w-full z-50 bg-[#0A2626]/80 backdrop-blur-md border-b border-[#F2F2F2]/10 px-6 py-4 transition-transform duration-500 ease-in-out">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <!-- Logo y Nombre -->
+            <a href="index.html" class="flex items-center justify-center group">
+                <img src="logo.jpg" alt="Logo" class="h-14 w-auto object-contain rounded-md transition-transform group-hover:scale-105" onerror="this.style.display='none'">
+                <span class="ml-4 text-xl md:text-2xl font-bold tracking-wide text-[#F2F2F2] group-hover:text-[#F24607] transition-colors">591 Creative Studio</span>
+            </a>
+            
+            <!-- Pestañas de Navegación -->
+            <div class="hidden lg:flex space-x-8">
+                <a href="index.html" class="text-[#F2F2F2]/70 hover:text-[#F24607] transition-colors font-medium text-sm">La Agencia</a>
+                <a href="marketing-ia.html" class="text-[#F2F2F2]/70 hover:text-[#F24607] transition-colors font-medium text-sm">Marketing + IA</a>
+                <a href="audiovisual.html" class="text-[#F2F2F2]/70 hover:text-[#F24607] transition-colors font-medium text-sm">Audiovisual</a>
+                
+                <!-- Pestaña Activa -->
+                <a href="podcasts.html" class="text-[#F24607] font-semibold border-b-2 border-[#F24607] pb-1 text-sm">Podcasts</a>
+            </div>
+
+            <!-- CTA 1: Barra de Navegación -->
+            <a href="https://wa.me/59177693829?text=Hola,%20deseo%20comunicarme%20con%20un%20asesor%20de%20591%20Creative%20Studio%20sobre%20Producción%20de%20Podcasts." target="_blank" rel="noopener noreferrer" class="hidden md:flex items-center gap-2 bg-[#F24607] hover:bg-[#d13c06] transition-colors text-[#F2F2F2] px-5 py-2 rounded-sm font-semibold text-sm hover:shadow-[0_0_15px_rgba(242,70,7,0.4)]">
+                Contáctanos
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION VSL -->
+    <header class="relative px-6 pt-40 pb-20 md:pt-48 md:pb-24 border-b border-[#F2F2F2]/5 overflow-hidden">
+        
+        <!-- Partículas de fondo (Micrófonos y elementos de estudio) -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+            <svg class="bg-particle particle-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+            <svg class="bg-particle particle-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg class="bg-particle particle-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+            <svg class="bg-particle particle-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M12 2v20"/><circle cx="12" cy="12" r="10"/></svg>
+            <svg class="bg-particle particle-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+            <svg class="bg-particle particle-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+            <svg class="bg-particle particle-11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+            <svg class="bg-particle particle-15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2"/><path d="M12 12h.01"/><path d="M17 12h.01"/><path d="M7 12h.01"/></svg>
+            <svg class="bg-particle particle-19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+        </div>
+
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="reveal fade-bottom inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F24607]/10 border border-[#F24607]/30 text-[#F24607] text-sm font-bold mb-6 backdrop-blur-sm uppercase tracking-widest">
+                Grabación Profesional
+            </div>
+            <h1 class="reveal fade-bottom delay-100 text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight tracking-tight">
+                <span class="text-[#F24607]">Videopodcasts</span>
+            </h1>
+            <p class="reveal fade-bottom delay-200 text-lg md:text-2xl text-[#F2F2F2]/70 max-w-3xl mx-auto leading-relaxed font-light mb-12">
+                Estudio equipado, iluminación profesional y realización multicámara para posicionarte como líderes de opinión o entretenimiento.
+            </p>
+
+            <!-- VSL CONTENEDOR CENTRAL -->
+            <div class="reveal fade-bottom delay-200 max-w-4xl mx-auto mb-12">
+                <div class="video-container group">
+                    <!-- NOTA: Reemplace el ID 'sqVGSxYMrr8' por el de su Video de Ventas (VSL) de Podcasts -->
+                    <iframe src="https://www.youtube.com/embed/sqVGSxYMrr8?autoplay=1&mute=1&controls=1&rel=0&showinfo=0&modestbranding=1" title="VSL Producción Audiovisual" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <p class="text-xs text-[#F2F2F2]/40 mt-3 text-center uppercase tracking-widest font-semibold">* Active el sonido en el reproductor para escuchar la presentación.</p>
+            </div>
+
+            <div class="reveal fade-bottom delay-300 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/59177693829?text=Hola,%20deseo%20más%20información%20sobre%20los%20planes%20para%20Videopodcasts." target="_blank" rel="noopener noreferrer" class="bg-[#F24607] hover:bg-[#d13c06] hover:-translate-y-1 transition-all duration-300 px-8 py-4 rounded-sm font-bold text-lg flex items-center justify-center gap-3 shadow-[0_10px_20px_rgba(242,70,7,0.3)] uppercase tracking-wide">
+                    Cotizar por WhatsApp
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4Z"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Efectos de Fondo -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#F24607]/5 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+    </header>
+
+    <!-- FASE 1: ALQUILER DE SET (STUDIO RENTAL) -->
+    <section id="alquiler" class="px-6 py-24 bg-[#041010] border-b border-[#F2F2F2]/5 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="reveal fade-bottom text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 text-white">Alquiler de Set <span class="text-[#F24607]">por Hora</span></h2>
+                <p class="text-[#F2F2F2]/70 max-w-2xl mx-auto text-lg">Seleccione el nivel de equipamiento técnico requerido para la grabación de sus episodios.</p>
+            </div>
+
+            <!-- GRID UNIFORME DE MENOR A MAYOR PRECIO (CON RICH UI & DINAMISMO) -->
+            <div class="grid lg:grid-cols-3 gap-8 items-stretch mb-8">
+                
+                <!-- OPCIÓN 1 -->
+                <div class="reveal fade-bottom delay-100 bg-[#0A2626] border border-[#F2F2F2]/10 rounded-sm p-8 flex flex-col h-full relative transition-all duration-500 hover:border-[#F24607]/50 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(242,70,7,0.15)] z-10 hover:z-20 overflow-hidden group">
+                    <!-- Glow Background Animado -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#F24607]/0 to-[#F24607]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+                    <!-- Marca de Agua Gigante -->
+                    <div class="absolute -bottom-4 -right-4 text-[160px] font-black text-[#F2F2F2] opacity-[0.02] group-hover:text-[#F24607] group-hover:opacity-[0.04] group-hover:scale-105 transition-all duration-700 pointer-events-none select-none leading-none">01</div>
+
+                    <h3 class="text-2xl font-black text-white uppercase tracking-wider mb-1 relative z-10">Opción 1</h3>
+                    <p class="text-sm text-[#F2F2F2]/50 mb-6 font-medium h-10 relative z-10">Acceso a la infraestructura de audio e iluminación (Solo Set).</p>
+                    
+                    <div class="text-4xl font-black text-[#F24607] mb-6 border-b border-[#F2F2F2]/10 group-hover:border-[#F24607]/30 transition-colors duration-500 pb-6 flex items-baseline gap-2 relative z-10">
+                        40 <span class="text-lg text-[#F2F2F2]/50 font-normal uppercase">USD/hora</span>
+                    </div>
+
+                    <!-- Dashboard Visual Interno -->
+                    <div class="grid grid-cols-2 gap-3 mb-6 relative z-10">
+                        <div class="bg-[#041010] border border-[#F2F2F2]/5 rounded-sm p-4 text-center group-hover:border-[#F24607]/30 group-hover:bg-[#F24607]/5 transition-all duration-500">
+                            <div class="flex justify-center mb-2 group-hover:-translate-y-1 transition-transform duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607]"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+                            </div>
+                            <div class="text-[10px] font-black text-white uppercase tracking-wider leading-tight">Micrófonos<br>Profesionales</div>
+                        </div>
+                        <div class="bg-[#041010] border border-[#F2F2F2]/5 rounded-sm p-4 text-center group-hover:border-[#F24607]/30 group-hover:bg-[#F24607]/5 transition-all duration-500">
+                            <div class="flex justify-center mb-2 group-hover:-translate-y-1 transition-transform duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607]"><circle cx="12" cy="12" r="5"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/><path d="M1 12h2"/><path d="M21 12h2"/><path d="M4.22 19.78l1.42-1.42"/><path d="M18.36 5.64l1.42 1.42"/></svg>
+                            </div>
+                            <div class="text-[10px] font-black text-white uppercase tracking-wider">Iluminación</div>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-3 font-medium text-sm text-[#F2F2F2]/80 flex-grow mb-8 relative z-10">
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Iluminación LED y RGB Profesional</span></li>
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Micrófonos de Estudio</span></li>
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Mobiliario y Decoración</span></li>
+                    </ul>
+
+                    <a href="https://wa.me/59177693829?text=Hola,%20deseo%20alquilar%20el%20Estudio%20de%20Podcast%20(Opción%201:%20Solo%20Set,%2040%20USD/hr)." target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 py-4 bg-[#041010] border border-[#F2F2F2]/10 text-[#F2F2F2]/80 font-black uppercase tracking-widest text-sm rounded-sm transition-all duration-300 hover:bg-[#F24607] hover:border-[#F24607] hover:text-white hover:shadow-[0_10px_20px_rgba(242,70,7,0.3)] mt-auto relative z-10 group/btn">
+                        <span class="group-hover/btn:-translate-x-1 transition-transform">Cotizar Opción 1</span>
+                        <svg class="group-hover/btn:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <!-- OPCIÓN 2 -->
+                <div class="reveal fade-bottom delay-200 bg-[#0A2626] border border-[#F2F2F2]/10 rounded-sm p-8 flex flex-col h-full relative transition-all duration-500 hover:border-[#F24607]/50 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(242,70,7,0.15)] z-10 hover:z-20 overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#F24607]/0 to-[#F24607]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+                    <div class="absolute -bottom-4 -right-4 text-[160px] font-black text-[#F2F2F2] opacity-[0.02] group-hover:text-[#F24607] group-hover:opacity-[0.04] group-hover:scale-105 transition-all duration-700 pointer-events-none select-none leading-none">02</div>
+
+                    <h3 class="text-2xl font-black text-white uppercase tracking-wider mb-1 relative z-10">Opción 2</h3>
+                    <p class="text-sm text-[#F2F2F2]/50 mb-6 font-medium h-10 relative z-10">Set completo + 2 cámaras + Realización en vivo.</p>
+                    
+                    <div class="text-4xl font-black text-[#F24607] mb-6 border-b border-[#F2F2F2]/10 group-hover:border-[#F24607]/30 transition-colors duration-500 pb-6 flex items-baseline gap-2 relative z-10">
+                        --- <span class="text-lg text-[#F2F2F2]/50 font-normal uppercase">USD/hora</span>
+                    </div>
+
+                    <!-- Dashboard Visual Interno -->
+                    <div class="grid grid-cols-2 gap-3 mb-6 relative z-10">
+                        <div class="bg-[#041010] border border-[#F2F2F2]/5 rounded-sm p-4 text-center group-hover:border-[#F24607]/30 group-hover:bg-[#F24607]/5 transition-all duration-500">
+                            <div class="text-3xl font-black text-white mb-1 group-hover:-translate-y-1 group-hover:text-[#F24607] transition-all duration-300">2</div>
+                            <div class="text-[10px] font-black text-white uppercase tracking-wider">Cámaras 4K</div>
+                        </div>
+                        <div class="bg-[#041010] border border-[#F2F2F2]/5 rounded-sm p-4 text-center group-hover:border-[#F24607]/30 group-hover:bg-[#F24607]/5 transition-all duration-500">
+                            <div class="flex justify-center mb-1 group-hover:-translate-y-1 transition-transform duration-300 text-white group-hover:text-[#F24607]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </div>
+                            <div class="text-[10px] font-black text-white uppercase tracking-wider mt-1">Realizador</div>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-3 font-medium text-sm text-[#F2F2F2]/80 flex-grow mb-8 relative z-10">
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Iluminación LED y RGB Profesional</span></li>
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Micrófonos de Estudio</span></li>
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Mobiliario y Decoración</span></li>
+                    </ul>
+
+                    <a href="https://wa.me/59177693829?text=Hola,%20deseo%20alquilar%20el%20Estudio%20de%20Podcast%20(Opción%202:%20Set%20+%202%20Cámaras)." target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 py-4 bg-[#041010] border border-[#F2F2F2]/10 text-[#F2F2F2]/80 font-black uppercase tracking-widest text-sm rounded-sm transition-all duration-300 hover:bg-[#F24607] hover:border-[#F24607] hover:text-white hover:shadow-[0_10px_20px_rgba(242,70,7,0.3)] mt-auto relative z-10 group/btn">
+                        <span class="group-hover/btn:-translate-x-1 transition-transform">Cotizar Opción 2</span>
+                        <svg class="group-hover/btn:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <!-- OPCIÓN 3 -->
+                <div class="reveal fade-bottom delay-300 bg-[#0A2626] border border-[#F2F2F2]/10 rounded-sm p-8 flex flex-col h-full relative transition-all duration-500 hover:border-[#F24607]/50 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(242,70,7,0.15)] z-10 hover:z-20 overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#F24607]/0 to-[#F24607]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+                    <div class="absolute -bottom-4 -right-4 text-[160px] font-black text-[#F2F2F2] opacity-[0.02] group-hover:text-[#F24607] group-hover:opacity-[0.04] group-hover:scale-105 transition-all duration-700 pointer-events-none select-none leading-none">03</div>
+
+                    <h3 class="text-2xl font-black text-white uppercase tracking-wider mb-1 relative z-10">Opción 3</h3>
+                    <p class="text-sm text-[#F2F2F2]/50 mb-6 font-medium h-10 relative z-10">Set completo + 3 cámaras + Realización en vivo.</p>
+                    
+                    <div class="text-4xl font-black text-[#F24607] mb-6 border-b border-[#F2F2F2]/10 group-hover:border-[#F24607]/30 transition-colors duration-500 pb-6 flex items-baseline gap-2 relative z-10">
+                        --- <span class="text-lg text-[#F2F2F2]/50 font-normal uppercase">USD/hora</span>
+                    </div>
+
+                    <!-- Dashboard Visual Interno -->
+                    <div class="grid grid-cols-2 gap-3 mb-6 relative z-10">
+                        <div class="bg-[#041010] border border-[#F2F2F2]/5 rounded-sm p-4 text-center group-hover:border-[#F24607]/30 group-hover:bg-[#F24607]/5 transition-all duration-500">
+                            <div class="text-3xl font-black text-white mb-1 group-hover:-translate-y-1 group-hover:text-[#F24607] transition-all duration-300">3</div>
+                            <div class="text-[10px] font-black text-white uppercase tracking-wider">Cámaras 4K</div>
+                        </div>
+                        <div class="bg-[#041010] border border-[#F2F2F2]/5 rounded-sm p-4 text-center group-hover:border-[#F24607]/30 group-hover:bg-[#F24607]/5 transition-all duration-500">
+                            <div class="flex justify-center mb-1 group-hover:-translate-y-1 transition-transform duration-300 text-white group-hover:text-[#F24607]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </div>
+                            <div class="text-[10px] font-black text-white uppercase tracking-wider mt-1">Realizador</div>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-3 font-medium text-sm text-[#F2F2F2]/80 flex-grow mb-8 relative z-10">
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Iluminación LED y RGB Profesional</span></li>
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Micrófonos de Estudio</span></li>
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Mobiliario y Decoración</span></li>
+                    </ul>
+
+                    <a href="https://wa.me/59177693829?text=Hola,%20deseo%20alquilar%20el%20Estudio%20de%20Podcast%20(Opción%203:%20Set%20+%203%20Cámaras)." target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 py-4 bg-[#041010] border border-[#F2F2F2]/10 text-[#F2F2F2]/80 font-black uppercase tracking-widest text-sm rounded-sm transition-all duration-300 hover:bg-[#F24607] hover:border-[#F24607] hover:text-white hover:shadow-[0_10px_20px_rgba(242,70,7,0.3)] mt-auto relative z-10 group/btn">
+                        <span class="group-hover/btn:-translate-x-1 transition-transform">Cotizar Opción 3</span>
+                        <svg class="group-hover/btn:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FASE 2: PRODUCCIÓN Y EDICIÓN -->
+    <section id="produccion" class="px-6 py-24 bg-[#061818] border-b border-[#F2F2F2]/5 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="reveal fade-bottom text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 text-white">Producción <span class="text-[#F24607]">+ Edición</span></h2>
+                <p class="text-[#F2F2F2]/70 max-w-2xl mx-auto text-lg">Elija la opción que más se adapte a su proyecto, todas las opciones incluyen el alquiler del set completo.</p>
+            </div>
+
+            <!-- GRID UNIFORME DE MENOR A MAYOR PRECIO EN Bs (CON RICH UI & DINAMISMO) -->
+            <div class="grid lg:grid-cols-3 gap-8 items-stretch mb-8">
+                
+                <!-- OPCIÓN 1 PRODUCCIÓN -->
+                <div class="reveal fade-bottom delay-100 bg-[#0A2626] border border-[#F2F2F2]/10 rounded-sm p-8 flex flex-col h-full relative transition-all duration-500 hover:border-[#F24607]/50 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(242,70,7,0.15)] z-10 hover:z-20 overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#F24607]/0 to-[#F24607]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+                    <div class="absolute -bottom-4 -right-4 text-[160px] font-black text-[#F2F2F2] opacity-[0.02] group-hover:text-[#F24607] group-hover:opacity-[0.04] group-hover:scale-105 transition-all duration-700 pointer-events-none select-none leading-none">01</div>
+
+                    <h3 class="text-2xl font-black text-white uppercase tracking-wider mb-1 relative z-10">Opción 1</h3>
+                    <p class="text-sm text-[#F2F2F2]/50 mb-6 font-medium h-10 relative z-10">Formato esencial de producción audiovisual.</p>
+                    
+                    <div class="text-4xl font-black text-[#F24607] mb-6 border-b border-[#F2F2F2]/10 group-hover:border-[#F24607]/30 transition-colors duration-500 pb-6 flex items-baseline gap-2 relative z-10">
+                        --- <span class="text-lg text-[#F2F2F2]/50 font-normal uppercase">Bs/episodio</span>
+                    </div>
+
+                    <!-- Dashboard Visual Interno -->
+                    <div class="grid grid-cols-2 gap-3 mb-6 relative z-10">
+                        <div class="bg-[#041010] border border-[#F2F2F2]/5 rounded-sm p-4 text-center group-hover:border-[#F24607]/30 group-hover:bg-[#F24607]/5 transition-all duration-500">
+                            <div class="flex justify-center mb-1 group-hover:-translate-y-1 transition-transform duration-300 text-white group-hover:text-[#F24607]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2"/><path d="M12 12h.01"/><path d="M17 12h.01"/><path d="M7 12h.01"/></svg>
+                            </div>
+                            <div class="text-[10px] font-black text-white uppercase tracking-wider mt-1">Podcast Full</div>
+                        </div>
+                        <div class="bg-[#041010] border border-[#F2F2F2]/5 rounded-sm p-4 text-center group-hover:border-[#F24607]/30 group-hover:bg-[#F24607]/5 transition-all duration-500">
+                            <div class="text-3xl font-black text-white mb-1 group-hover:-translate-y-1 group-hover:text-[#F24607] transition-all duration-300">3</div>
+                            <div class="text-[10px] font-black text-white uppercase tracking-wider">Shorts Vert.</div>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-3 font-medium text-sm text-[#F2F2F2]/80 flex-grow mb-8 relative z-10">
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Podcast Completo (Horizontal)</span></li>
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">3 Shorts Extractos (Verticales)</span></li>
+                    </ul>
+
+                    <a href="https://wa.me/59177693829?text=Hola,%20deseo%20cotizar%20la%20Producción%20de%20Podcast%20(Opción%201:%20Completo%20+%203%20Shorts)." target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 py-4 bg-[#041010] border border-[#F2F2F2]/10 text-[#F2F2F2]/80 font-black uppercase tracking-widest text-sm rounded-sm transition-all duration-300 hover:bg-[#F24607] hover:border-[#F24607] hover:text-white hover:shadow-[0_10px_20px_rgba(242,70,7,0.3)] mt-auto relative z-10 group/btn">
+                        <span class="group-hover/btn:-translate-x-1 transition-transform">Cotizar Opción 1</span>
+                        <svg class="group-hover/btn:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <!-- OPCIÓN 2 PRODUCCIÓN -->
+                <div class="reveal fade-bottom delay-200 bg-[#0A2626] border border-[#F2F2F2]/10 rounded-sm p-8 flex flex-col h-full relative transition-all duration-500 hover:border-[#F24607]/50 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(242,70,7,0.15)] z-10 hover:z-20 overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#F24607]/0 to-[#F24607]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+                    <div class="absolute -bottom-4 -right-4 text-[160px] font-black text-[#F2F2F2] opacity-[0.02] group-hover:text-[#F24607] group-hover:opacity-[0.04] group-hover:scale-105 transition-all duration-700 pointer-events-none select-none leading-none">02</div>
+
+                    <h3 class="text-2xl font-black text-white uppercase tracking-wider mb-1 relative z-10">Opción 2</h3>
+                    <p class="text-sm text-[#F2F2F2]/50 mb-6 font-medium h-10 relative z-10">Desarrollo completo con fragmentación estándar.</p>
+                    
+                    <div class="text-4xl font-black text-[#F24607] mb-6 border-b border-[#F2F2F2]/10 group-hover:border-[#F24607]/30 transition-colors duration-500 pb-6 flex items-baseline gap-2 relative z-10">
+                        --- <span class="text-lg text-[#F2F2F2]/50 font-normal uppercase">Bs/episodio</span>
+                    </div>
+
+                    <!-- Dashboard Visual Interno -->
+                    <div class="grid grid-cols-2 gap-3 mb-6 relative z-10">
+                        <div class="bg-[#041010] border border-[#F2F2F2]/5 rounded-sm p-4 text-center group-hover:border-[#F24607]/30 group-hover:bg-[#F24607]/5 transition-all duration-500">
+                            <div class="flex justify-center mb-1 group-hover:-translate-y-1 transition-transform duration-300 text-white group-hover:text-[#F24607]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2"/><path d="M12 12h.01"/><path d="M17 12h.01"/><path d="M7 12h.01"/></svg>
+                            </div>
+                            <div class="text-[10px] font-black text-white uppercase tracking-wider mt-1">Podcast Full</div>
+                        </div>
+                        <div class="bg-[#041010] border border-[#F2F2F2]/5 rounded-sm p-4 text-center group-hover:border-[#F24607]/30 group-hover:bg-[#F24607]/5 transition-all duration-500">
+                            <div class="text-3xl font-black text-white mb-1 group-hover:-translate-y-1 group-hover:text-[#F24607] transition-all duration-300">5</div>
+                            <div class="text-[10px] font-black text-white uppercase tracking-wider">Shorts Vert.</div>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-3 font-medium text-sm text-[#F2F2F2]/80 flex-grow mb-8 relative z-10">
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Teaser de Estreno (Vert. o Horiz.)</span></li>
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Podcast Completo (Horizontal)</span></li>
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">5 Shorts Extractos (Verticales)</span></li>
+                    </ul>
+
+                    <a href="https://wa.me/59177693829?text=Hola,%20deseo%20cotizar%20la%20Producción%20de%20Podcast%20(Opción%202:%20Completo%20+%205%20Shorts)." target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 py-4 bg-[#041010] border border-[#F2F2F2]/10 text-[#F2F2F2]/80 font-black uppercase tracking-widest text-sm rounded-sm transition-all duration-300 hover:bg-[#F24607] hover:border-[#F24607] hover:text-white hover:shadow-[0_10px_20px_rgba(242,70,7,0.3)] mt-auto relative z-10 group/btn">
+                        <span class="group-hover/btn:-translate-x-1 transition-transform">Cotizar Opción 2</span>
+                        <svg class="group-hover/btn:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <!-- OPCIÓN 3 PRODUCCIÓN -->
+                <div class="reveal fade-bottom delay-300 bg-[#0A2626] border border-[#F2F2F2]/10 rounded-sm p-8 flex flex-col h-full relative transition-all duration-500 hover:border-[#F24607]/50 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(242,70,7,0.15)] z-10 hover:z-20 overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-[#F24607]/0 to-[#F24607]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+                    <div class="absolute -bottom-4 -right-4 text-[160px] font-black text-[#F2F2F2] opacity-[0.02] group-hover:text-[#F24607] group-hover:opacity-[0.04] group-hover:scale-105 transition-all duration-700 pointer-events-none select-none leading-none">03</div>
+
+                    <h3 class="text-2xl font-black text-white uppercase tracking-wider mb-1 relative z-10">Opción 3</h3>
+                    <p class="text-sm text-[#F2F2F2]/50 mb-6 font-medium h-10 relative z-10">Desarrollo completo con fragmentación masiva para redes.</p>
+                    
+                    <div class="text-4xl font-black text-[#F24607] mb-6 border-b border-[#F2F2F2]/10 group-hover:border-[#F24607]/30 transition-colors duration-500 pb-6 flex items-baseline gap-2 relative z-10">
+                        --- <span class="text-lg text-[#F2F2F2]/50 font-normal uppercase">Bs/episodio</span>
+                    </div>
+
+                    <!-- Dashboard Visual Interno -->
+                    <div class="grid grid-cols-2 gap-3 mb-6 relative z-10">
+                        <div class="bg-[#041010] border border-[#F2F2F2]/5 rounded-sm p-4 text-center group-hover:border-[#F24607]/30 group-hover:bg-[#F24607]/5 transition-all duration-500">
+                            <div class="flex justify-center mb-1 group-hover:-translate-y-1 transition-transform duration-300 text-white group-hover:text-[#F24607]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2"/><path d="M12 12h.01"/><path d="M17 12h.01"/><path d="M7 12h.01"/></svg>
+                            </div>
+                            <div class="text-[10px] font-black text-white uppercase tracking-wider mt-1">Podcast Full</div>
+                        </div>
+                        <div class="bg-[#041010] border border-[#F2F2F2]/5 rounded-sm p-4 text-center group-hover:border-[#F24607]/30 group-hover:bg-[#F24607]/5 transition-all duration-500">
+                            <div class="text-3xl font-black text-white mb-1 group-hover:-translate-y-1 group-hover:text-[#F24607] transition-all duration-300">6</div>
+                            <div class="text-[10px] font-black text-white uppercase tracking-wider">Shorts Vert.</div>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-3 font-medium text-sm text-[#F2F2F2]/80 flex-grow mb-8 relative z-10">
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Teaser de Estreno (Vert. o Horiz.)</span></li>
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Podcast Completo (Horizontal)</span></li>
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">6 Shorts Extractos (Verticales)</span></li>
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Diseño de Miniaturas YouTube</span></li>
+                    </ul>
+
+                    <a href="https://wa.me/59177693829?text=Hola,%20deseo%20cotizar%20la%20Producción%20de%20Podcast%20(Opción%203:%20Completo%20+%206%20Shorts)." target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 py-4 bg-[#041010] border border-[#F2F2F2]/10 text-[#F2F2F2]/80 font-black uppercase tracking-widest text-sm rounded-sm transition-all duration-300 hover:bg-[#F24607] hover:border-[#F24607] hover:text-white hover:shadow-[0_10px_20px_rgba(242,70,7,0.3)] mt-auto relative z-10 group/btn">
+                        <span class="group-hover/btn:-translate-x-1 transition-transform">Cotizar Opción 3</span>
+                        <svg class="group-hover/btn:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FASE 3: DISTRIBUCIÓN E IDENTIDAD VISUAL (ADD-ONS SIN BOTÓN) -->
+    <section class="px-6 py-24 bg-[#0A2626] border-b border-[#F2F2F2]/5 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- DISTRIBUCIÓN -->
+            <div class="reveal fade-bottom delay-100 bg-[#041010] border border-[#F2F2F2]/10 rounded-sm p-8 md:p-12 mb-12 relative overflow-hidden group hover:border-[#F24607]/50 transition-colors duration-500">
+                <div class="absolute top-1/2 left-0 -translate-y-1/2 w-64 h-64 bg-[#F24607]/5 rounded-full blur-[60px] pointer-events-none group-hover:bg-[#F24607]/10 transition-colors duration-700"></div>
+                
+                <div class="md:flex justify-between items-center gap-8 relative z-10">
+                    <div class="md:w-2/3 mb-6 md:mb-0">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-sm border border-[#F24607]/30 text-[#F24607] text-xs font-bold uppercase tracking-widest mb-4">
+                            Extensión Multiplataforma
+                        </div>
+                        <h3 class="text-3xl md:text-4xl font-black uppercase tracking-tight mb-4">
+                            <span class="text-white">Producción + Edición +</span> <span class="text-[#F24607]">Distribución</span>
+                        </h3>
+                        <p class="text-[#F2F2F2]/60 text-lg mb-6 max-w-xl">Añada a cualquiera de los planes anteriores la delegación absoluta de la distribución algorítmica de su contenido.</p>
+                        
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div class="flex items-start gap-3"><span class="text-[#F24607] mt-1">✦</span> <span class="text-[#F2F2F2]/80 text-sm">Publicación de Shorts en IG, TikTok y FB.</span></div>
+                            <div class="flex items-start gap-3"><span class="text-[#F24607] mt-1">✦</span> <span class="text-[#F2F2F2]/80 text-sm">Redacción de copys y títulos persuasivos.</span></div>
+                            <div class="flex items-start gap-3 sm:col-span-2"><span class="text-[#F24607] mt-1">✦</span> <span class="text-[#F2F2F2]/80 text-sm">Publicación de episodio completo + redacción de descripción (SEO) en YouTube.</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/3 text-left md:text-right flex flex-col items-end justify-center">
+                        <div class="text-5xl font-black text-[#F24607] mb-2 flex items-baseline gap-2">
+                            --- <span class="text-xl text-[#F2F2F2]/50 font-normal uppercase">Bs</span>
+                        </div>
+                        <p class="text-xs text-[#F2F2F2]/40 font-semibold uppercase tracking-widest">Inversión adicional a su plan</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- IDENTIDAD VISUAL -->
+            <div class="reveal fade-bottom delay-200 bg-[#041010] border border-[#F2F2F2]/10 rounded-sm p-8 md:p-12 relative overflow-hidden group hover:border-[#F24607]/50 transition-colors duration-500">
+                <div class="absolute top-1/2 right-0 -translate-y-1/2 w-64 h-64 bg-[#F24607]/5 rounded-full blur-[60px] pointer-events-none group-hover:bg-[#F24607]/10 transition-colors duration-700"></div>
+                
+                <div class="md:flex justify-between items-center gap-8 relative z-10">
+                    <div class="md:w-2/3 mb-6 md:mb-0">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-sm border border-[#F24607]/30 text-[#F24607] text-xs font-bold uppercase tracking-widest mb-4">
+                            Branding del Programa
+                        </div>
+                        <h3 class="text-3xl md:text-4xl font-black uppercase tracking-tight mb-4">
+                            <span class="text-white">Diseño de Identidad</span> <span class="text-[#F24607]">Visual</span>
+                        </h3>
+                        <p class="text-[#F2F2F2]/60 text-lg mb-6 max-w-xl">Construimos la línea gráfica y los assets visuales corporativos (Branding) para que su videopodcast transmita autoridad desde el primer segundo.</p>
+                        
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                            <div class="bg-[#0A2626] border border-[#F2F2F2]/5 rounded-sm p-3 text-center text-[#F2F2F2]/80 text-sm font-semibold">Cortinas</div>
+                            <div class="bg-[#0A2626] border border-[#F2F2F2]/5 rounded-sm p-3 text-center text-[#F2F2F2]/80 text-sm font-semibold">Títulos</div>
+                            <div class="bg-[#0A2626] border border-[#F2F2F2]/5 rounded-sm p-3 text-center text-[#F2F2F2]/80 text-sm font-semibold">Banners</div>
+                            <div class="bg-[#0A2626] border border-[#F2F2F2]/5 rounded-sm p-3 text-center text-[#F2F2F2]/80 text-sm font-semibold">Intro/Outro</div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/3 text-left md:text-right flex flex-col items-end justify-center">
+                        <div class="text-5xl font-black text-[#F24607] mb-2 flex items-baseline gap-2">
+                            --- <span class="text-xl text-[#F2F2F2]/50 font-normal uppercase">Bs</span>
+                        </div>
+                        <p class="text-xs text-[#F2F2F2]/40 font-semibold uppercase tracking-widest">Inversión única</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACTO ESTRATÉGICO -->
+    <section id="contacto" class="px-6 py-24 bg-[#041010] border-t border-[#F2F2F2]/5 relative z-10">
+        <div class="max-w-4xl mx-auto">
+            <div class="reveal fade-bottom text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Contacto Estratégico</h2>
+                <p class="text-[#F2F2F2]/70 text-lg">Comuníquese con nuestros directores técnicos para agendar el estudio o planificar el ecosistema de su próximo Podcast.</p>
+            </div>
+
+            <div class="reveal fade-bottom delay-100 bg-[#0A2626] border border-[#F2F2F2]/10 p-8 md:p-12 rounded-sm shadow-2xl">
+                <form id="wa-form" class="space-y-6">
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Campo: Nombre -->
+                        <div class="space-y-2">
+                            <label for="wp-name" class="block text-sm font-semibold text-[#F2F2F2]/90">Nombre Completo <span class="text-[#F24607]">*</span></label>
+                            <input type="text" id="wp-name" required class="w-full bg-[#041010] border border-[#F2F2F2]/20 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#F24607] transition-colors" placeholder="Ej. Carlos Mendoza">
+                        </div>
+                        
+                        <!-- Campo: Empresa -->
+                        <div class="space-y-2">
+                            <label for="wp-company" class="block text-sm font-semibold text-[#F2F2F2]/90">Empresa / Marca <span class="text-[#F24607]">*</span></label>
+                            <input type="text" id="wp-company" required class="w-full bg-[#041010] border border-[#F2F2F2]/20 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#F24607] transition-colors" placeholder="Nombre de su organización">
+                        </div>
+                    </div>
+
+                    <!-- Campo: Servicio de Podcast -->
+                    <div class="space-y-2">
+                        <label for="wp-service" class="block text-sm font-semibold text-[#F2F2F2]/90">Servicio Requerido <span class="text-[#F24607]">*</span></label>
+                        <select id="wp-service" required class="w-full bg-[#041010] border border-[#F2F2F2]/20 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#F24607] transition-colors appearance-none">
+                            <option value="" disabled selected>Seleccione una opción</option>
+                            <option value="Consulta General sobre Podcasts">Deseo asesoramiento general sobre Podcasts</option>
+                            <option value="Alquiler de Set">Solo Alquiler de Set / Estudio</option>
+                            <option value="Producción Integral (Podcast + Redes)">Producción Integral (Grabación + Edición + Shorts)</option>
+                            <option value="Servicio Completo (Producción + Distribución + Branding)">Ecosistema Completo (Prod + Distribución + Branding)</option>
+                        </select>
+                    </div>
+
+                    <!-- Campo: Detalles -->
+                    <div class="space-y-2">
+                        <label for="wp-details" class="block text-sm font-semibold text-[#F2F2F2]/90">Detalles del Proyecto <span class="text-[#F24607]">*</span></label>
+                        <textarea id="wp-details" required rows="4" class="w-full bg-[#041010] border border-[#F2F2F2]/20 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#F24607] transition-colors resize-none" placeholder="¿Cuántas personas participarán? ¿Qué duración aproximada tendrá cada episodio?"></textarea>
+                    </div>
+
+                    <!-- Botón de Envío del Formulario -->
+                    <button type="submit" class="w-full bg-[#F24607] hover:bg-[#d13c06] text-white font-bold text-lg py-4 rounded-sm transition-all duration-300 shadow-[0_10px_20px_rgba(242,70,7,0.2)] flex items-center justify-center gap-2 hover:scale-[1.01]">
+                        Enviar solicitud por WhatsApp
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4Z"/></svg>
+                    </button>
+                    <p class="text-center text-xs text-[#F2F2F2]/40 mt-4">Su información será compilada y enviada de forma segura a través de la aplicación WhatsApp al +591 77693829.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#020808] py-12 px-6 border-t border-[#F2F2F2]/10 relative z-10">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center justify-center">
+                 <img src="logo.jpg" alt="591 Creative Studio Logo" class="h-10 w-auto object-contain rounded-md" onerror="this.style.display='none'">
+            </div>
+            <div class="text-[#F2F2F2]/50 text-sm text-center md:text-right">
+                <p>© 2026 591 Creative Studio. Todos los derechos reservados.</p>
+                <p class="mt-1">Santa Cruz de la Sierra, Bolivia. Especialistas Audiovisuales.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT GENERAL -->
+    <script>
+        // 1. Control de Animaciones (Scroll Reveal)
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const revealOnScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            reveals.forEach(element => {
+                revealOnScroll.observe(element);
+            });
+
+            // 2. Lógica Smart Header
+            const navbar = document.getElementById('main-nav');
+            let lastScrollY = window.scrollY;
+
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.scrollY;
+                
+                if (currentScrollY > lastScrollY && currentScrollY > 80) {
+                    navbar.style.transform = 'translateY(-100%)';
+                } else {
+                    navbar.style.transform = 'translateY(0)';
+                }
+                
+                lastScrollY = currentScrollY;
+            }, { passive: true });
+
+            // 3. Lógica del Formulario hacia WhatsApp
+            const waForm = document.getElementById('wa-form');
+            if (waForm) {
+                waForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+
+                    const name = document.getElementById('wp-name').value.trim();
+                    const company = document.getElementById('wp-company').value.trim();
+                    const service = document.getElementById('wp-service').value;
+                    const details = document.getElementById('wp-details').value.trim();
+
+                    const textMessage = `*NUEVO CONTACTO: PODCASTS*%0A%0A*Nombre:* ${name}%0A*Empresa:* ${company}%0A*Servicio Requerido:* ${service}%0A*Detalles:* ${details}`;
+                    
+                    const phone = "59177693829";
+
+                    const waUrl = `https://wa.me/${phone}?text=${textMessage}`;
+                    window.open(waUrl, '_blank');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

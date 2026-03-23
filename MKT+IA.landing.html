@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>591 Creative Studio | Marketing Digital 360</title>
-    <!-- Tailwind CSS Integrado -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         html { scroll-behavior: smooth; }
         
-        /* Estilos para el contenedor del video (16:9 aspect ratio) */
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             max-width: 100%;
@@ -27,11 +25,9 @@
             height: 100%;
         }
 
-        /* MOTOR DE ANIMACIONES CORPORATIVAS */
         .reveal {
             opacity: 0;
             visibility: hidden;
-            /* Curva de aceleración profesional (lenta al final) */
             transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
             will-change: opacity, transform;
         }
@@ -39,7 +35,6 @@
             opacity: 1;
             visibility: visible;
         }
-        /* Direcciones de entrada */
         .fade-bottom { transform: translateY(40px); }
         .fade-bottom.active { transform: translateY(0); }
         
@@ -52,12 +47,10 @@
         .scale-up { transform: scale(0.95); }
         .scale-up.active { transform: scale(1); }
 
-        /* Tiempos de retraso para efecto en cascada (stagger) */
         .delay-100 { transition-delay: 100ms; }
         .delay-200 { transition-delay: 200ms; }
         .delay-300 { transition-delay: 300ms; }
 
-        /* Animación continua de fondo */
         @keyframes float {
             0% { transform: translate(-50%, -50%) translateY(0px); }
             50% { transform: translate(-50%, -50%) translateY(-20px); }
@@ -70,17 +63,13 @@
 </head>
 <body class="bg-[#0A2626] text-[#F2F2F2] font-sans selection:bg-[#F24607] selection:text-[#F2F2F2] overflow-x-hidden">
 
-    <!-- NAVEGACIÓN AISLADA (Sin distracciones) -->
     <nav id="main-nav" class="sticky top-0 z-50 bg-[#0A2626]/80 backdrop-blur-md border-b border-[#F2F2F2]/10 px-6 py-4 transition-transform duration-500 ease-in-out">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <!-- Logo JPG y Nombre de la Agencia -->
             <div class="flex items-center justify-center">
-                <!-- Se busca el archivo 'logo.jpg' en el mismo directorio -->
                 <img src="logo.jpg" alt="Logo" class="h-14 w-auto object-contain rounded-md transition-transform hover:scale-105" onerror="this.style.display='none'">
                 <span class="ml-4 text-xl md:text-2xl font-bold tracking-wide text-[#F2F2F2]">591 Creative Studio</span>
             </div>
             
-            <!-- CTA Directo -->
             <a href="#planes" class="hidden md:flex items-center gap-2 bg-[#F24607] hover:bg-[#d13c06] transition-colors text-[#F2F2F2] px-5 py-2 rounded-sm font-semibold text-sm hover:shadow-[0_0_15px_rgba(242,70,7,0.4)]">
                 Ver Planes 
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -88,7 +77,6 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
     <header class="relative px-6 py-16 md:py-24 overflow-hidden">
         <div class="max-w-4xl mx-auto text-center relative z-10">
             <div class="reveal fade-bottom inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F2F2F2]/10 border border-[#F24607]/30 text-[#F24607] text-sm font-medium mb-6 backdrop-blur-sm">
@@ -103,7 +91,6 @@
                 Generamos, filtramos y calificamos sus leads. Nuestro sistema combina lo mejor del marketing digital con la eficiencia de un Asistente de IA para WhatsApp Business. <strong>Usted solo se encarga de cerrar ventas.</strong>
             </p>
 
-            <!-- VSL VIDEO SECTION (YOUTUBE EMBED) -->
             <div class="reveal scale-up delay-300 relative w-full max-w-3xl mx-auto mb-12 rounded-xl overflow-hidden shadow-2xl shadow-[#F24607]/10 border border-[#F2F2F2]/10 bg-[#041010] group">
                 <div class="video-container group-hover:scale-[1.01] transition-transform duration-700">
                     <iframe 
@@ -115,7 +102,6 @@
                         allowfullscreen>
                     </iframe>
                 </div>
-                <!-- Indicador visual -->
                  <div class="absolute top-4 left-4 bg-black/60 text-[#F2F2F2] text-xs px-3 py-1.5 rounded-full backdrop-blur-sm flex items-center gap-2 pointer-events-none z-20 border border-white/10">
                     <div class="w-2 h-2 bg-[#F24607] rounded-full animate-pulse shadow-[0_0_8px_#F24607]"></div>
                     Visualización Corporativa
@@ -132,11 +118,9 @@
                 </a>
             </div>
         </div>
-        <!-- Decoración de fondo animada -->
         <div class="bg-float absolute top-1/2 left-1/2 w-[800px] h-[800px] bg-[#F24607]/10 rounded-full blur-[100px] -z-0 pointer-events-none"></div>
     </header>
 
-    <!-- PROPUESTA DE VALOR -->
     <section class="px-6 py-24 bg-[#061818] relative z-10">
         <div class="max-w-6xl mx-auto">
             <div class="reveal fade-bottom text-center mb-16">
@@ -145,7 +129,6 @@
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Tarjeta 1 -->
                 <div class="reveal fade-bottom delay-100 bg-[#0A2626] p-8 rounded-sm border border-[#F2F2F2]/10 hover:border-[#F24607]/50 hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-[#F24607]/10">
                     <div class="w-12 h-12 bg-[#F24607]/10 rounded-sm flex items-center justify-center text-[#F24607] mb-6 transition-transform group-hover:scale-110">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
@@ -153,7 +136,6 @@
                     <h3 class="text-xl font-bold mb-3">Tráfico Calificado</h3>
                     <p class="text-[#F2F2F2]/70">Estrategias de pauta publicitaria hiper-segmentadas para atraer prospectos con verdadera intención de compra.</p>
                 </div>
-                <!-- Tarjeta 2 -->
                 <div class="reveal fade-bottom delay-200 bg-[#0A2626] p-8 rounded-sm border border-[#F2F2F2]/10 hover:border-[#F24607]/50 hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-[#F24607]/10">
                     <div class="w-12 h-12 bg-[#F24607]/10 rounded-sm flex items-center justify-center text-[#F24607] mb-6">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/></svg>
@@ -161,7 +143,6 @@
                     <h3 class="text-xl font-bold mb-3">Contenido Profesional</h3>
                     <p class="text-[#F2F2F2]/70">Producción audiovisual guionizada y orientada a la conversión, adaptada a los objetivos específicos de cada campaña.</p>
                 </div>
-                <!-- Tarjeta 3 -->
                 <div class="reveal fade-bottom delay-300 bg-[#0A2626] p-8 rounded-sm border border-[#F2F2F2]/10 hover:border-[#F24607]/50 hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-[#F24607]/10">
                     <div class="w-12 h-12 bg-[#F24607]/10 rounded-sm flex items-center justify-center text-[#F24607] mb-6">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
@@ -173,7 +154,6 @@
         </div>
     </section>
 
-    <!-- METODOLOGÍA -->
     <section id="proceso" class="px-6 py-24 border-t border-[#F2F2F2]/5 relative z-10 bg-[#0A2626]">
         <div class="max-w-5xl mx-auto">
             <div class="reveal fade-bottom text-center mb-16">
@@ -183,7 +163,6 @@
 
             <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-[#F24607] before:to-transparent">
                 
-                <!-- Fase 1 -->
                 <div class="reveal fade-right relative flex items-center justify-between md:justify-normal group">
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#0A2626] bg-[#F24607] text-[#F2F2F2] shrink-0 md:order-1 md:translate-x-1/2 shadow transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_15px_#F24607]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>
@@ -197,7 +176,6 @@
                     </div>
                 </div>
 
-                <!-- Fase 2 -->
                 <div class="reveal fade-left delay-100 relative flex items-center justify-between md:justify-normal md:flex-row-reverse group">
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#0A2626] bg-[#F24607] text-[#F2F2F2] shrink-0 md:order-1 md:-translate-x-1/2 shadow transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_15px_#F24607]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/></svg>
@@ -211,7 +189,6 @@
                     </div>
                 </div>
 
-                <!-- Fase 3 -->
                 <div class="reveal fade-right delay-200 relative flex items-center justify-between md:justify-normal group">
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#0A2626] bg-[#F24607] text-[#F2F2F2] shrink-0 md:order-1 md:translate-x-1/2 shadow transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_15px_#F24607]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
@@ -225,7 +202,6 @@
                     </div>
                 </div>
 
-                <!-- Fase 4 -->
                 <div class="reveal fade-left delay-300 relative flex items-center justify-between md:justify-normal md:flex-row-reverse group">
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#0A2626] bg-[#F24607] text-[#F2F2F2] shrink-0 md:order-1 md:-translate-x-1/2 shadow transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_15px_#F24607]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
@@ -239,7 +215,6 @@
                     </div>
                 </div>
 
-                <!-- Fase 5 -->
                 <div class="reveal fade-right delay-200 relative flex items-center justify-between md:justify-normal group">
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#0A2626] bg-[#F24607] text-[#F2F2F2] shrink-0 md:order-1 md:translate-x-1/2 shadow transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_15px_#F24607]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
@@ -256,9 +231,7 @@
         </div>
     </section>
 
-    <!-- PLANES DE INVERSIÓN -->
     <section id="planes" class="px-6 py-24 bg-[#061818] relative">
-        <!-- Resplandor de fondo sutil -->
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-[#F24607]/5 rounded-[100%] blur-[80px] pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto relative z-10">
@@ -269,7 +242,6 @@
 
             <div class="grid lg:grid-cols-3 gap-8 items-start">
                 
-                <!-- PLAN FULL 360 -->
                 <div class="reveal fade-bottom delay-200 bg-[#F2F2F2] text-[#0A2626] border-2 border-[#F24607] rounded-sm p-8 flex flex-col h-full relative shadow-[0_15px_30px_rgba(242,70,7,0.15)] transform lg:-translate-y-4 hover:scale-[1.03] hover:shadow-[0_0_80px_rgba(242,70,7,0.5)] transition-all duration-500 z-10 hover:z-20">
                     <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#F24607] text-[#F2F2F2] px-4 py-1 text-xs font-bold uppercase tracking-wider rounded-sm shadow-md">
                         Máxima Automatización
@@ -297,7 +269,6 @@
                     </a>
                 </div>
 
-                <!-- PLAN PRO -->
                 <div class="reveal fade-bottom delay-100 bg-[#0A2626] border border-[#F2F2F2]/20 hover:border-[#F24607]/80 rounded-sm p-8 flex flex-col h-full relative transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_60px_rgba(242,70,7,0.4)] z-10 hover:z-20">
                     <div class="mb-6">
                         <h3 class="text-2xl font-bold text-[#F2F2F2] mb-2">Pro</h3>
@@ -319,7 +290,6 @@
                     </a>
                 </div>
 
-                <!-- PLAN ESSENTIAL -->
                 <div class="reveal fade-bottom delay-300 bg-[#0A2626] border border-[#F2F2F2]/20 hover:border-[#F24607]/80 rounded-sm p-8 flex flex-col h-full relative transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_60px_rgba(242,70,7,0.4)] z-10 hover:z-20">
                     <div class="mb-6">
                         <h3 class="text-2xl font-bold text-[#F2F2F2] mb-2">Essential</h3>
@@ -344,7 +314,6 @@
         </div>
     </section>
 
-    <!-- CONTACTO ESTRATÉGICO (FORMULARIO A WHATSAPP) -->
     <section id="contacto" class="px-6 py-24 bg-[#041010] border-t border-[#F2F2F2]/5 relative z-10">
         <div class="max-w-4xl mx-auto">
             <div class="reveal fade-bottom text-center mb-12">
@@ -356,20 +325,17 @@
                 <form id="wa-form" class="space-y-6">
                     
                     <div class="grid md:grid-cols-2 gap-6">
-                        <!-- Campo: Nombre -->
                         <div class="space-y-2">
                             <label for="wp-name" class="block text-sm font-semibold text-[#F2F2F2]/90">Nombre Completo <span class="text-[#F24607]">*</span></label>
                             <input type="text" id="wp-name" required class="w-full bg-[#041010] border border-[#F2F2F2]/20 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#F24607] transition-colors" placeholder="Ej. Carlos Mendoza">
                         </div>
                         
-                        <!-- Campo: Empresa -->
                         <div class="space-y-2">
                             <label for="wp-company" class="block text-sm font-semibold text-[#F2F2F2]/90">Empresa / Marca <span class="text-[#F24607]">*</span></label>
                             <input type="text" id="wp-company" required class="w-full bg-[#041010] border border-[#F2F2F2]/20 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#F24607] transition-colors" placeholder="Nombre de su organización">
                         </div>
                     </div>
 
-                    <!-- Campo: Servicio -->
                     <div class="space-y-2">
                         <label for="wp-service" class="block text-sm font-semibold text-[#F2F2F2]/90">Plan de Interés <span class="text-[#F24607]">*</span></label>
                         <select id="wp-service" required class="w-full bg-[#041010] border border-[#F2F2F2]/20 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#F24607] transition-colors appearance-none">
@@ -381,13 +347,11 @@
                         </select>
                     </div>
 
-                    <!-- Campo: Detalles -->
                     <div class="space-y-2">
                         <label for="wp-details" class="block text-sm font-semibold text-[#F2F2F2]/90">Objetivo Comercial <span class="text-[#F24607]">*</span></label>
                         <textarea id="wp-details" required rows="4" class="w-full bg-[#041010] border border-[#F2F2F2]/20 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#F24607] transition-colors resize-none" placeholder="Indique qué objetivos desea alcanzar con su estrategia de marketing..."></textarea>
                     </div>
 
-                    <!-- Botón de Envío del Formulario -->
                     <button type="submit" class="w-full bg-[#F24607] hover:bg-[#d13c06] text-white font-bold text-lg py-4 rounded-sm transition-all duration-300 shadow-[0_10px_20px_rgba(242,70,7,0.2)] flex items-center justify-center gap-2 hover:scale-[1.01]">
                         Enviar solicitud por WhatsApp
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4Z"/></svg>
@@ -398,7 +362,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="bg-[#020808] py-12 px-6 border-t border-[#F2F2F2]/10 relative z-10">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center justify-center">
@@ -411,9 +374,7 @@
         </div>
     </footer>
 
-    <!-- SCRIPT GENERAL -->
     <script>
-        // 1. Control de Animaciones (Scroll Reveal)
         document.addEventListener('DOMContentLoaded', () => {
             const reveals = document.querySelectorAll('.reveal');
             
@@ -436,7 +397,6 @@
                 revealOnScroll.observe(element);
             });
 
-            // 2. Lógica Smart Header
             const navbar = document.getElementById('main-nav');
             let lastScrollY = window.scrollY;
 
@@ -452,32 +412,26 @@
                 lastScrollY = currentScrollY;
             }, { passive: true });
 
-            // 3. Lógica del Formulario hacia WhatsApp
             const waForm = document.getElementById('wa-form');
             if (waForm) {
                 waForm.addEventListener('submit', function(event) {
-                    event.preventDefault(); // Evita recarga
+                    event.preventDefault();
 
-                    // Capturar valores
                     const name = document.getElementById('wp-name').value.trim();
                     const company = document.getElementById('wp-company').value.trim();
                     const service = document.getElementById('wp-service').value;
                     const details = document.getElementById('wp-details').value.trim();
 
-                    // Construir mensaje estructurado
                     const textMessage = `*NUEVO CONTACTO: MARKETING DIGITAL 360*%0A%0A*Nombre:* ${name}%0A*Empresa:* ${company}%0A*Plan Seleccionado:* ${service}%0A*Objetivo Comercial:* ${details}`;
                     
-                    // Número de teléfono
                     const phone = "59177693829";
 
-                    // Crear link y abrir WhatsApp
                     const waUrl = `https://wa.me/${phone}?text=${textMessage}`;
                     window.open(waUrl, '_blank');
                 });
             }
         });
 
-        // Script para forzar inicio en el video VSL (Restauración de Scroll)
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }

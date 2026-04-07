@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>591 Creative Studio | Agencia de Producción y Marketing</title>
-    <!-- Tailwind CSS Integrado -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         html { scroll-behavior: smooth; }
@@ -23,10 +22,8 @@
         
         .fade-bottom { transform: translateY(40px); }
         .fade-bottom.active { transform: translateY(0); }
-        
         .fade-left { transform: translateX(-40px); }
         .fade-left.active { transform: translateX(0); }
-        
         .fade-right { transform: translateX(40px); }
         .fade-right.active { transform: translateX(0); }
 
@@ -65,26 +62,20 @@
 </head>
 <body class="min-h-screen bg-[#0A2626] text-[#F2F2F2] font-sans selection:bg-[#F24607] selection:text-[#F2F2F2] overflow-x-hidden">
 
-    <!-- NAVEGACIÓN SMART -->
     <nav id="main-nav" class="fixed top-0 w-full z-50 bg-[#0A2626]/80 backdrop-blur-md border-b border-[#F2F2F2]/10 px-6 py-4 transition-transform duration-500 ease-in-out">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <!-- Logo y Nombre (Enlace a la raíz limpia) -->
             <a href="/" class="flex items-center justify-center group">
                 <img src="logo.jpg" alt="Logo" class="h-14 w-auto object-contain rounded-md transition-transform group-hover:scale-105" onerror="this.style.display='none'">
                 <span class="ml-4 text-xl md:text-2xl font-bold tracking-wide text-[#F2F2F2] group-hover:text-[#F24607] transition-colors">591 Creative Studio</span>
             </a>
             
-            <!-- Pestañas de Navegación (URLs Limpias para todos los módulos) -->
             <div class="hidden lg:flex space-x-8">
-                <!-- Pestaña Activa apunta a / -->
                 <a href="/" class="text-[#F24607] font-semibold border-b-2 border-[#F24607] pb-1 text-sm">La Agencia</a>
-                
                 <a href="/marketing-ia" class="text-[#F2F2F2]/70 hover:text-[#F24607] transition-colors font-medium text-sm">Marketing + IA</a>
                 <a href="/audiovisual" class="text-[#F2F2F2]/70 hover:text-[#F24607] transition-colors font-medium text-sm">Audiovisual</a>
                 <a href="/podcasts" class="text-[#F2F2F2]/70 hover:text-[#F24607] transition-colors font-medium text-sm">Podcasts</a>
             </div>
 
-            <!-- CTA 1: Barra de Navegación -->
             <a href="https://wa.me/59177693829?text=Hola,%20deseo%20comunicarme%20con%20un%20asesor%20de%20591%20Creative%20Studio." target="_blank" rel="noopener noreferrer" class="hidden md:flex items-center gap-2 bg-[#F24607] hover:bg-[#d13c06] transition-colors text-[#F2F2F2] px-5 py-2 rounded-sm font-semibold text-sm hover:shadow-[0_0_15px_rgba(242,70,7,0.4)]">
                 Contáctanos
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
@@ -92,10 +83,8 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION: LA AGENCIA -->
     <header class="relative px-6 pt-40 pb-20 md:pt-48 md:pb-32 overflow-hidden border-b border-[#F2F2F2]/5 min-h-[90vh] flex items-center justify-center">
         
-        <!-- Video de Fondo Difuminado -->
         <div class="absolute inset-0 w-full h-full z-0 pointer-events-none video-mask flex items-center justify-center overflow-hidden bg-[#041010]">
             <div id="bg-video" class="absolute w-[250vw] h-[250vh] md:w-[150vw] md:h-[150vh] min-w-full min-h-full opacity-20 pointer-events-none"></div>
         </div>
@@ -118,13 +107,11 @@
             </div>
         </div>
 
-        <!-- Efecto de lente de cámara de fondo -->
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] border-[1px] border-[#F2F2F2]/5 rounded-full -z-0 pointer-events-none"></div>
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border-[1px] border-[#F2F2F2]/10 rounded-full -z-0 pointer-events-none"></div>
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#F24607]/5 rounded-full blur-[80px] -z-0 pointer-events-none"></div>
     </header>
 
-    <!-- PORTAFOLIO CORPORATIVO -->
     <section id="portafolio" class="px-6 pt-24 pb-16 bg-[#0A2626] relative z-10">
         <div class="max-w-7xl mx-auto">
             <div class="reveal fade-bottom text-center mb-20">
@@ -132,11 +119,10 @@
                 <p class="text-[#F2F2F2]/70 max-w-2xl mx-auto text-lg">Una compilación técnica de nuestros mejores proyectos, segmentados por área de ejecución audiovisual.</p>
             </div>
 
-            <!-- Grid de 6 Tarjetas -->
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- 01: Reels y Redes -->
-                <div class="reveal fade-bottom delay-100 group relative h-[400px] rounded-sm overflow-hidden bg-[#041010] border border-[#F2F2F2]/10 hover:border-[#F24607]/50 transition-colors duration-500 cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop" alt="Redes Sociales" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                
+                <a href="/assets/portafolio.pdf" download="Portafolio_591_Creative_Studio.pdf" class="reveal fade-bottom delay-100 group relative h-[400px] rounded-sm overflow-hidden bg-[#041010] border border-[#F2F2F2]/10 hover:border-[#F24607]/50 transition-colors duration-500 block">
+                    <img src="assets/redes.webp" alt="Redes Sociales" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 ease-in-out" loading="lazy">
                     <div class="portfolio-img-overlay group-hover:bg-[#0A2626]/80"></div>
                     <div class="absolute inset-0 p-8 flex flex-col justify-end z-10">
                         <div class="text-[#F24607] font-extrabold text-5xl mb-2 opacity-80 group-hover:opacity-100 transition-opacity">01</div>
@@ -145,11 +131,10 @@
                             Campañas de alto impacto para Tramontina, Mercantil Santa Cruz, Fexpocruz y Fair Play. Formatos verticales optimizados para retención.
                         </p>
                     </div>
-                </div>
+                </a>
 
-                <!-- 02: Spots Publicitarios -->
-                <div class="reveal fade-bottom delay-200 group relative h-[400px] rounded-sm overflow-hidden bg-[#041010] border border-[#F2F2F2]/10 hover:border-[#F24607]/50 transition-colors duration-500 cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?q=80&w=1000&auto=format&fit=crop" alt="Spots Publicitarios" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                <a href="/assets/portafolio.pdf" download="Portafolio_591_Creative_Studio.pdf" class="reveal fade-bottom delay-200 group relative h-[400px] rounded-sm overflow-hidden bg-[#041010] border border-[#F2F2F2]/10 hover:border-[#F24607]/50 transition-colors duration-500 block">
+                    <img src="assets/spots.webp" alt="Spots Publicitarios" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 ease-in-out" loading="lazy">
                     <div class="portfolio-img-overlay group-hover:bg-[#0A2626]/80"></div>
                     <div class="absolute inset-0 p-8 flex flex-col justify-end z-10">
                         <div class="text-[#F24607] font-extrabold text-5xl mb-2 opacity-80 group-hover:opacity-100 transition-opacity">02</div>
@@ -158,11 +143,10 @@
                             Producciones orientadas a conversión masiva. Comerciales de TV y plataformas digitales para Univalle, Hexa y campañas mundiales.
                         </p>
                     </div>
-                </div>
+                </a>
 
-                <!-- 03: Corporativos e Institucionales -->
-                <div class="reveal fade-bottom delay-300 group relative h-[400px] rounded-sm overflow-hidden bg-[#041010] border border-[#F2F2F2]/10 hover:border-[#F24607]/50 transition-colors duration-500 cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000&auto=format&fit=crop" alt="Institucional" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                <a href="/assets/portafolio.pdf" download="Portafolio_591_Creative_Studio.pdf" class="reveal fade-bottom delay-300 group relative h-[400px] rounded-sm overflow-hidden bg-[#041010] border border-[#F2F2F2]/10 hover:border-[#F24607]/50 transition-colors duration-500 block">
+                    <img src="assets/corporativos.webp" alt="Institucional" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 ease-in-out" loading="lazy">
                     <div class="portfolio-img-overlay group-hover:bg-[#0A2626]/80"></div>
                     <div class="absolute inset-0 p-8 flex flex-col justify-end z-10">
                         <div class="text-[#F24607] font-extrabold text-5xl mb-2 opacity-80 group-hover:opacity-100 transition-opacity">03</div>
@@ -171,11 +155,10 @@
                             Construcción de imagen empresarial. Videos de certificación "Top Employer", documentales y promocionales para hotelería de lujo.
                         </p>
                     </div>
-                </div>
+                </a>
 
-                <!-- 04: Streaming y Eventos -->
-                <div class="reveal fade-bottom delay-100 group relative h-[400px] rounded-sm overflow-hidden bg-[#041010] border border-[#F2F2F2]/10 hover:border-[#F24607]/50 transition-colors duration-500 cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1516280440502-6c245c33e213?q=80&w=1000&auto=format&fit=crop" alt="Streaming" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                <a href="/assets/portafolio.pdf" download="Portafolio_591_Creative_Studio.pdf" class="reveal fade-bottom delay-100 group relative h-[400px] rounded-sm overflow-hidden bg-[#041010] border border-[#F2F2F2]/10 hover:border-[#F24607]/50 transition-colors duration-500 block">
+                    <img src="assets/streaming.webp" alt="Streaming" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 ease-in-out" loading="lazy">
                     <div class="portfolio-img-overlay group-hover:bg-[#0A2626]/80"></div>
                     <div class="absolute inset-0 p-8 flex flex-col justify-end z-10">
                         <div class="text-[#F24607] font-extrabold text-5xl mb-2 opacity-80 group-hover:opacity-100 transition-opacity">04</div>
@@ -184,11 +167,10 @@
                             After movies y transmisiones en vivo para congresos internacionales y lanzamientos automotrices (Volkswagen, Audi, Citroen).
                         </p>
                     </div>
-                </div>
+                </a>
 
-                <!-- 05: Animación 3D y 2D -->
-                <div class="reveal fade-bottom delay-200 group relative h-[400px] rounded-sm overflow-hidden bg-[#041010] border border-[#F2F2F2]/10 hover:border-[#F24607]/50 transition-colors duration-500 cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop" alt="Animación 3D" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                <a href="/assets/portafolio.pdf" download="Portafolio_591_Creative_Studio.pdf" class="reveal fade-bottom delay-200 group relative h-[400px] rounded-sm overflow-hidden bg-[#041010] border border-[#F2F2F2]/10 hover:border-[#F24607]/50 transition-colors duration-500 block">
+                    <img src="assets/animacion.webp" alt="Animación 3D" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 ease-in-out" loading="lazy">
                     <div class="portfolio-img-overlay group-hover:bg-[#0A2626]/80"></div>
                     <div class="absolute inset-0 p-8 flex flex-col justify-end z-10">
                         <div class="text-[#F24607] font-extrabold text-5xl mb-2 opacity-80 group-hover:opacity-100 transition-opacity">05</div>
@@ -197,11 +179,10 @@
                             Modelado y motion graphics para explicar productos complejos. Desarrollos para Laboratorios COFAR y Pagos de WhatsApp (Luka).
                         </p>
                     </div>
-                </div>
+                </a>
 
-                <!-- 06: Detrás de Cámaras -->
-                <div class="reveal fade-bottom delay-300 group relative h-[400px] rounded-sm overflow-hidden bg-[#041010] border border-[#F2F2F2]/10 hover:border-[#F24607]/50 transition-colors duration-500 cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1589886364020-f57930353c29?q=80&w=1000&auto=format&fit=crop" alt="Detrás de Cámaras" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                <a href="/assets/portafolio.pdf" download="Portafolio_591_Creative_Studio.pdf" class="reveal fade-bottom delay-300 group relative h-[400px] rounded-sm overflow-hidden bg-[#041010] border border-[#F2F2F2]/10 hover:border-[#F24607]/50 transition-colors duration-500 block">
+                    <img src="assets/detras-camaras.webp" alt="Detrás de Cámaras" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700 ease-in-out" loading="lazy">
                     <div class="portfolio-img-overlay group-hover:bg-[#0A2626]/80"></div>
                     <div class="absolute inset-0 p-8 flex flex-col justify-end z-10">
                         <div class="text-[#F24607] font-extrabold text-5xl mb-2 opacity-80 group-hover:opacity-100 transition-opacity">06</div>
@@ -210,10 +191,9 @@
                             Un vistazo a nuestro rigor técnico: iluminación industrial, equipos de cine, dirección de arte y el talento humano experto.
                         </p>
                     </div>
-                </div>
+                </a>
             </div>
 
-            <!-- CTA 3: Debajo del Portafolio -->
             <div class="reveal fade-bottom mt-20 mb-8 text-center">
                 <a href="https://wa.me/59177693829?text=Hola,%20me%20gustaría%20solicitar%20una%20cotización%20sobre%20sus%20servicios%20de%20producción." target="_blank" rel="noopener noreferrer" class="group inline-flex items-center justify-center gap-3 md:gap-4 text-[#F24607] hover:text-[#d13c06] transition-all duration-300 font-black text-3xl md:text-4xl lg:text-5xl uppercase tracking-widest">
                     Contáctanos
@@ -223,7 +203,6 @@
         </div>
     </section>
 
-    <!-- TRUST BADGES -->
     <section class="py-10 bg-[#041010] border-t border-b border-[#F2F2F2]/5 overflow-hidden">
         <div class="max-w-6xl mx-auto px-6 mb-6">
             <p class="text-xs text-[#F2F2F2]/40 uppercase tracking-widest font-bold text-center">Corporaciones que confían en nuestra óptica</p>
@@ -241,7 +220,6 @@
                 <span>UNIVALLE</span> <span class="text-[#F24607]">•</span>
                 <span>KÄRCHER</span> <span class="text-[#F24607]">•</span>
                 <span>COFAR</span> <span class="text-[#F24607]">•</span>
-                <!-- Loop -->
                 <span>MERCANTIL SANTA CRUZ</span> <span class="text-[#F24607]">•</span>
                 <span>VOLKSWAGEN</span> <span class="text-[#F24607]">•</span>
                 <span>BISA SEGUROS</span> <span class="text-[#F24607]">•</span>
@@ -254,7 +232,6 @@
         </div>
     </section>
 
-    <!-- ENRUTADOR A PLANES DE INVERSIÓN (SERVICIOS) -->
     <section id="ecosistemas" class="px-6 py-24 bg-[#061818] border-t border-[#F2F2F2]/5 relative">
         <div class="max-w-6xl mx-auto">
             <div class="reveal fade-bottom text-center mb-16">
@@ -263,7 +240,6 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
-                <!-- Tarjeta Enrutador 1: Marketing -->
                 <a href="/marketing-ia" class="reveal fade-bottom delay-100 block group bg-[#0A2626] border border-[#F2F2F2]/20 hover:border-[#F24607] p-8 rounded-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(242,70,7,0.15)]">
                     <div class="w-14 h-14 bg-[#041010] border border-[#F2F2F2]/10 rounded-sm flex items-center justify-center text-[#F24607] mb-6 group-hover:scale-110 transition-transform">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
@@ -273,7 +249,6 @@
                     <span class="text-[#F24607] font-semibold flex items-center gap-2 text-sm group-hover:gap-3 transition-all">Ver Planes Mensuales <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
                 </a>
 
-                <!-- Tarjeta Enrutador 2: AUDIOVISUAL -->
                 <a href="/audiovisual" class="reveal fade-bottom delay-200 block group bg-[#0A2626] border border-[#F2F2F2]/20 hover:border-[#F24607] p-8 rounded-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(242,70,7,0.15)]">
                     <div class="w-14 h-14 bg-[#041010] border border-[#F2F2F2]/10 rounded-sm flex items-center justify-center text-[#F24607] mb-6 group-hover:scale-110 transition-transform">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/></svg>
@@ -283,7 +258,6 @@
                     <span class="text-[#F24607] font-semibold flex items-center gap-2 text-sm group-hover:gap-3 transition-all">Ver Paquetes de Producción <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
                 </a>
 
-                <!-- Tarjeta Enrutador 3: Podcasts -->
                 <a href="/podcasts" class="reveal fade-bottom delay-300 block group bg-[#0A2626] border border-[#F2F2F2]/20 hover:border-[#F24607] p-8 rounded-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_15px_30px_rgba(242,70,7,0.15)]">
                     <div class="w-14 h-14 bg-[#041010] border border-[#F2F2F2]/10 rounded-sm flex items-center justify-center text-[#F24607] mb-6 group-hover:scale-110 transition-transform">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
@@ -296,7 +270,6 @@
         </div>
     </section>
 
-    <!-- CONTACTO ESTRATÉGICO -->
     <section id="contacto" class="px-6 py-24 bg-[#041010] border-t border-[#F2F2F2]/5 relative z-10">
         <div class="max-w-4xl mx-auto text-center mb-12">
             <h2 class="text-3xl md:text-5xl font-bold mb-4">Contacto Estratégico</h2>
@@ -336,7 +309,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="bg-[#020808] py-12 px-6 border-t border-[#F2F2F2]/10 relative z-10">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center justify-center">
@@ -349,7 +321,6 @@
         </div>
     </footer>
 
-    <!-- SCRIPTS -->
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {

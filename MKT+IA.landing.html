@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -65,11 +66,19 @@
 
     <nav id="main-nav" class="sticky top-0 z-50 bg-[#0A2626]/80 backdrop-blur-md border-b border-[#F2F2F2]/10 px-6 py-4 transition-transform duration-500 ease-in-out">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <div class="flex items-center justify-center">
-                <img src="logo.jpg" alt="Logo" class="h-14 w-auto object-contain rounded-md transition-transform hover:scale-105" onerror="this.style.display='none'">
-                <span class="ml-4 text-xl md:text-2xl font-bold tracking-wide text-[#F2F2F2]">591 Creative Studio</span>
-            </div>
+            <a href="/" class="flex items-center justify-center group">
+                <img src="logo.jpg" alt="Logo" class="h-14 w-auto object-contain rounded-md transition-transform group-hover:scale-105" onerror="this.style.display='none'">
+                <span class="ml-4 text-xl md:text-2xl font-bold tracking-wide text-[#F2F2F2] group-hover:text-[#F24607] transition-colors">591 Creative Studio</span>
+            </a>
             
+            <!-- Pestañas de Navegación (URLs Limpias) -->
+            <div class="hidden lg:flex space-x-8">
+                <a href="/" class="text-[#F2F2F2]/70 hover:text-[#F24607] transition-colors font-medium text-sm">La Agencia</a>
+                <a href="/marketing-ia" class="text-[#F24607] font-semibold border-b-2 border-[#F24607] pb-1 text-sm">Marketing + IA</a>
+                <a href="/audiovisual" class="text-[#F2F2F2]/70 hover:text-[#F24607] transition-colors font-medium text-sm">Audiovisual</a>
+                <a href="/podcasts" class="text-[#F2F2F2]/70 hover:text-[#F24607] transition-colors font-medium text-sm">Podcasts</a>
+            </div>
+
             <a href="#planes" class="hidden md:flex items-center gap-2 bg-[#F24607] hover:bg-[#d13c06] transition-colors text-[#F2F2F2] px-5 py-2 rounded-sm font-semibold text-sm hover:shadow-[0_0_15px_rgba(242,70,7,0.4)]">
                 Ver Planes 
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -94,7 +103,7 @@
             <div class="reveal scale-up delay-300 relative w-full max-w-3xl mx-auto mb-12 rounded-xl overflow-hidden shadow-2xl shadow-[#F24607]/10 border border-[#F2F2F2]/10 bg-[#041010] group">
                 <div class="video-container group-hover:scale-[1.01] transition-transform duration-700">
                     <iframe 
-                        src="https://www.youtube.com/embed/sqVGSxYMrr8?autoplay=1&mute=1&controls=1&loop=1&playlist=sqVGSxYMrr8&modestbranding=1&rel=0&iv_load_policy=3" 
+                        src="https://www.youtube.com/embed/PR7epvDJqrM?autoplay=1&mute=1&controls=1&loop=1&playlist=PR7epvDJqrM&modestbranding=1&rel=0&iv_load_policy=3" 
                         title="591 Creative Studio VSL" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -439,3 +448,6 @@
     </script>
 </body>
 </html>
+
+
+```

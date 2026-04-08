@@ -87,6 +87,17 @@
         .particle-18 { top: 15%; right: 40%; animation-delay: -23s; width: 28px; color: #F24607; }
         .particle-19 { top: 50%; left: 15%; animation-delay: -1s; width: 26px; }
         .particle-20 { top: 70%; right: 25%; animation-delay: -16s; width: 24px; }
+
+        /* MARQUESINA EN CONSTRUCCIÓN */
+        @keyframes scroll-fast {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-scroll-fast {
+            display: flex;
+            width: 200%;
+            animation: scroll-fast 12s linear infinite;
+        }
     </style>
 </head>
 <body class="min-h-screen bg-[#0A2626] text-[#F2F2F2] font-sans selection:bg-[#F24607] selection:text-[#F2F2F2] overflow-x-hidden">
@@ -119,9 +130,9 @@
     </nav>
 
     <!-- HERO SECTION VSL -->
-    <header class="relative px-6 pt-40 pb-20 md:pt-48 md:pb-24 border-b border-[#F2F2F2]/5 overflow-hidden">
+    <header class="relative px-6 pt-40 pb-20 md:pt-48 md:pb-24 overflow-hidden">
         
-        <!-- Partículas de fondo (Micrófonos y elementos de estudio) -->
+        <!-- Partículas de fondo -->
         <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
             <svg class="bg-particle particle-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
             <svg class="bg-particle particle-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
@@ -148,7 +159,6 @@
             <!-- VSL CONTENEDOR CENTRAL -->
             <div class="reveal fade-bottom delay-200 max-w-4xl mx-auto mb-12">
                 <div class="video-container group">
-                    <!-- NOTA: Reemplace el ID 'sqVGSxYMrr8' por el de su Video de Ventas (VSL) de Podcasts -->
                     <iframe src="https://www.youtube.com/embed/sqVGSxYMrr8?autoplay=1&mute=1&controls=1&rel=0&showinfo=0&modestbranding=1" title="VSL Producción Audiovisual" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <p class="text-xs text-[#F2F2F2]/40 mt-3 text-center uppercase tracking-widest font-semibold">* Active el sonido en el reproductor para escuchar la presentación.</p>
@@ -162,266 +172,145 @@
             </div>
         </div>
 
-        <!-- Efectos de Fondo -->
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#F24607]/5 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
     </header>
 
+    <!-- BANNER EN CONSTRUCCIÓN #1 -->
+    <div class="w-full bg-gradient-to-r from-[#F24607] to-[#d13c06] py-3 overflow-hidden border-y border-[#F2F2F2]/20 relative z-40 shadow-[0_0_30px_rgba(242,70,7,0.3)]">
+        <div class="animate-scroll-fast flex items-center gap-12 whitespace-nowrap text-[#041010] font-black text-xl md:text-2xl uppercase tracking-[0.2em]">
+            <span>En Construcción</span> <span class="text-[#F2F2F2]/50">///</span> <span>Próximamente</span> <span class="text-[#F2F2F2]/50">///</span>
+            <span>En Construcción</span> <span class="text-[#F2F2F2]/50">///</span> <span>Próximamente</span> <span class="text-[#F2F2F2]/50">///</span>
+            <span>En Construcción</span> <span class="text-[#F2F2F2]/50">///</span> <span>Próximamente</span> <span class="text-[#F2F2F2]/50">///</span>
+            <span>En Construcción</span> <span class="text-[#F2F2F2]/50">///</span> <span>Próximamente</span> <span class="text-[#F2F2F2]/50">///</span>
+            <span>En Construcción</span> <span class="text-[#F2F2F2]/50">///</span> <span>Próximamente</span> <span class="text-[#F2F2F2]/50">///</span>
+            <span>En Construcción</span> <span class="text-[#F2F2F2]/50">///</span> <span>Próximamente</span> <span class="text-[#F2F2F2]/50">///</span>
+        </div>
+    </div>
+
     <!-- FASE 1: ALQUILER DE SET (STUDIO RENTAL) -->
     <section id="alquiler" class="px-6 py-24 bg-[#041010] border-b border-[#F2F2F2]/5 relative z-10">
-        <div class="max-w-7xl mx-auto">
-            <div class="reveal fade-bottom text-center mb-16">
+        <div class="max-w-7xl mx-auto relative opacity-50 select-none">
+            <!-- Capa protectora visual para denotar "En construcción" -->
+            <div class="absolute inset-0 z-30 bg-[#041010]/30 backdrop-blur-[2px]"></div>
+
+            <div class="text-center mb-16 relative z-10">
                 <h2 class="text-3xl md:text-5xl font-bold mb-4 text-white">Alquiler de Set <span class="text-[#F24607]">por Hora</span></h2>
                 <p class="text-[#F2F2F2]/70 max-w-2xl mx-auto text-lg">Seleccione el nivel de equipamiento técnico requerido para la grabación de sus episodios.</p>
             </div>
 
-            <!-- GRID UNIFORME DE MENOR A MAYOR PRECIO (CON RICH UI & DINAMISMO) -->
-            <div class="grid lg:grid-cols-3 gap-8 items-stretch mb-8">
+            <!-- GRID UNIFORME DE MENOR A MAYOR PRECIO -->
+            <div class="grid lg:grid-cols-3 gap-8 items-stretch mb-8 relative z-10">
                 
                 <!-- OPCIÓN 1 -->
-                <div class="reveal fade-bottom delay-100 bg-[#0A2626] border border-[#F2F2F2]/10 rounded-sm p-8 flex flex-col h-full relative transition-all duration-500 hover:border-[#F24607]/50 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(242,70,7,0.15)] z-10 hover:z-20 overflow-hidden group">
-                    <!-- Glow Background Animado -->
-                    <div class="absolute inset-0 bg-gradient-to-br from-[#F24607]/0 to-[#F24607]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                    <!-- Marca de Agua Gigante -->
-                    <div class="absolute -bottom-4 -right-4 text-[160px] font-black text-[#F2F2F2] opacity-[0.02] group-hover:text-[#F24607] group-hover:opacity-[0.04] group-hover:scale-105 transition-all duration-700 pointer-events-none select-none leading-none">01</div>
-
+                <div class="bg-[#0A2626] border border-[#F2F2F2]/10 rounded-sm p-8 flex flex-col h-full relative overflow-hidden group">
                     <h3 class="text-2xl font-black text-white uppercase tracking-wider mb-1 relative z-10">Opción 1</h3>
                     <p class="text-sm text-[#F2F2F2]/50 mb-6 font-medium h-10 relative z-10">Acceso a la infraestructura de audio e iluminación (Solo Set).</p>
-                    
-                    <div class="text-4xl font-black text-[#F24607] mb-6 border-b border-[#F2F2F2]/10 group-hover:border-[#F24607]/30 transition-colors duration-500 pb-6 flex items-baseline gap-2 relative z-10">
+                    <div class="text-4xl font-black text-[#F24607] mb-6 border-b border-[#F2F2F2]/10 pb-6 flex items-baseline gap-2 relative z-10">
                         -- <span class="text-lg text-[#F2F2F2]/50 font-normal uppercase">USD/hora</span>
                     </div>
-
-                    <!-- Dashboard Visual Interno -->
-                    <div class="grid grid-cols-2 gap-3 mb-6 relative z-10">
-                        <div class="bg-[#041010] border border-[#F2F2F2]/5 rounded-sm p-4 text-center group-hover:border-[#F24607]/30 group-hover:bg-[#F24607]/5 transition-all duration-500">
-                            <div class="flex justify-center mb-2 group-hover:-translate-y-1 transition-transform duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607]"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
-                            </div>
-                            <div class="text-[10px] font-black text-white uppercase tracking-wider leading-tight">Micrófonos<br>Profesionales</div>
-                        </div>
-                        <div class="bg-[#041010] border border-[#F2F2F2]/5 rounded-sm p-4 text-center group-hover:border-[#F24607]/30 group-hover:bg-[#F24607]/5 transition-all duration-500">
-                            <div class="flex justify-center mb-2 group-hover:-translate-y-1 transition-transform duration-300">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607]"><circle cx="12" cy="12" r="5"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/><path d="M1 12h2"/><path d="M21 12h2"/><path d="M4.22 19.78l1.42-1.42"/><path d="M18.36 5.64l1.42 1.42"/></svg>
-                            </div>
-                            <div class="text-[10px] font-black text-white uppercase tracking-wider">Iluminación</div>
-                        </div>
-                    </div>
-                    
                     <ul class="space-y-3 font-medium text-sm text-[#F2F2F2]/80 flex-grow mb-8 relative z-10">
-                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Iluminación LED y RGB Profesional</span></li>
-                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Micrófonos de Estudio</span></li>
-                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Mobiliario y Decoración</span></li>
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607]"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span>Iluminación LED y RGB Profesional</span></li>
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607]"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span>Micrófonos de Estudio</span></li>
                     </ul>
-
-                    <a href="https://wa.me/59177693829?text=Hola,%20deseo%20alquilar%20el%20Estudio%20de%20Podcast%20(Opción%201:%20Solo%20Set,%2040%20USD/hr)." target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 py-4 bg-[#041010] border border-[#F2F2F2]/10 text-[#F2F2F2]/80 font-black uppercase tracking-widest text-sm rounded-sm transition-all duration-300 hover:bg-[#F24607] hover:border-[#F24607] hover:text-white hover:shadow-[0_10px_20px_rgba(242,70,7,0.3)] mt-auto relative z-10 group/btn">
-                        <span class="group-hover/btn:-translate-x-1 transition-transform">Cotizar Opción 1</span>
-                        <svg class="group-hover/btn:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
+                    <div class="w-full inline-flex items-center justify-center gap-2 py-4 bg-[#041010] border border-[#F2F2F2]/10 text-[#F2F2F2]/40 font-black uppercase tracking-widest text-sm rounded-sm mt-auto relative z-10 cursor-not-allowed">No Disponible</div>
                 </div>
 
                 <!-- OPCIÓN 2 -->
-                <div class="reveal fade-bottom delay-200 bg-[#0A2626] border border-[#F2F2F2]/10 rounded-sm p-8 flex flex-col h-full relative transition-all duration-500 hover:border-[#F24607]/50 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(242,70,7,0.15)] z-10 hover:z-20 overflow-hidden group">
-                    <div class="absolute inset-0 bg-gradient-to-br from-[#F24607]/0 to-[#F24607]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                    <div class="absolute -bottom-4 -right-4 text-[160px] font-black text-[#F2F2F2] opacity-[0.02] group-hover:text-[#F24607] group-hover:opacity-[0.04] group-hover:scale-105 transition-all duration-700 pointer-events-none select-none leading-none">02</div>
-
+                <div class="bg-[#0A2626] border border-[#F2F2F2]/10 rounded-sm p-8 flex flex-col h-full relative overflow-hidden group">
                     <h3 class="text-2xl font-black text-white uppercase tracking-wider mb-1 relative z-10">Opción 2</h3>
                     <p class="text-sm text-[#F2F2F2]/50 mb-6 font-medium h-10 relative z-10">Set completo + 2 cámaras + Realización en vivo.</p>
-                    
-                    <div class="text-4xl font-black text-[#F24607] mb-6 border-b border-[#F2F2F2]/10 group-hover:border-[#F24607]/30 transition-colors duration-500 pb-6 flex items-baseline gap-2 relative z-10">
+                    <div class="text-4xl font-black text-[#F24607] mb-6 border-b border-[#F2F2F2]/10 pb-6 flex items-baseline gap-2 relative z-10">
                         --- <span class="text-lg text-[#F2F2F2]/50 font-normal uppercase">USD/hora</span>
                     </div>
-
-                    <!-- Dashboard Visual Interno -->
-                    <div class="grid grid-cols-2 gap-3 mb-6 relative z-10">
-                        <div class="bg-[#041010] border border-[#F2F2F2]/5 rounded-sm p-4 text-center group-hover:border-[#F24607]/30 group-hover:bg-[#F24607]/5 transition-all duration-500">
-                            <div class="text-3xl font-black text-white mb-1 group-hover:-translate-y-1 group-hover:text-[#F24607] transition-all duration-300">2</div>
-                            <div class="text-[10px] font-black text-white uppercase tracking-wider">Cámaras 4K</div>
-                        </div>
-                        <div class="bg-[#041010] border border-[#F2F2F2]/5 rounded-sm p-4 text-center group-hover:border-[#F24607]/30 group-hover:bg-[#F24607]/5 transition-all duration-500">
-                            <div class="flex justify-center mb-1 group-hover:-translate-y-1 transition-transform duration-300 text-white group-hover:text-[#F24607]">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                            </div>
-                            <div class="text-[10px] font-black text-white uppercase tracking-wider mt-1">Realizador</div>
-                        </div>
-                    </div>
-                    
                     <ul class="space-y-3 font-medium text-sm text-[#F2F2F2]/80 flex-grow mb-8 relative z-10">
-                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Iluminación LED y RGB Profesional</span></li>
-                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Micrófonos de Estudio</span></li>
-                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Mobiliario y Decoración</span></li>
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607]"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span>2 Cámaras 4K</span></li>
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607]"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span>Realizador en vivo</span></li>
                     </ul>
-
-                    <a href="https://wa.me/59177693829?text=Hola,%20deseo%20alquilar%20el%20Estudio%20de%20Podcast%20(Opción%202:%20Set%20+%202%20Cámaras)." target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 py-4 bg-[#041010] border border-[#F2F2F2]/10 text-[#F2F2F2]/80 font-black uppercase tracking-widest text-sm rounded-sm transition-all duration-300 hover:bg-[#F24607] hover:border-[#F24607] hover:text-white hover:shadow-[0_10px_20px_rgba(242,70,7,0.3)] mt-auto relative z-10 group/btn">
-                        <span class="group-hover/btn:-translate-x-1 transition-transform">Cotizar Opción 2</span>
-                        <svg class="group-hover/btn:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
+                    <div class="w-full inline-flex items-center justify-center gap-2 py-4 bg-[#041010] border border-[#F2F2F2]/10 text-[#F2F2F2]/40 font-black uppercase tracking-widest text-sm rounded-sm mt-auto relative z-10 cursor-not-allowed">No Disponible</div>
                 </div>
 
                 <!-- OPCIÓN 3 -->
-                <div class="reveal fade-bottom delay-300 bg-[#0A2626] border border-[#F2F2F2]/10 rounded-sm p-8 flex flex-col h-full relative transition-all duration-500 hover:border-[#F24607]/50 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(242,70,7,0.15)] z-10 hover:z-20 overflow-hidden group">
-                    <div class="absolute inset-0 bg-gradient-to-br from-[#F24607]/0 to-[#F24607]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                    <div class="absolute -bottom-4 -right-4 text-[160px] font-black text-[#F2F2F2] opacity-[0.02] group-hover:text-[#F24607] group-hover:opacity-[0.04] group-hover:scale-105 transition-all duration-700 pointer-events-none select-none leading-none">03</div>
-
+                <div class="bg-[#0A2626] border border-[#F2F2F2]/10 rounded-sm p-8 flex flex-col h-full relative overflow-hidden group">
                     <h3 class="text-2xl font-black text-white uppercase tracking-wider mb-1 relative z-10">Opción 3</h3>
                     <p class="text-sm text-[#F2F2F2]/50 mb-6 font-medium h-10 relative z-10">Set completo + 3 cámaras + Realización en vivo.</p>
-                    
-                    <div class="text-4xl font-black text-[#F24607] mb-6 border-b border-[#F2F2F2]/10 group-hover:border-[#F24607]/30 transition-colors duration-500 pb-6 flex items-baseline gap-2 relative z-10">
+                    <div class="text-4xl font-black text-[#F24607] mb-6 border-b border-[#F2F2F2]/10 pb-6 flex items-baseline gap-2 relative z-10">
                         --- <span class="text-lg text-[#F2F2F2]/50 font-normal uppercase">USD/hora</span>
                     </div>
-
-                    <!-- Dashboard Visual Interno -->
-                    <div class="grid grid-cols-2 gap-3 mb-6 relative z-10">
-                        <div class="bg-[#041010] border border-[#F2F2F2]/5 rounded-sm p-4 text-center group-hover:border-[#F24607]/30 group-hover:bg-[#F24607]/5 transition-all duration-500">
-                            <div class="text-3xl font-black text-white mb-1 group-hover:-translate-y-1 group-hover:text-[#F24607] transition-all duration-300">3</div>
-                            <div class="text-[10px] font-black text-white uppercase tracking-wider">Cámaras 4K</div>
-                        </div>
-                        <div class="bg-[#041010] border border-[#F2F2F2]/5 rounded-sm p-4 text-center group-hover:border-[#F24607]/30 group-hover:bg-[#F24607]/5 transition-all duration-500">
-                            <div class="flex justify-center mb-1 group-hover:-translate-y-1 transition-transform duration-300 text-white group-hover:text-[#F24607]">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                            </div>
-                            <div class="text-[10px] font-black text-white uppercase tracking-wider mt-1">Realizador</div>
-                        </div>
-                    </div>
-                    
                     <ul class="space-y-3 font-medium text-sm text-[#F2F2F2]/80 flex-grow mb-8 relative z-10">
-                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Iluminación LED y RGB Profesional</span></li>
-                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Micrófonos de Estudio</span></li>
-                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Mobiliario y Decoración</span></li>
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607]"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span>3 Cámaras 4K</span></li>
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607]"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span>Realizador en vivo</span></li>
                     </ul>
-
-                    <a href="https://wa.me/59177693829?text=Hola,%20deseo%20alquilar%20el%20Estudio%20de%20Podcast%20(Opción%203:%20Set%20+%203%20Cámaras)." target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 py-4 bg-[#041010] border border-[#F2F2F2]/10 text-[#F2F2F2]/80 font-black uppercase tracking-widest text-sm rounded-sm transition-all duration-300 hover:bg-[#F24607] hover:border-[#F24607] hover:text-white hover:shadow-[0_10px_20px_rgba(242,70,7,0.3)] mt-auto relative z-10 group/btn">
-                        <span class="group-hover/btn:-translate-x-1 transition-transform">Cotizar Opción 3</span>
-                        <svg class="group-hover/btn:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
+                    <div class="w-full inline-flex items-center justify-center gap-2 py-4 bg-[#041010] border border-[#F2F2F2]/10 text-[#F2F2F2]/40 font-black uppercase tracking-widest text-sm rounded-sm mt-auto relative z-10 cursor-not-allowed">No Disponible</div>
                 </div>
-
             </div>
         </div>
     </section>
 
+    <!-- BANNER EN CONSTRUCCIÓN #2 -->
+    <div class="w-full bg-gradient-to-r from-[#F24607] to-[#d13c06] py-3 overflow-hidden border-y border-[#F2F2F2]/20 relative z-40 shadow-[0_0_30px_rgba(242,70,7,0.3)]">
+        <div class="animate-scroll-fast flex items-center gap-12 whitespace-nowrap text-[#041010] font-black text-xl md:text-2xl uppercase tracking-[0.2em]">
+            <span>En Construcción</span> <span class="text-[#F2F2F2]/50">///</span> <span>Próximamente</span> <span class="text-[#F2F2F2]/50">///</span>
+            <span>En Construcción</span> <span class="text-[#F2F2F2]/50">///</span> <span>Próximamente</span> <span class="text-[#F2F2F2]/50">///</span>
+            <span>En Construcción</span> <span class="text-[#F2F2F2]/50">///</span> <span>Próximamente</span> <span class="text-[#F2F2F2]/50">///</span>
+            <span>En Construcción</span> <span class="text-[#F2F2F2]/50">///</span> <span>Próximamente</span> <span class="text-[#F2F2F2]/50">///</span>
+            <span>En Construcción</span> <span class="text-[#F2F2F2]/50">///</span> <span>Próximamente</span> <span class="text-[#F2F2F2]/50">///</span>
+            <span>En Construcción</span> <span class="text-[#F2F2F2]/50">///</span> <span>Próximamente</span> <span class="text-[#F2F2F2]/50">///</span>
+        </div>
+    </div>
+
     <!-- FASE 2: PRODUCCIÓN Y EDICIÓN -->
     <section id="produccion" class="px-6 py-24 bg-[#061818] border-b border-[#F2F2F2]/5 relative z-10">
-        <div class="max-w-7xl mx-auto">
-            <div class="reveal fade-bottom text-center mb-16">
+        <div class="max-w-7xl mx-auto relative opacity-50 select-none">
+            <div class="absolute inset-0 z-30 bg-[#061818]/30 backdrop-blur-[2px]"></div>
+            
+            <div class="text-center mb-16 relative z-10">
                 <h2 class="text-3xl md:text-5xl font-bold mb-4 text-white">Producción <span class="text-[#F24607]">+ Edición</span></h2>
                 <p class="text-[#F2F2F2]/70 max-w-2xl mx-auto text-lg">Elija la opción que más se adapte a su proyecto, todas las opciones incluyen el alquiler del set completo.</p>
             </div>
 
-            <!-- GRID UNIFORME DE MENOR A MAYOR PRECIO EN Bs (CON RICH UI & DINAMISMO) -->
-            <div class="grid lg:grid-cols-3 gap-8 items-stretch mb-8">
+            <!-- GRID UNIFORME DE MENOR A MAYOR PRECIO -->
+            <div class="grid lg:grid-cols-3 gap-8 items-stretch mb-8 relative z-10">
                 
                 <!-- OPCIÓN 1 PRODUCCIÓN -->
-                <div class="reveal fade-bottom delay-100 bg-[#0A2626] border border-[#F2F2F2]/10 rounded-sm p-8 flex flex-col h-full relative transition-all duration-500 hover:border-[#F24607]/50 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(242,70,7,0.15)] z-10 hover:z-20 overflow-hidden group">
-                    <div class="absolute inset-0 bg-gradient-to-br from-[#F24607]/0 to-[#F24607]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                    <div class="absolute -bottom-4 -right-4 text-[160px] font-black text-[#F2F2F2] opacity-[0.02] group-hover:text-[#F24607] group-hover:opacity-[0.04] group-hover:scale-105 transition-all duration-700 pointer-events-none select-none leading-none">01</div>
-
+                <div class="bg-[#0A2626] border border-[#F2F2F2]/10 rounded-sm p-8 flex flex-col h-full relative overflow-hidden group">
                     <h3 class="text-2xl font-black text-white uppercase tracking-wider mb-1 relative z-10">Opción 1</h3>
                     <p class="text-sm text-[#F2F2F2]/50 mb-6 font-medium h-10 relative z-10">Formato esencial de producción audiovisual.</p>
-                    
-                    <div class="text-4xl font-black text-[#F24607] mb-6 border-b border-[#F2F2F2]/10 group-hover:border-[#F24607]/30 transition-colors duration-500 pb-6 flex items-baseline gap-2 relative z-10">
+                    <div class="text-4xl font-black text-[#F24607] mb-6 border-b border-[#F2F2F2]/10 pb-6 flex items-baseline gap-2 relative z-10">
                         --- <span class="text-lg text-[#F2F2F2]/50 font-normal uppercase">Bs/episodio</span>
                     </div>
-
-                    <!-- Dashboard Visual Interno -->
-                    <div class="grid grid-cols-2 gap-3 mb-6 relative z-10">
-                        <div class="bg-[#041010] border border-[#F2F2F2]/5 rounded-sm p-4 text-center group-hover:border-[#F24607]/30 group-hover:bg-[#F24607]/5 transition-all duration-500">
-                            <div class="flex justify-center mb-1 group-hover:-translate-y-1 transition-transform duration-300 text-white group-hover:text-[#F24607]">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2"/><path d="M12 12h.01"/><path d="M17 12h.01"/><path d="M7 12h.01"/></svg>
-                            </div>
-                            <div class="text-[10px] font-black text-white uppercase tracking-wider mt-1">Podcast Full</div>
-                        </div>
-                        <div class="bg-[#041010] border border-[#F2F2F2]/5 rounded-sm p-4 text-center group-hover:border-[#F24607]/30 group-hover:bg-[#F24607]/5 transition-all duration-500">
-                            <div class="text-3xl font-black text-white mb-1 group-hover:-translate-y-1 group-hover:text-[#F24607] transition-all duration-300">3</div>
-                            <div class="text-[10px] font-black text-white uppercase tracking-wider">Shorts Vert.</div>
-                        </div>
-                    </div>
-                    
                     <ul class="space-y-3 font-medium text-sm text-[#F2F2F2]/80 flex-grow mb-8 relative z-10">
-                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Podcast Completo (Horizontal)</span></li>
-                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">3 Shorts Extractos (Verticales)</span></li>
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607]"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span>Podcast Completo</span></li>
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607]"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span>3 Shorts Verticales</span></li>
                     </ul>
-
-                    <a href="https://wa.me/59177693829?text=Hola,%20deseo%20cotizar%20la%20Producción%20de%20Podcast%20(Opción%201:%20Completo%20+%203%20Shorts)." target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 py-4 bg-[#041010] border border-[#F2F2F2]/10 text-[#F2F2F2]/80 font-black uppercase tracking-widest text-sm rounded-sm transition-all duration-300 hover:bg-[#F24607] hover:border-[#F24607] hover:text-white hover:shadow-[0_10px_20px_rgba(242,70,7,0.3)] mt-auto relative z-10 group/btn">
-                        <span class="group-hover/btn:-translate-x-1 transition-transform">Cotizar Opción 1</span>
-                        <svg class="group-hover/btn:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
+                    <div class="w-full inline-flex items-center justify-center gap-2 py-4 bg-[#041010] border border-[#F2F2F2]/10 text-[#F2F2F2]/40 font-black uppercase tracking-widest text-sm rounded-sm mt-auto relative z-10 cursor-not-allowed">No Disponible</div>
                 </div>
 
                 <!-- OPCIÓN 2 PRODUCCIÓN -->
-                <div class="reveal fade-bottom delay-200 bg-[#0A2626] border border-[#F2F2F2]/10 rounded-sm p-8 flex flex-col h-full relative transition-all duration-500 hover:border-[#F24607]/50 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(242,70,7,0.15)] z-10 hover:z-20 overflow-hidden group">
-                    <div class="absolute inset-0 bg-gradient-to-br from-[#F24607]/0 to-[#F24607]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                    <div class="absolute -bottom-4 -right-4 text-[160px] font-black text-[#F2F2F2] opacity-[0.02] group-hover:text-[#F24607] group-hover:opacity-[0.04] group-hover:scale-105 transition-all duration-700 pointer-events-none select-none leading-none">02</div>
-
+                <div class="bg-[#0A2626] border border-[#F2F2F2]/10 rounded-sm p-8 flex flex-col h-full relative overflow-hidden group">
                     <h3 class="text-2xl font-black text-white uppercase tracking-wider mb-1 relative z-10">Opción 2</h3>
                     <p class="text-sm text-[#F2F2F2]/50 mb-6 font-medium h-10 relative z-10">Desarrollo completo con fragmentación estándar.</p>
-                    
-                    <div class="text-4xl font-black text-[#F24607] mb-6 border-b border-[#F2F2F2]/10 group-hover:border-[#F24607]/30 transition-colors duration-500 pb-6 flex items-baseline gap-2 relative z-10">
+                    <div class="text-4xl font-black text-[#F24607] mb-6 border-b border-[#F2F2F2]/10 pb-6 flex items-baseline gap-2 relative z-10">
                         --- <span class="text-lg text-[#F2F2F2]/50 font-normal uppercase">Bs/episodio</span>
                     </div>
-
-                    <!-- Dashboard Visual Interno -->
-                    <div class="grid grid-cols-2 gap-3 mb-6 relative z-10">
-                        <div class="bg-[#041010] border border-[#F2F2F2]/5 rounded-sm p-4 text-center group-hover:border-[#F24607]/30 group-hover:bg-[#F24607]/5 transition-all duration-500">
-                            <div class="flex justify-center mb-1 group-hover:-translate-y-1 transition-transform duration-300 text-white group-hover:text-[#F24607]">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2"/><path d="M12 12h.01"/><path d="M17 12h.01"/><path d="M7 12h.01"/></svg>
-                            </div>
-                            <div class="text-[10px] font-black text-white uppercase tracking-wider mt-1">Podcast Full</div>
-                        </div>
-                        <div class="bg-[#041010] border border-[#F2F2F2]/5 rounded-sm p-4 text-center group-hover:border-[#F24607]/30 group-hover:bg-[#F24607]/5 transition-all duration-500">
-                            <div class="text-3xl font-black text-white mb-1 group-hover:-translate-y-1 group-hover:text-[#F24607] transition-all duration-300">5</div>
-                            <div class="text-[10px] font-black text-white uppercase tracking-wider">Shorts Vert.</div>
-                        </div>
-                    </div>
-                    
                     <ul class="space-y-3 font-medium text-sm text-[#F2F2F2]/80 flex-grow mb-8 relative z-10">
-                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Teaser de Estreno (Vert. o Horiz.)</span></li>
-                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Podcast Completo (Horizontal)</span></li>
-                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">5 Shorts Extractos (Verticales)</span></li>
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607]"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span>Teaser + Podcast Completo</span></li>
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607]"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span>5 Shorts Verticales</span></li>
                     </ul>
-
-                    <a href="https://wa.me/59177693829?text=Hola,%20deseo%20cotizar%20la%20Producción%20de%20Podcast%20(Opción%202:%20Completo%20+%205%20Shorts)." target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 py-4 bg-[#041010] border border-[#F2F2F2]/10 text-[#F2F2F2]/80 font-black uppercase tracking-widest text-sm rounded-sm transition-all duration-300 hover:bg-[#F24607] hover:border-[#F24607] hover:text-white hover:shadow-[0_10px_20px_rgba(242,70,7,0.3)] mt-auto relative z-10 group/btn">
-                        <span class="group-hover/btn:-translate-x-1 transition-transform">Cotizar Opción 2</span>
-                        <svg class="group-hover/btn:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
+                    <div class="w-full inline-flex items-center justify-center gap-2 py-4 bg-[#041010] border border-[#F2F2F2]/10 text-[#F2F2F2]/40 font-black uppercase tracking-widest text-sm rounded-sm mt-auto relative z-10 cursor-not-allowed">No Disponible</div>
                 </div>
 
                 <!-- OPCIÓN 3 PRODUCCIÓN -->
-                <div class="reveal fade-bottom delay-300 bg-[#0A2626] border border-[#F2F2F2]/10 rounded-sm p-8 flex flex-col h-full relative transition-all duration-500 hover:border-[#F24607]/50 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(242,70,7,0.15)] z-10 hover:z-20 overflow-hidden group">
-                    <div class="absolute inset-0 bg-gradient-to-br from-[#F24607]/0 to-[#F24607]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                    <div class="absolute -bottom-4 -right-4 text-[160px] font-black text-[#F2F2F2] opacity-[0.02] group-hover:text-[#F24607] group-hover:opacity-[0.04] group-hover:scale-105 transition-all duration-700 pointer-events-none select-none leading-none">03</div>
-
+                <div class="bg-[#0A2626] border border-[#F2F2F2]/10 rounded-sm p-8 flex flex-col h-full relative overflow-hidden group">
                     <h3 class="text-2xl font-black text-white uppercase tracking-wider mb-1 relative z-10">Opción 3</h3>
-                    <p class="text-sm text-[#F2F2F2]/50 mb-6 font-medium h-10 relative z-10">Desarrollo completo con fragmentación masiva para redes.</p>
-                    
-                    <div class="text-4xl font-black text-[#F24607] mb-6 border-b border-[#F2F2F2]/10 group-hover:border-[#F24607]/30 transition-colors duration-500 pb-6 flex items-baseline gap-2 relative z-10">
+                    <p class="text-sm text-[#F2F2F2]/50 mb-6 font-medium h-10 relative z-10">Desarrollo completo con fragmentación masiva.</p>
+                    <div class="text-4xl font-black text-[#F24607] mb-6 border-b border-[#F2F2F2]/10 pb-6 flex items-baseline gap-2 relative z-10">
                         --- <span class="text-lg text-[#F2F2F2]/50 font-normal uppercase">Bs/episodio</span>
                     </div>
-
-                    <!-- Dashboard Visual Interno -->
-                    <div class="grid grid-cols-2 gap-3 mb-6 relative z-10">
-                        <div class="bg-[#041010] border border-[#F2F2F2]/5 rounded-sm p-4 text-center group-hover:border-[#F24607]/30 group-hover:bg-[#F24607]/5 transition-all duration-500">
-                            <div class="flex justify-center mb-1 group-hover:-translate-y-1 transition-transform duration-300 text-white group-hover:text-[#F24607]">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2"/><path d="M12 12h.01"/><path d="M17 12h.01"/><path d="M7 12h.01"/></svg>
-                            </div>
-                            <div class="text-[10px] font-black text-white uppercase tracking-wider mt-1">Podcast Full</div>
-                        </div>
-                        <div class="bg-[#041010] border border-[#F2F2F2]/5 rounded-sm p-4 text-center group-hover:border-[#F24607]/30 group-hover:bg-[#F24607]/5 transition-all duration-500">
-                            <div class="text-3xl font-black text-white mb-1 group-hover:-translate-y-1 group-hover:text-[#F24607] transition-all duration-300">6</div>
-                            <div class="text-[10px] font-black text-white uppercase tracking-wider">Shorts Vert.</div>
-                        </div>
-                    </div>
-                    
                     <ul class="space-y-3 font-medium text-sm text-[#F2F2F2]/80 flex-grow mb-8 relative z-10">
-                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Teaser de Estreno (Vert. o Horiz.)</span></li>
-                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Podcast Completo (Horizontal)</span></li>
-                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">6 Shorts Extractos (Verticales)</span></li>
-                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607] transition-transform duration-300 group-hover/item:translate-x-1 group-hover/item:scale-110"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="transition-colors group-hover/item:text-white">Diseño de Miniaturas YouTube</span></li>
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607]"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span>Podcast Full + Teaser</span></li>
+                        <li class="flex items-center gap-3 group/item"><span class="text-[#F24607]"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span>6 Shorts Verticales</span></li>
                     </ul>
-
-                    <a href="https://wa.me/59177693829?text=Hola,%20deseo%20cotizar%20la%20Producción%20de%20Podcast%20(Opción%203:%20Completo%20+%206%20Shorts)." target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 py-4 bg-[#041010] border border-[#F2F2F2]/10 text-[#F2F2F2]/80 font-black uppercase tracking-widest text-sm rounded-sm transition-all duration-300 hover:bg-[#F24607] hover:border-[#F24607] hover:text-white hover:shadow-[0_10px_20px_rgba(242,70,7,0.3)] mt-auto relative z-10 group/btn">
-                        <span class="group-hover/btn:-translate-x-1 transition-transform">Cotizar Opción 3</span>
-                        <svg class="group-hover/btn:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
+                    <div class="w-full inline-flex items-center justify-center gap-2 py-4 bg-[#041010] border border-[#F2F2F2]/10 text-[#F2F2F2]/40 font-black uppercase tracking-widest text-sm rounded-sm mt-auto relative z-10 cursor-not-allowed">No Disponible</div>
                 </div>
 
             </div>
@@ -430,64 +319,38 @@
 
     <!-- FASE 3: DISTRIBUCIÓN E IDENTIDAD VISUAL (ADD-ONS SIN BOTÓN) -->
     <section class="px-6 py-24 bg-[#0A2626] border-b border-[#F2F2F2]/5 relative z-10">
-        <div class="max-w-7xl mx-auto">
+        <div class="max-w-7xl mx-auto relative opacity-50 select-none">
+            <div class="absolute inset-0 z-30 bg-[#0A2626]/30 backdrop-blur-[2px]"></div>
             
             <!-- DISTRIBUCIÓN -->
-            <div class="reveal fade-bottom delay-100 bg-[#041010] border border-[#F2F2F2]/10 rounded-sm p-8 md:p-12 mb-12 relative overflow-hidden group hover:border-[#F24607]/50 transition-colors duration-500">
-                <div class="absolute top-1/2 left-0 -translate-y-1/2 w-64 h-64 bg-[#F24607]/5 rounded-full blur-[60px] pointer-events-none group-hover:bg-[#F24607]/10 transition-colors duration-700"></div>
-                
+            <div class="bg-[#041010] border border-[#F2F2F2]/10 rounded-sm p-8 md:p-12 mb-12 relative overflow-hidden group">
                 <div class="md:flex justify-between items-center gap-8 relative z-10">
                     <div class="md:w-2/3 mb-6 md:mb-0">
-                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-sm border border-[#F24607]/30 text-[#F24607] text-xs font-bold uppercase tracking-widest mb-4">
-                            Extensión Multiplataforma
-                        </div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-sm border border-[#F24607]/30 text-[#F24607] text-xs font-bold uppercase tracking-widest mb-4">Extensión Multiplataforma</div>
                         <h3 class="text-3xl md:text-4xl font-black uppercase tracking-tight mb-4">
                             <span class="text-white">Producción + Edición +</span> <span class="text-[#F24607]">Distribución</span>
                         </h3>
                         <p class="text-[#F2F2F2]/60 text-lg mb-6 max-w-xl">Añada a cualquiera de los planes anteriores la delegación absoluta de la distribución algorítmica de su contenido.</p>
-                        
-                        <div class="grid sm:grid-cols-2 gap-4">
-                            <div class="flex items-start gap-3"><span class="text-[#F24607] mt-1">✦</span> <span class="text-[#F2F2F2]/80 text-sm">Publicación de Shorts en IG, TikTok y FB.</span></div>
-                            <div class="flex items-start gap-3"><span class="text-[#F24607] mt-1">✦</span> <span class="text-[#F2F2F2]/80 text-sm">Redacción de copys y títulos persuasivos.</span></div>
-                            <div class="flex items-start gap-3 sm:col-span-2"><span class="text-[#F24607] mt-1">✦</span> <span class="text-[#F2F2F2]/80 text-sm">Publicación de episodio completo + redacción de descripción (SEO) en YouTube.</span></div>
-                        </div>
                     </div>
-                    
                     <div class="md:w-1/3 text-left md:text-right flex flex-col items-end justify-center">
-                        <div class="text-5xl font-black text-[#F24607] mb-2 flex items-baseline gap-2">
-                            --- <span class="text-xl text-[#F2F2F2]/50 font-normal uppercase">Bs</span>
-                        </div>
+                        <div class="text-5xl font-black text-[#F24607] mb-2 flex items-baseline gap-2">--- <span class="text-xl text-[#F2F2F2]/50 font-normal uppercase">Bs</span></div>
                         <p class="text-xs text-[#F2F2F2]/40 font-semibold uppercase tracking-widest">Inversión adicional a su plan</p>
                     </div>
                 </div>
             </div>
 
             <!-- IDENTIDAD VISUAL -->
-            <div class="reveal fade-bottom delay-200 bg-[#041010] border border-[#F2F2F2]/10 rounded-sm p-8 md:p-12 relative overflow-hidden group hover:border-[#F24607]/50 transition-colors duration-500">
-                <div class="absolute top-1/2 right-0 -translate-y-1/2 w-64 h-64 bg-[#F24607]/5 rounded-full blur-[60px] pointer-events-none group-hover:bg-[#F24607]/10 transition-colors duration-700"></div>
-                
+            <div class="bg-[#041010] border border-[#F2F2F2]/10 rounded-sm p-8 md:p-12 relative overflow-hidden group">
                 <div class="md:flex justify-between items-center gap-8 relative z-10">
                     <div class="md:w-2/3 mb-6 md:mb-0">
-                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-sm border border-[#F24607]/30 text-[#F24607] text-xs font-bold uppercase tracking-widest mb-4">
-                            Branding del Programa
-                        </div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-sm border border-[#F24607]/30 text-[#F24607] text-xs font-bold uppercase tracking-widest mb-4">Branding del Programa</div>
                         <h3 class="text-3xl md:text-4xl font-black uppercase tracking-tight mb-4">
                             <span class="text-white">Diseño de Identidad</span> <span class="text-[#F24607]">Visual</span>
                         </h3>
                         <p class="text-[#F2F2F2]/60 text-lg mb-6 max-w-xl">Construimos la línea gráfica y los assets visuales corporativos (Branding) para que su videopodcast transmita autoridad desde el primer segundo.</p>
-                        
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                            <div class="bg-[#0A2626] border border-[#F2F2F2]/5 rounded-sm p-3 text-center text-[#F2F2F2]/80 text-sm font-semibold">Cortinas</div>
-                            <div class="bg-[#0A2626] border border-[#F2F2F2]/5 rounded-sm p-3 text-center text-[#F2F2F2]/80 text-sm font-semibold">Títulos</div>
-                            <div class="bg-[#0A2626] border border-[#F2F2F2]/5 rounded-sm p-3 text-center text-[#F2F2F2]/80 text-sm font-semibold">Banners</div>
-                            <div class="bg-[#0A2626] border border-[#F2F2F2]/5 rounded-sm p-3 text-center text-[#F2F2F2]/80 text-sm font-semibold">Intro/Outro</div>
-                        </div>
                     </div>
-                    
                     <div class="md:w-1/3 text-left md:text-right flex flex-col items-end justify-center">
-                        <div class="text-5xl font-black text-[#F24607] mb-2 flex items-baseline gap-2">
-                            --- <span class="text-xl text-[#F2F2F2]/50 font-normal uppercase">Bs</span>
-                        </div>
+                        <div class="text-5xl font-black text-[#F24607] mb-2 flex items-baseline gap-2">--- <span class="text-xl text-[#F2F2F2]/50 font-normal uppercase">Bs</span></div>
                         <p class="text-xs text-[#F2F2F2]/40 font-semibold uppercase tracking-widest">Inversión única</p>
                     </div>
                 </div>
@@ -496,32 +359,40 @@
         </div>
     </section>
 
-    <!-- CONTACTO ESTRATÉGICO -->
+    <!-- BANNER EN CONSTRUCCIÓN #3 -->
+    <div class="w-full bg-gradient-to-r from-[#F24607] to-[#d13c06] py-3 overflow-hidden border-y border-[#F2F2F2]/20 relative z-40 shadow-[0_0_30px_rgba(242,70,7,0.3)]">
+        <div class="animate-scroll-fast flex items-center gap-12 whitespace-nowrap text-[#041010] font-black text-xl md:text-2xl uppercase tracking-[0.2em]">
+            <span>En Construcción</span> <span class="text-[#F2F2F2]/50">///</span> <span>Próximamente</span> <span class="text-[#F2F2F2]/50">///</span>
+            <span>En Construcción</span> <span class="text-[#F2F2F2]/50">///</span> <span>Próximamente</span> <span class="text-[#F2F2F2]/50">///</span>
+            <span>En Construcción</span> <span class="text-[#F2F2F2]/50">///</span> <span>Próximamente</span> <span class="text-[#F2F2F2]/50">///</span>
+            <span>En Construcción</span> <span class="text-[#F2F2F2]/50">///</span> <span>Próximamente</span> <span class="text-[#F2F2F2]/50">///</span>
+            <span>En Construcción</span> <span class="text-[#F2F2F2]/50">///</span> <span>Próximamente</span> <span class="text-[#F2F2F2]/50">///</span>
+            <span>En Construcción</span> <span class="text-[#F2F2F2]/50">///</span> <span>Próximamente</span> <span class="text-[#F2F2F2]/50">///</span>
+        </div>
+    </div>
+
+    <!-- CONTACTO ESTRATÉGICO (FORMULARIO A WHATSAPP) -->
     <section id="contacto" class="px-6 py-24 bg-[#041010] border-t border-[#F2F2F2]/5 relative z-10">
         <div class="max-w-4xl mx-auto">
             <div class="reveal fade-bottom text-center mb-12">
                 <h2 class="text-3xl md:text-5xl font-bold mb-4">Contacto Estratégico</h2>
-                <p class="text-[#F2F2F2]/70 text-lg">Comuníquese con nuestros directores técnicos para agendar el estudio o planificar el ecosistema de su próximo Podcast.</p>
+                <p class="text-[#F2F2F2]/70 text-lg">Comuníquese con nuestro equipo de directores para agendar el estudio o planificar el ecosistema de su próximo Podcast.</p>
             </div>
 
             <div class="reveal fade-bottom delay-100 bg-[#0A2626] border border-[#F2F2F2]/10 p-8 md:p-12 rounded-sm shadow-2xl">
                 <form id="wa-form" class="space-y-6">
                     
                     <div class="grid md:grid-cols-2 gap-6">
-                        <!-- Campo: Nombre -->
                         <div class="space-y-2">
                             <label for="wp-name" class="block text-sm font-semibold text-[#F2F2F2]/90">Nombre Completo <span class="text-[#F24607]">*</span></label>
                             <input type="text" id="wp-name" required class="w-full bg-[#041010] border border-[#F2F2F2]/20 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#F24607] transition-colors" placeholder="Ej. Carlos Mendoza">
                         </div>
-                        
-                        <!-- Campo: Empresa -->
                         <div class="space-y-2">
                             <label for="wp-company" class="block text-sm font-semibold text-[#F2F2F2]/90">Empresa / Marca <span class="text-[#F24607]">*</span></label>
                             <input type="text" id="wp-company" required class="w-full bg-[#041010] border border-[#F2F2F2]/20 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#F24607] transition-colors" placeholder="Nombre de su organización">
                         </div>
                     </div>
 
-                    <!-- Campo: Servicio de Podcast -->
                     <div class="space-y-2">
                         <label for="wp-service" class="block text-sm font-semibold text-[#F2F2F2]/90">Servicio Requerido <span class="text-[#F24607]">*</span></label>
                         <select id="wp-service" required class="w-full bg-[#041010] border border-[#F2F2F2]/20 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#F24607] transition-colors appearance-none">
@@ -533,13 +404,11 @@
                         </select>
                     </div>
 
-                    <!-- Campo: Detalles -->
                     <div class="space-y-2">
                         <label for="wp-details" class="block text-sm font-semibold text-[#F2F2F2]/90">Detalles del Proyecto <span class="text-[#F24607]">*</span></label>
                         <textarea id="wp-details" required rows="4" class="w-full bg-[#041010] border border-[#F2F2F2]/20 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#F24607] transition-colors resize-none" placeholder="¿Cuántas personas participarán? ¿Qué duración aproximada tendrá cada episodio?"></textarea>
                     </div>
 
-                    <!-- Botón de Envío del Formulario -->
                     <button type="submit" class="w-full bg-[#F24607] hover:bg-[#d13c06] text-white font-bold text-lg py-4 rounded-sm transition-all duration-300 shadow-[0_10px_20px_rgba(242,70,7,0.2)] flex items-center justify-center gap-2 hover:scale-[1.01]">
                         Enviar solicitud por WhatsApp
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4Z"/></svg>
@@ -565,7 +434,6 @@
 
     <!-- SCRIPT GENERAL -->
     <script>
-        // 1. Control de Animaciones (Scroll Reveal)
         document.addEventListener('DOMContentLoaded', () => {
             const reveals = document.querySelectorAll('.reveal');
             
@@ -588,7 +456,6 @@
                 revealOnScroll.observe(element);
             });
 
-            // 2. Lógica Smart Header
             const navbar = document.getElementById('main-nav');
             let lastScrollY = window.scrollY;
 
@@ -604,7 +471,6 @@
                 lastScrollY = currentScrollY;
             }, { passive: true });
 
-            // 3. Lógica del Formulario hacia WhatsApp
             const waForm = document.getElementById('wa-form');
             if (waForm) {
                 waForm.addEventListener('submit', function(event) {

@@ -2,12 +2,18 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>591 Creative Studio | Marketing Digital 360</title>
     <!-- Tailwind CSS Integrado -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        html { scroll-behavior: smooth; }
+        /* Bloqueo estricto de desplazamiento horizontal para móviles */
+        html, body { 
+            scroll-behavior: smooth; 
+            max-width: 100%;
+            overflow-x: hidden;
+            position: relative;
+        }
         
         /* Estilos para el contenedor del video (16:9 aspect ratio) */
         .video-container {
@@ -68,14 +74,13 @@
         }
     </style>
 </head>
-<body class="min-h-screen bg-[#0A2626] text-[#F2F2F2] font-sans selection:bg-[#F24607] selection:text-[#F2F2F2] overflow-x-hidden">
+<body class="min-h-screen bg-[#0A2626] text-[#F2F2F2] font-sans selection:bg-[#F24607] selection:text-[#F2F2F2] overflow-x-hidden w-full relative">
 
     <!-- NAVEGACIÓN -->
-    <nav id="main-nav" class="sticky top-0 z-50 bg-[#0A2626]/80 backdrop-blur-md border-b border-[#F2F2F2]/10 px-6 py-4 transition-transform duration-500 ease-in-out">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
+    <nav id="main-nav" class="sticky top-0 z-50 bg-[#0A2626]/80 backdrop-blur-md border-b border-[#F2F2F2]/10 px-6 py-4 transition-transform duration-500 ease-in-out w-full">
+        <div class="max-w-6xl mx-auto flex justify-between items-center w-full">
             <!-- Logo JPG y Nombre de la Agencia -->
             <a href="/" class="flex items-center justify-center group">
-                <!-- Se busca el archivo 'logo.jpg' en el mismo directorio -->
                 <img src="logo.jpg" alt="Logo" class="h-14 w-auto object-contain rounded-md transition-transform group-hover:scale-105" onerror="this.style.display='none'">
                 <span class="ml-4 text-xl md:text-2xl font-bold tracking-wide text-[#F2F2F2] group-hover:text-[#F24607] transition-colors">591 Creative Studio</span>
             </a>
@@ -96,9 +101,9 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <header class="relative px-6 py-16 md:py-24 overflow-hidden">
-        <div class="max-w-4xl mx-auto text-center relative z-10">
-            <div class="reveal fade-bottom inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F2F2F2]/10 border border-[#F24607]/30 text-[#F24607] text-sm font-medium mb-6 backdrop-blur-sm">
+    <header class="relative px-6 py-16 md:py-24 overflow-hidden w-full">
+        <div class="max-w-4xl mx-auto text-center relative z-10 w-full">
+            <div class="reveal fade-bottom inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F2F2F2]/10 border border-[#F24607]/30 text-[#F24607] text-sm font-medium mb-6 backdrop-blur-sm mx-auto">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
                 <span>Marketing Digital 360° + IA Integrada</span>
             </div>
@@ -106,7 +111,7 @@
                 <span class="text-[#F24607]">La evolución del marketing</span><br class="hidden md:block"/>
                 <span class="text-[#F2F2F2]">para escalar su negocio.</span>
             </h1>
-            <p class="reveal fade-bottom delay-200 text-lg md:text-xl text-[#F2F2F2]/80 mb-10 max-w-2xl mx-auto leading-relaxed">
+            <p class="reveal fade-bottom delay-200 text-lg md:text-xl text-[#F2F2F2]/80 mb-10 max-w-2xl mx-auto leading-relaxed px-2">
                 Generamos, filtramos y calificamos sus leads. Nuestro sistema combina lo mejor del marketing digital con la eficiencia de un Asistente de IA para WhatsApp Business. <strong>Usted solo se encarga de cerrar ventas.</strong>
             </p>
 
@@ -125,32 +130,34 @@
                 <!-- Indicador visual -->
                  <div class="absolute top-4 left-4 bg-black/60 text-[#F2F2F2] text-xs px-3 py-1.5 rounded-full backdrop-blur-sm flex items-center gap-2 pointer-events-none z-20 border border-white/10">
                     <div class="w-2 h-2 bg-[#F24607] rounded-full animate-pulse shadow-[0_0_8px_#F24607]"></div>
-                    Visualización Corporativa
+                    <span class="hidden sm:inline">Visualización Corporativa</span>
+                    <span class="sm:hidden">VSL</span>
                 </div>
             </div>
 
-            <div class="reveal fade-bottom delay-300 flex flex-col sm:flex-row gap-4 justify-center relative z-30">
-                <a href="https://wa.link/jar93g" target="_blank" rel="noopener noreferrer" class="bg-[#F24607] hover:bg-[#d13c06] hover:scale-105 transition-all duration-300 px-8 py-4 rounded-sm font-bold text-lg flex items-center justify-center gap-2 shadow-lg shadow-[#F24607]/20">
-                    Consultar Planes Mensuales
+            <div class="reveal fade-bottom delay-300 flex flex-col sm:flex-row gap-4 justify-center relative z-30 w-full px-2">
+                <a href="https://wa.link/jar93g" target="_blank" rel="noopener noreferrer" class="bg-[#25D366] hover:bg-[#1ebe57] hover:scale-105 transition-all duration-300 px-8 py-4 rounded-sm font-bold text-lg flex items-center justify-center gap-3 shadow-[0_10px_25px_rgba(37,211,102,0.35)] w-full sm:w-auto text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                    CONTÁCTANOS
                 </a>
-                <a href="#proceso" class="bg-transparent border border-[#F2F2F2]/30 hover:border-[#F2F2F2] hover:bg-[#F2F2F2]/5 transition-all duration-300 px-8 py-4 rounded-sm font-bold text-lg flex items-center justify-center gap-2">
+                <a href="#proceso" class="bg-transparent border border-[#F2F2F2]/30 hover:border-[#F2F2F2] hover:bg-[#F2F2F2]/5 transition-all duration-300 px-8 py-4 rounded-sm font-bold text-lg flex items-center justify-center gap-2 w-full sm:w-auto">
                     Conocer el Proceso
                 </a>
             </div>
         </div>
-        <!-- Decoración de fondo animada -->
-        <div class="bg-float absolute top-1/2 left-1/2 w-[800px] h-[800px] bg-[#F24607]/10 rounded-full blur-[100px] -z-0 pointer-events-none"></div>
+        <!-- Decoración de fondo animada contenida -->
+        <div class="bg-float absolute top-1/2 left-1/2 w-[800px] h-[800px] bg-[#F24607]/10 rounded-full blur-[100px] -z-0 pointer-events-none overflow-hidden max-w-[100vw]"></div>
     </header>
 
     <!-- PROPUESTA DE VALOR -->
-    <section class="px-6 py-24 bg-[#061818] relative z-10">
-        <div class="max-w-6xl mx-auto">
+    <section class="px-6 py-24 bg-[#061818] relative z-10 w-full overflow-hidden">
+        <div class="max-w-6xl mx-auto w-full">
             <div class="reveal fade-bottom text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">¿Por qué elegir nuestro ecosistema 360°?</h2>
-                <p class="text-[#F2F2F2]/70 max-w-2xl mx-auto">En un mercado competitivo, las campañas publicitarias por sí solas no son suficientes. Optimizamos todo el embudo de conversión.</p>
+                <h2 class="text-3xl font-bold mb-4 px-2">¿Por qué elegir nuestro ecosistema 360°?</h2>
+                <p class="text-[#F2F2F2]/70 max-w-2xl mx-auto px-2">En un mercado competitivo, las campañas publicitarias por sí solas no son suficientes. Optimizamos todo el embudo de conversión.</p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-3 gap-8 w-full">
                 <!-- Tarjeta 1 -->
                 <div class="reveal fade-bottom delay-100 bg-[#0A2626] p-8 rounded-sm border border-[#F2F2F2]/10 hover:border-[#F24607]/50 hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-[#F24607]/10">
                     <div class="w-12 h-12 bg-[#F24607]/10 rounded-sm flex items-center justify-center text-[#F24607] mb-6 transition-transform group-hover:scale-110">
@@ -180,21 +187,21 @@
     </section>
 
     <!-- METODOLOGÍA -->
-    <section id="proceso" class="px-6 py-24 border-t border-[#F2F2F2]/5 relative z-10 bg-[#0A2626]">
-        <div class="max-w-5xl mx-auto">
+    <section id="proceso" class="px-6 py-24 border-t border-[#F2F2F2]/5 relative z-10 bg-[#0A2626] w-full overflow-hidden">
+        <div class="max-w-5xl mx-auto w-full">
             <div class="reveal fade-bottom text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">Un Ciclo Completo de Ventas Automatizadas</h2>
-                <p class="text-[#F2F2F2]/70">Metodología comprobada de 5 fases para garantizar el retorno de inversión.</p>
+                <h2 class="text-3xl font-bold mb-4 px-2">Un Ciclo Completo de Ventas Automatizadas</h2>
+                <p class="text-[#F2F2F2]/70 px-2">Metodología comprobada de 5 fases para garantizar el retorno de inversión.</p>
             </div>
 
-            <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-[#F24607] before:to-transparent">
+            <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-[#F24607] before:to-transparent w-full">
                 
                 <!-- Fase 1 -->
-                <div class="reveal fade-right relative flex items-center justify-between md:justify-normal group">
+                <div class="reveal fade-right relative flex items-center justify-between md:justify-normal group w-full">
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#0A2626] bg-[#F24607] text-[#F2F2F2] shrink-0 md:order-1 md:translate-x-1/2 shadow transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_15px_#F24607]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>
                     </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-[#041010] hover:bg-[#061818] transition-colors duration-300 p-6 rounded-sm border border-[#F2F2F2]/10 shadow-lg">
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-[#041010] hover:bg-[#061818] transition-colors duration-300 p-6 rounded-sm border border-[#F2F2F2]/10 shadow-lg ml-auto md:ml-0 md:mr-auto">
                         <div class="flex items-center gap-3 mb-2">
                             <span class="text-[#F24607] font-bold text-sm">Fase 1</span>
                             <h4 class="font-bold text-lg">Análisis Interno y Externo</h4>
@@ -204,11 +211,11 @@
                 </div>
 
                 <!-- Fase 2 -->
-                <div class="reveal fade-left delay-100 relative flex items-center justify-between md:justify-normal md:flex-row-reverse group">
+                <div class="reveal fade-left delay-100 relative flex items-center justify-between md:justify-normal md:flex-row-reverse group w-full">
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#0A2626] bg-[#F24607] text-[#F2F2F2] shrink-0 md:order-1 md:-translate-x-1/2 shadow transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_15px_#F24607]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/></svg>
                     </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-[#041010] hover:bg-[#061818] transition-colors duration-300 p-6 rounded-sm border border-[#F2F2F2]/10 shadow-lg">
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-[#041010] hover:bg-[#061818] transition-colors duration-300 p-6 rounded-sm border border-[#F2F2F2]/10 shadow-lg ml-auto md:ml-auto md:mr-0">
                         <div class="flex items-center gap-3 mb-2">
                             <span class="text-[#F24607] font-bold text-sm">Fase 2</span>
                             <h4 class="font-bold text-lg">Producción de Contenido</h4>
@@ -218,11 +225,11 @@
                 </div>
 
                 <!-- Fase 3 -->
-                <div class="reveal fade-right delay-200 relative flex items-center justify-between md:justify-normal group">
+                <div class="reveal fade-right delay-200 relative flex items-center justify-between md:justify-normal group w-full">
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#0A2626] bg-[#F24607] text-[#F2F2F2] shrink-0 md:order-1 md:translate-x-1/2 shadow transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_15px_#F24607]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
                     </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-[#041010] hover:bg-[#061818] transition-colors duration-300 p-6 rounded-sm border border-[#F2F2F2]/10 shadow-lg">
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-[#041010] hover:bg-[#061818] transition-colors duration-300 p-6 rounded-sm border border-[#F2F2F2]/10 shadow-lg ml-auto md:ml-0 md:mr-auto">
                         <div class="flex items-center gap-3 mb-2">
                             <span class="text-[#F24607] font-bold text-sm">Fase 3</span>
                             <h4 class="font-bold text-lg">Ejecución de Campañas</h4>
@@ -232,11 +239,11 @@
                 </div>
 
                 <!-- Fase 4 -->
-                <div class="reveal fade-left delay-300 relative flex items-center justify-between md:justify-normal md:flex-row-reverse group">
+                <div class="reveal fade-left delay-300 relative flex items-center justify-between md:justify-normal md:flex-row-reverse group w-full">
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#0A2626] bg-[#F24607] text-[#F2F2F2] shrink-0 md:order-1 md:-translate-x-1/2 shadow transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_15px_#F24607]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
                     </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-[#041010] hover:bg-[#061818] transition-colors duration-300 p-6 rounded-sm border border-[#F2F2F2]/10 shadow-lg">
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-[#041010] hover:bg-[#061818] transition-colors duration-300 p-6 rounded-sm border border-[#F2F2F2]/10 shadow-lg ml-auto md:ml-auto md:mr-0">
                         <div class="flex items-center gap-3 mb-2">
                             <span class="text-[#F24607] font-bold text-sm">Fase 4</span>
                             <h4 class="font-bold text-lg">Calificación con IA</h4>
@@ -246,11 +253,11 @@
                 </div>
 
                 <!-- Fase 5 -->
-                <div class="reveal fade-right delay-200 relative flex items-center justify-between md:justify-normal group">
+                <div class="reveal fade-right delay-200 relative flex items-center justify-between md:justify-normal group w-full">
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#0A2626] bg-[#F24607] text-[#F2F2F2] shrink-0 md:order-1 md:translate-x-1/2 shadow transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_15px_#F24607]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
                     </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-[#041010] hover:bg-[#061818] transition-colors duration-300 p-6 rounded-sm border border-[#F2F2F2]/10 shadow-lg">
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-[#041010] hover:bg-[#061818] transition-colors duration-300 p-6 rounded-sm border border-[#F2F2F2]/10 shadow-lg ml-auto md:ml-0 md:mr-auto">
                         <div class="flex items-center gap-3 mb-2">
                             <span class="text-[#F24607] font-bold text-sm">Fase 5</span>
                             <h4 class="font-bold text-lg">Cierre y Conversión</h4>
@@ -263,26 +270,26 @@
     </section>
 
     <!-- PLANES DE INVERSIÓN -->
-    <section id="planes" class="px-6 py-24 bg-[#061818] relative">
+    <section id="planes" class="px-6 py-24 bg-[#061818] relative w-full overflow-hidden">
         <!-- Resplandor de fondo sutil -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-[#F24607]/5 rounded-[100%] blur-[80px] pointer-events-none"></div>
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] max-w-[100vw] h-[400px] bg-[#F24607]/5 rounded-[100%] blur-[80px] pointer-events-none"></div>
 
-        <div class="max-w-7xl mx-auto relative z-10">
+        <div class="max-w-7xl mx-auto relative z-10 w-full">
             <div class="reveal fade-bottom text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Planes de Inversión Mensual</h2>
-                <p class="text-[#F2F2F2]/70 max-w-2xl mx-auto">Soluciones escalables diseñadas para estructurar y acelerar el crecimiento comercial de su empresa.</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 px-2">Planes de Inversión Mensual</h2>
+                <p class="text-[#F2F2F2]/70 max-w-2xl mx-auto px-2">Soluciones escalables diseñadas para estructurar y acelerar el crecimiento comercial de su empresa.</p>
             </div>
 
-            <div class="grid lg:grid-cols-3 gap-8 items-start">
+            <div class="grid lg:grid-cols-3 gap-8 items-start w-full">
                 
                 <!-- PLAN FULL 360 -->
-                <div class="reveal fade-bottom delay-200 bg-[#F2F2F2] text-[#0A2626] border-2 border-[#F24607] rounded-sm p-8 flex flex-col h-full relative shadow-[0_15px_30px_rgba(242,70,7,0.15)] transform lg:-translate-y-4 hover:scale-[1.03] hover:shadow-[0_0_80px_rgba(242,70,7,0.5)] transition-all duration-500 z-10 hover:z-20">
-                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#F24607] text-[#F2F2F2] px-4 py-1 text-xs font-bold uppercase tracking-wider rounded-sm shadow-md">
+                <div class="reveal fade-bottom delay-200 bg-[#F2F2F2] text-[#0A2626] border-2 border-[#F24607] rounded-sm p-8 flex flex-col h-full relative shadow-[0_15px_30px_rgba(242,70,7,0.15)] transform lg:-translate-y-4 hover:scale-[1.03] hover:shadow-[0_0_80px_rgba(242,70,7,0.5)] transition-all duration-500 z-10 hover:z-20 w-full">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#F24607] text-[#F2F2F2] px-4 py-1 text-xs font-bold uppercase tracking-wider rounded-sm shadow-md whitespace-nowrap">
                         Máxima Automatización
                     </div>
-                    <div class="mb-6">
+                    <div class="mb-6 mt-4">
                         <h3 class="text-2xl font-bold mb-2">Full 360</h3>
-                        <p class="text-[#0A2626]/70 text-sm h-10">Para empresas que exigen procesos totalmente automatizados.</p>
+                        <p class="text-[#0A2626]/70 text-sm h-auto lg:h-10">Para empresas que exigen procesos totalmente automatizados.</p>
                     </div>
                     <div class="mb-8">
                         <span class="text-4xl font-bold text-[#F24607]">11.500</span><span class="text-xl text-[#0A2626]/60"> bs/mes</span>
@@ -304,15 +311,15 @@
                 </div>
 
                 <!-- PLAN PRO -->
-                <div class="reveal fade-bottom delay-100 bg-[#0A2626] border border-[#F2F2F2]/20 hover:border-[#F24607]/80 rounded-sm p-8 flex flex-col h-full relative transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_60px_rgba(242,70,7,0.4)] z-10 hover:z-20">
+                <div class="reveal fade-bottom delay-100 bg-[#0A2626] border border-[#F2F2F2]/20 hover:border-[#F24607]/80 rounded-sm p-8 flex flex-col h-full relative transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_60px_rgba(242,70,7,0.4)] z-10 hover:z-20 w-full">
                     <div class="mb-6">
                         <h3 class="text-2xl font-bold text-[#F2F2F2] mb-2">Pro</h3>
-                        <p class="text-[#F2F2F2]/60 text-sm h-10">Para negocios en etapa de escalamiento sostenido en ventas.</p>
+                        <p class="text-[#F2F2F2]/60 text-sm h-auto lg:h-10">Para negocios en etapa de escalamiento sostenido en ventas.</p>
                     </div>
                     <div class="mb-8">
                         <span class="text-4xl font-bold">8.500</span><span class="text-xl text-[#F2F2F2]/60"> bs/mes</span>
                     </div>
-                    <ul class="space-y-4 mb-8 flex-grow">
+                    <ul class="space-y-4 mb-8 flex-grow w-full">
                         <li class="flex items-start gap-3 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span>2 reuniones mensuales de planificación</span></li>
                         <li class="flex items-start gap-3 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span>Calendario (Facebook, Instagram y TikTok)</span></li>
                         <li class="flex items-start gap-3 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span>8 videos Reels, 8 artes gráficos</span></li>
@@ -326,15 +333,15 @@
                 </div>
 
                 <!-- PLAN ESSENTIAL -->
-                <div class="reveal fade-bottom delay-300 bg-[#0A2626] border border-[#F2F2F2]/20 hover:border-[#F24607]/80 rounded-sm p-8 flex flex-col h-full relative transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_60px_rgba(242,70,7,0.4)] z-10 hover:z-20">
+                <div class="reveal fade-bottom delay-300 bg-[#0A2626] border border-[#F2F2F2]/20 hover:border-[#F24607]/80 rounded-sm p-8 flex flex-col h-full relative transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_60px_rgba(242,70,7,0.4)] z-10 hover:z-20 w-full">
                     <div class="mb-6">
                         <h3 class="text-2xl font-bold text-[#F2F2F2] mb-2">Essential</h3>
-                        <p class="text-[#F2F2F2]/60 text-sm h-10">Ideal para negocios pequeños y emprendimientos emergentes.</p>
+                        <p class="text-[#F2F2F2]/60 text-sm h-auto lg:h-10">Ideal para negocios pequeños y emprendimientos emergentes.</p>
                     </div>
                     <div class="mb-8">
                         <span class="text-4xl font-bold">5.500</span><span class="text-xl text-[#F2F2F2]/60"> bs/mes</span>
                     </div>
-                    <ul class="space-y-4 mb-8 flex-grow">
+                    <ul class="space-y-4 mb-8 flex-grow w-full">
                         <li class="flex items-start gap-3 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span>1 reunión mensual de planificación</span></li>
                         <li class="flex items-start gap-3 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span>Calendario de contenido (FB e IG)</span></li>
                         <li class="flex items-start gap-3 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span>6 videos Reels, 6 artes gráficos</span></li>
@@ -351,14 +358,63 @@
         </div>
     </section>
 
+    <!-- CONTACTO -->
+    <section id="contacto" class="px-6 py-24 bg-[#041010] border-t border-[#F2F2F2]/5 relative z-10 w-full overflow-hidden">
+        <div class="max-w-4xl mx-auto w-full">
+            <div class="reveal fade-bottom text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 px-2">Contacto Estratégico</h2>
+                <p class="text-[#F2F2F2]/70 text-lg px-2">Comuníquese con nuestro equipo de asesores para estructurar la próxima campaña de marketing de su empresa. Procesaremos su solicitud de inmediato vía WhatsApp.</p>
+            </div>
+
+            <div class="reveal fade-bottom delay-100 bg-[#0A2626] border border-[#F2F2F2]/10 p-6 md:p-12 rounded-sm shadow-2xl w-full">
+                <form id="wa-form" class="space-y-6 w-full">
+                    
+                    <div class="grid md:grid-cols-2 gap-6 w-full">
+                        <div class="space-y-2 w-full">
+                            <label for="wp-name" class="block text-sm font-semibold text-[#F2F2F2]/90">Nombre Completo <span class="text-[#F24607]">*</span></label>
+                            <input type="text" id="wp-name" required class="w-full bg-[#041010] border border-[#F2F2F2]/20 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#F24607] transition-colors" placeholder="Ej. Carlos Mendoza">
+                        </div>
+                        
+                        <div class="space-y-2 w-full">
+                            <label for="wp-company" class="block text-sm font-semibold text-[#F2F2F2]/90">Empresa / Marca <span class="text-[#F24607]">*</span></label>
+                            <input type="text" id="wp-company" required class="w-full bg-[#041010] border border-[#F2F2F2]/20 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#F24607] transition-colors" placeholder="Nombre de su organización">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2 w-full">
+                        <label for="wp-service" class="block text-sm font-semibold text-[#F2F2F2]/90">Plan de Interés <span class="text-[#F24607]">*</span></label>
+                        <select id="wp-service" required class="w-full bg-[#041010] border border-[#F2F2F2]/20 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#F24607] transition-colors appearance-none">
+                            <option value="Consulta General sobre Ecosistema 360">Seleccione un Plan Mensual</option>
+                            <option value="Plan Marketing ESSENTIAL (5.500 Bs)">Plan ESSENTIAL (5.500 Bs)</option>
+                            <option value="Plan Marketing PRO (8.500 Bs)">Plan PRO (8.500 Bs)</option>
+                            <option value="Plan Marketing FULL 360 (11.500 Bs)">Plan FULL 360 (11.500 Bs)</option>
+                            <option value="Consultoría Estratégica a Medida">Consultoría Estratégica a Medida</option>
+                        </select>
+                    </div>
+
+                    <div class="space-y-2 w-full">
+                        <label for="wp-details" class="block text-sm font-semibold text-[#F2F2F2]/90">Objetivo Comercial <span class="text-[#F24607]">*</span></label>
+                        <textarea id="wp-details" required rows="4" class="w-full bg-[#041010] border border-[#F2F2F2]/20 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#F24607] transition-colors resize-none" placeholder="Indique qué objetivos desea alcanzar con su estrategia de marketing..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-[#F24607] hover:bg-[#d13c06] text-white font-bold text-lg py-4 rounded-sm transition-all duration-300 shadow-[0_10px_20px_rgba(242,70,7,0.2)] flex items-center justify-center gap-2 hover:scale-[1.01]">
+                        Enviar solicitud por WhatsApp
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4Z"/></svg>
+                    </button>
+                    <p class="text-center text-xs text-[#F2F2F2]/40 mt-4 px-2">Su información será compilada y enviada de forma segura a través de la aplicación WhatsApp al +591 77693829.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <!-- FOOTER -->
-    <footer class="bg-[#041010] py-12 px-6 border-t border-[#F2F2F2]/10 relative z-10">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+    <footer class="bg-[#041010] py-12 px-6 border-t border-[#F2F2F2]/10 relative z-10 w-full overflow-hidden">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 w-full">
             <!-- Logo JPG pequeño -->
             <div class="flex items-center justify-center">
                  <img src="logo.jpg" alt="591 Creative Studio Logo" class="h-10 w-auto object-contain rounded-md" onerror="this.style.display='none'">
             </div>
-            <div class="text-[#F2F2F2]/50 text-sm text-center md:text-right">
+            <div class="text-[#F2F2F2]/50 text-sm text-center md:text-right px-2">
                 <p>© 2026 591 Creative Studio. Todos los derechos reservados.</p>
                 <p class="mt-1">Agencia de Marketing y Automatización Estratégica.</p>
             </div>
@@ -370,7 +426,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             const reveals = document.querySelectorAll('.reveal');
             
-            // Configuración del observador: se activa cuando el 10% del elemento es visible
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
@@ -380,9 +435,7 @@
             const revealOnScroll = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        // Añade la clase 'active' para iniciar la transición CSS
                         entry.target.classList.add('active');
-                        // Dejar de observar una vez animado (para que no se repita al subir/bajar)
                         observer.unobserve(entry.target);
                     }
                 });
@@ -392,27 +445,49 @@
                 revealOnScroll.observe(element);
             });
 
-            // Lógica Smart Header (Ocultar al bajar, mostrar al subir)
             const navbar = document.getElementById('main-nav');
             let lastScrollY = window.scrollY;
 
             window.addEventListener('scroll', () => {
                 const currentScrollY = window.scrollY;
                 
-                // Si el scroll supera la altura de la cabecera (80px) y baja
                 if (currentScrollY > lastScrollY && currentScrollY > 80) {
                     navbar.style.transform = 'translateY(-100%)';
                 } else {
-                    // Si el usuario vuelve a subir
                     navbar.style.transform = 'translateY(0)';
                 }
                 
                 lastScrollY = currentScrollY;
-            }, { passive: true }); // passive: true optimiza el rendimiento del scroll
+            }, { passive: true });
+            
+            const waForm = document.getElementById('wa-form');
+            if (waForm) {
+                waForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+
+                    const name = document.getElementById('wp-name').value.trim();
+                    const company = document.getElementById('wp-company').value.trim();
+                    const service = document.getElementById('wp-service').value;
+                    const details = document.getElementById('wp-details').value.trim();
+
+                    const textMessage = `*NUEVO CONTACTO: MARKETING DIGITAL 360*%0A%0A*Nombre:* ${name}%0A*Empresa:* ${company}%0A*Plan Seleccionado:* ${service}%0A*Objetivo Comercial:* ${details}`;
+                    
+                    const phone = "59177693829";
+
+                    const waUrl = `https://wa.me/${phone}?text=${textMessage}`;
+                    window.open(waUrl, '_blank');
+                });
+            }
         });
+
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
     </script>
 </body>
 </html>
+
 
 
 ```

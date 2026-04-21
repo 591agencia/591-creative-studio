@@ -1,31 +1,20 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>591 Creative Studio | Marketing Digital 360</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Podcasts Corporativos | 591 Creative Studio</title>
+    <!-- Tailwind CSS Integrado -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        html { scroll-behavior: smooth; }
-        
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
+        html, body { 
+            scroll-behavior: smooth; 
             max-width: 100%;
+            overflow-x: hidden;
+            position: relative;
         }
-        .video-container iframe,
-        .video-container object,
-        .video-container embed {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
+        
+        /* MOTOR DE ANIMACIONES CORPORATIVAS */
         .reveal {
             opacity: 0;
             visibility: hidden;
@@ -36,353 +25,383 @@
             opacity: 1;
             visibility: visible;
         }
+        
         .fade-bottom { transform: translateY(40px); }
         .fade-bottom.active { transform: translateY(0); }
-        
         .fade-left { transform: translateX(-40px); }
         .fade-left.active { transform: translateX(0); }
-        
         .fade-right { transform: translateX(40px); }
         .fade-right.active { transform: translateX(0); }
-        
-        .scale-up { transform: scale(0.95); }
-        .scale-up.active { transform: scale(1); }
 
         .delay-100 { transition-delay: 100ms; }
         .delay-200 { transition-delay: 200ms; }
         .delay-300 { transition-delay: 300ms; }
 
-        @keyframes float {
-            0% { transform: translate(-50%, -50%) translateY(0px); }
-            50% { transform: translate(-50%, -50%) translateY(-20px); }
-            100% { transform: translate(-50%, -50%) translateY(0px); }
+        /* SISTEMA DE PARTÍCULAS */
+        @keyframes float-particle {
+            0% { transform: translate(0, 0) rotate(0deg); opacity: 0.04; }
+            33% { transform: translate(30px, -40px) rotate(15deg); opacity: 0.12; }
+            66% { transform: translate(-20px, -20px) rotate(-10deg); opacity: 0.04; }
+            100% { transform: translate(0, 0) rotate(0deg); opacity: 0.04; }
         }
-        .bg-float {
-            animation: float 8s ease-in-out infinite;
+        .bg-particle {
+            position: absolute;
+            animation: float-particle 25s infinite ease-in-out;
+            pointer-events: none;
+            z-index: 0;
+            color: #F2F2F2;
         }
+        .particle-1 { top: 15%; left: 8%; animation-delay: 0s; width: 24px; }
+        .particle-2 { top: 65%; left: 12%; animation-delay: -5s; width: 32px; color: #F24607; }
+        .particle-3 { top: 20%; right: 10%; animation-delay: -12s; width: 28px; }
+        .particle-4 { top: 75%; right: 15%; animation-delay: -18s; width: 26px; }
+        .particle-5 { top: 40%; left: 25%; animation-delay: -8s; width: 18px; }
+        .particle-6 { top: 35%; right: 28%; animation-delay: -22s; width: 20px; color: #F24607; }
+        .particle-7 { top: 10%; right: 25%; animation-delay: -2s; width: 22px; color: #F24607; }
+        .particle-8 { top: 85%; left: 20%; animation-delay: -15s; width: 28px; }
+        .particle-9 { top: 55%; right: 5%; animation-delay: -7s; width: 24px; }
+        .particle-10 { top: 45%; left: 5%; animation-delay: -20s; width: 18px; }
+        .particle-11 { top: 80%; right: 35%; animation-delay: -10s; width: 26px; color: #F24607; }
+        .particle-12 { top: 25%; left: 35%; animation-delay: -25s; width: 34px; }
+        .particle-13 { top: 5%; left: 45%; animation-delay: -3s; width: 20px; }
+        .particle-14 { top: 80%; left: 40%; animation-delay: -11s; width: 25px; color: #F24607; }
+        .particle-15 { top: 35%; left: 65%; animation-delay: -19s; width: 30px; }
+        .particle-16 { top: 60%; right: 45%; animation-delay: -4s; width: 18px; }
+        .particle-17 { top: 90%; right: 10%; animation-delay: -14s; width: 22px; }
+        .particle-18 { top: 15%; right: 40%; animation-delay: -23s; width: 28px; color: #F24607; }
+        .particle-19 { top: 50%; left: 15%; animation-delay: -1s; width: 26px; }
+        .particle-20 { top: 70%; right: 25%; animation-delay: -16s; width: 24px; }
     </style>
 </head>
-<body class="bg-[#0A2626] text-[#F2F2F2] font-sans selection:bg-[#F24607] selection:text-[#F2F2F2] overflow-x-hidden">
+<body class="min-h-screen bg-[#0A2626] text-[#F2F2F2] font-sans selection:bg-[#F24607] selection:text-[#F2F2F2] overflow-x-hidden w-full relative">
 
-    <nav id="main-nav" class="sticky top-0 z-50 bg-[#0A2626]/80 backdrop-blur-md border-b border-[#F2F2F2]/10 px-6 py-4 transition-transform duration-500 ease-in-out">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
+    <!-- NAVEGACIÓN SMART -->
+    <nav id="main-nav" class="fixed top-0 w-full z-50 bg-[#0A2626]/80 backdrop-blur-md border-b border-[#F2F2F2]/10 px-6 py-4 transition-transform duration-500 ease-in-out w-full">
+        <div class="max-w-6xl mx-auto flex justify-between items-center w-full">
             <a href="/" class="flex items-center justify-center group">
                 <img src="logo.jpg" alt="Logo" class="h-14 w-auto object-contain rounded-md transition-transform group-hover:scale-105" onerror="this.style.display='none'">
                 <span class="ml-4 text-xl md:text-2xl font-bold tracking-wide text-[#F2F2F2] group-hover:text-[#F24607] transition-colors">591 Creative Studio</span>
             </a>
             
-            <!-- Pestañas de Navegación (URLs Limpias) -->
             <div class="hidden lg:flex space-x-8">
                 <a href="/" class="text-[#F2F2F2]/70 hover:text-[#F24607] transition-colors font-medium text-sm">La Agencia</a>
-                <a href="/marketing-ia" class="text-[#F24607] font-semibold border-b-2 border-[#F24607] pb-1 text-sm">Marketing + IA</a>
+                <a href="/marketing-ia" class="text-[#F2F2F2]/70 hover:text-[#F24607] transition-colors font-medium text-sm">Marketing + IA</a>
                 <a href="/audiovisual" class="text-[#F2F2F2]/70 hover:text-[#F24607] transition-colors font-medium text-sm">Audiovisual</a>
-                <a href="/podcasts" class="text-[#F2F2F2]/70 hover:text-[#F24607] transition-colors font-medium text-sm">Podcasts</a>
+                <a href="/podcasts" class="text-[#F24607] font-semibold border-b-2 border-[#F24607] pb-1 text-sm">Podcasts</a>
             </div>
 
-            <a href="#planes" class="hidden md:flex items-center gap-2 bg-[#F24607] hover:bg-[#d13c06] transition-colors text-[#F2F2F2] px-5 py-2 rounded-sm font-semibold text-sm hover:shadow-[0_0_15px_rgba(242,70,7,0.4)]">
-                Ver Planes 
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            <a href="https://wa.me/59177693829?text=Hola,%20deseo%20comunicarme%20con%20un%20asesor%20de%20591%20Creative%20Studio%20sobre%20la%20Producción%20de%20Podcasts." target="_blank" rel="noopener noreferrer" class="hidden md:flex items-center gap-2 bg-[#F24607] hover:bg-[#d13c06] transition-colors text-[#F2F2F2] px-5 py-2 rounded-sm font-semibold text-sm hover:shadow-[0_0_15px_rgba(242,70,7,0.4)]">
+                Contáctanos
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
             </a>
         </div>
     </nav>
 
-    <header class="relative px-6 py-16 md:py-24 overflow-hidden">
-        <div class="max-w-4xl mx-auto text-center relative z-10">
-            <div class="reveal fade-bottom inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F2F2F2]/10 border border-[#F24607]/30 text-[#F24607] text-sm font-medium mb-6 backdrop-blur-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
-                <span>Marketing Digital 360° + IA Integrada</span>
-            </div>
-            <h1 class="reveal fade-bottom delay-100 text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                <span class="text-[#F24607]">La evolución del marketing</span><br class="hidden md:block"/>
-                <span class="text-[#F2F2F2]">para escalar su negocio.</span>
-            </h1>
-            <p class="reveal fade-bottom delay-200 text-lg md:text-xl text-[#F2F2F2]/80 mb-10 max-w-2xl mx-auto leading-relaxed">
-                Generamos, filtramos y calificamos sus leads. Nuestro sistema combina lo mejor del marketing digital con la eficiencia de un Asistente de IA para WhatsApp Business. <strong>Usted solo se encarga de cerrar ventas.</strong>
-            </p>
-
-            <div class="reveal scale-up delay-300 relative w-full max-w-3xl mx-auto mb-12 rounded-xl overflow-hidden shadow-2xl shadow-[#F24607]/10 border border-[#F2F2F2]/10 bg-[#041010] group">
-                <div class="video-container group-hover:scale-[1.01] transition-transform duration-700">
-                    <iframe 
-                        src="https://www.youtube.com/embed/PR7epvDJqrM?autoplay=1&mute=1&controls=1&loop=1&playlist=PR7epvDJqrM&modestbranding=1&rel=0&iv_load_policy=3" 
-                        title="591 Creative Studio VSL" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" 
-                        allowfullscreen>
-                    </iframe>
-                </div>
-                 <div class="absolute top-4 left-4 bg-black/60 text-[#F2F2F2] text-xs px-3 py-1.5 rounded-full backdrop-blur-sm flex items-center gap-2 pointer-events-none z-20 border border-white/10">
-                    <div class="w-2 h-2 bg-[#F24607] rounded-full animate-pulse shadow-[0_0_8px_#F24607]"></div>
-                    Visualización Corporativa
-                </div>
-            </div>
-
-            <div class="reveal fade-bottom delay-300 flex flex-col sm:flex-row gap-4 justify-center relative z-30">
-                <a href="#contacto" class="bg-[#F24607] hover:bg-[#d13c06] hover:scale-105 transition-all duration-300 px-10 py-5 rounded-sm font-bold text-2xl flex items-center justify-center gap-3 shadow-[0_10px_25px_rgba(242,70,7,0.35)]">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-                    Contáctanos
-                </a>
-                <a href="#proceso" class="bg-transparent border border-[#F2F2F2]/30 hover:border-[#F2F2F2] hover:bg-[#F2F2F2]/5 transition-all duration-300 px-8 py-4 rounded-sm font-bold text-lg flex items-center justify-center gap-2">
-                    Conocer el Proceso
-                </a>
-            </div>
+    <!-- HERO SECTION -->
+    <header class="relative px-6 pt-40 pb-20 md:pt-48 md:pb-24 overflow-hidden w-full border-b border-[#F2F2F2]/5">
+        <!-- Partículas de fondo -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+            <svg class="bg-particle particle-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+            <svg class="bg-particle particle-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg class="bg-particle particle-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+            <svg class="bg-particle particle-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M12 2v20"/><circle cx="12" cy="12" r="10"/></svg>
+            <svg class="bg-particle particle-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+            <svg class="bg-particle particle-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+            <svg class="bg-particle particle-11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+            <svg class="bg-particle particle-15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2"/><path d="M12 12h.01"/><path d="M17 12h.01"/><path d="M7 12h.01"/></svg>
+            <svg class="bg-particle particle-19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
         </div>
-        <div class="bg-float absolute top-1/2 left-1/2 w-[800px] h-[800px] bg-[#F24607]/10 rounded-full blur-[100px] -z-0 pointer-events-none"></div>
-    </header>
 
-    <section class="px-6 py-24 bg-[#061818] relative z-10">
-        <div class="max-w-6xl mx-auto">
-            <div class="reveal fade-bottom text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">¿Por qué elegir nuestro ecosistema 360°?</h2>
-                <p class="text-[#F2F2F2]/70 max-w-2xl mx-auto">En un mercado competitivo, las campañas publicitarias por sí solas no son suficientes. Optimizamos todo el embudo de conversión.</p>
+        <div class="max-w-5xl mx-auto text-center relative z-10 w-full">
+            <div class="reveal fade-bottom inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F24607]/10 border border-[#F24607]/30 text-[#F24607] text-sm font-bold mb-6 backdrop-blur-sm uppercase tracking-widest">
+                Producción Integral
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="reveal fade-bottom delay-100 bg-[#0A2626] p-8 rounded-sm border border-[#F2F2F2]/10 hover:border-[#F24607]/50 hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-[#F24607]/10">
-                    <div class="w-12 h-12 bg-[#F24607]/10 rounded-sm flex items-center justify-center text-[#F24607] mb-6 transition-transform group-hover:scale-110">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Tráfico Calificado</h3>
-                    <p class="text-[#F2F2F2]/70">Estrategias de pauta publicitaria hiper-segmentadas para atraer prospectos con verdadera intención de compra.</p>
-                </div>
-                <div class="reveal fade-bottom delay-200 bg-[#0A2626] p-8 rounded-sm border border-[#F2F2F2]/10 hover:border-[#F24607]/50 hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-[#F24607]/10">
-                    <div class="w-12 h-12 bg-[#F24607]/10 rounded-sm flex items-center justify-center text-[#F24607] mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Contenido Profesional</h3>
-                    <p class="text-[#F2F2F2]/70">Producción audiovisual guionizada y orientada a la conversión, adaptada a los objetivos específicos de cada campaña.</p>
-                </div>
-                <div class="reveal fade-bottom delay-300 bg-[#0A2626] p-8 rounded-sm border border-[#F2F2F2]/10 hover:border-[#F24607]/50 hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-[#F24607]/10">
-                    <div class="w-12 h-12 bg-[#F24607]/10 rounded-sm flex items-center justify-center text-[#F24607] mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Automatización IA 24/7</h3>
-                    <p class="text-[#F2F2F2]/70">Un asistente inteligente integrado atiende, filtra y califica leads ininterrumpidamente.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            <h1 class="reveal fade-bottom delay-100 text-4xl md:text-5xl lg:text-7xl font-black mb-8 leading-tight tracking-tight px-2">
+                De sueño a realidad: <span class="text-[#F24607] block mt-2">Tu propio Podcast</span> con calidad de clase mundial.
+            </h1>
+            
+            <p class="reveal fade-bottom delay-200 text-lg md:text-2xl text-[#F2F2F2]/70 max-w-4xl mx-auto leading-relaxed font-light mb-12 px-4">
+                Olvida la técnica, las cámaras y los cables. En 591 Creative Studio te damos el escenario perfecto para que tu voz se escuche con la autoridad que tu marca merece.
+            </p>
 
-    <section id="proceso" class="px-6 py-24 border-t border-[#F2F2F2]/5 relative z-10 bg-[#0A2626]">
-        <div class="max-w-5xl mx-auto">
-            <div class="reveal fade-bottom text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">Un Ciclo Completo de Ventas Automatizadas</h2>
-                <p class="text-[#F2F2F2]/70">Metodología comprobada de 5 fases para garantizar el retorno de inversión.</p>
-            </div>
-
-            <div class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-[#F24607] before:to-transparent">
-                
-                <div class="reveal fade-right relative flex items-center justify-between md:justify-normal group">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#0A2626] bg-[#F24607] text-[#F2F2F2] shrink-0 md:order-1 md:translate-x-1/2 shadow transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_15px_#F24607]">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-[#041010] hover:bg-[#061818] transition-colors duration-300 p-6 rounded-sm border border-[#F2F2F2]/10 shadow-lg">
-                        <div class="flex items-center gap-3 mb-2">
-                            <span class="text-[#F24607] font-bold text-sm">Fase 1</span>
-                            <h4 class="font-bold text-lg">Análisis Interno y Externo</h4>
-                        </div>
-                        <p class="text-[#F2F2F2]/70 text-sm leading-relaxed">Auditoría de marca, análisis de la competencia, definición del buyer persona y objetivos comerciales.</p>
-                    </div>
-                </div>
-
-                <div class="reveal fade-left delay-100 relative flex items-center justify-between md:justify-normal md:flex-row-reverse group">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#0A2626] bg-[#F24607] text-[#F2F2F2] shrink-0 md:order-1 md:-translate-x-1/2 shadow transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_15px_#F24607]">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/></svg>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-[#041010] hover:bg-[#061818] transition-colors duration-300 p-6 rounded-sm border border-[#F2F2F2]/10 shadow-lg">
-                        <div class="flex items-center gap-3 mb-2">
-                            <span class="text-[#F24607] font-bold text-sm">Fase 2</span>
-                            <h4 class="font-bold text-lg">Producción de Contenido</h4>
-                        </div>
-                        <p class="text-[#F2F2F2]/70 text-sm leading-relaxed">Creamos contenido audiovisual guionizado, filmado profesionalmente y optimizado para performance.</p>
-                    </div>
-                </div>
-
-                <div class="reveal fade-right delay-200 relative flex items-center justify-between md:justify-normal group">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#0A2626] bg-[#F24607] text-[#F2F2F2] shrink-0 md:order-1 md:translate-x-1/2 shadow transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_15px_#F24607]">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-[#041010] hover:bg-[#061818] transition-colors duration-300 p-6 rounded-sm border border-[#F2F2F2]/10 shadow-lg">
-                        <div class="flex items-center gap-3 mb-2">
-                            <span class="text-[#F24607] font-bold text-sm">Fase 3</span>
-                            <h4 class="font-bold text-lg">Ejecución de Campañas</h4>
-                        </div>
-                        <p class="text-[#F2F2F2]/70 text-sm leading-relaxed">Configuramos, segmentamos y optimizamos campañas en Meta Ads y TikTok Ads para flujo diario de leads.</p>
-                    </div>
-                </div>
-
-                <div class="reveal fade-left delay-300 relative flex items-center justify-between md:justify-normal md:flex-row-reverse group">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#0A2626] bg-[#F24607] text-[#F2F2F2] shrink-0 md:order-1 md:-translate-x-1/2 shadow transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_15px_#F24607]">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-[#041010] hover:bg-[#061818] transition-colors duration-300 p-6 rounded-sm border border-[#F2F2F2]/10 shadow-lg">
-                        <div class="flex items-center gap-3 mb-2">
-                            <span class="text-[#F24607] font-bold text-sm">Fase 4</span>
-                            <h4 class="font-bold text-lg">Calificación con IA</h4>
-                        </div>
-                        <p class="text-[#F2F2F2]/70 text-sm leading-relaxed">Nuestro asistente de IA en WhatsApp atiende 24/7, responde, filtra y califica según el interés real.</p>
-                    </div>
-                </div>
-
-                <div class="reveal fade-right delay-200 relative flex items-center justify-between md:justify-normal group">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#0A2626] bg-[#F24607] text-[#F2F2F2] shrink-0 md:order-1 md:translate-x-1/2 shadow transition-transform duration-500 group-hover:scale-110 group-hover:shadow-[0_0_15px_#F24607]">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-[#041010] hover:bg-[#061818] transition-colors duration-300 p-6 rounded-sm border border-[#F2F2F2]/10 shadow-lg">
-                        <div class="flex items-center gap-3 mb-2">
-                            <span class="text-[#F24607] font-bold text-sm">Fase 5</span>
-                            <h4 class="font-bold text-lg">Cierre y Conversión</h4>
-                        </div>
-                        <p class="text-[#F2F2F2]/70 text-sm leading-relaxed">Usted recibe reuniones agendadas con prospectos precalificados o ventas directas gestionadas.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="planes" class="px-6 py-24 bg-[#061818] relative">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-[#F24607]/5 rounded-[100%] blur-[80px] pointer-events-none"></div>
-
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="reveal fade-bottom text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Planes de Inversión Mensual</h2>
-                <p class="text-[#F2F2F2]/70 max-w-2xl mx-auto">Soluciones escalables diseñadas para estructurar y acelerar el crecimiento comercial de su empresa.</p>
-            </div>
-
-            <div class="grid lg:grid-cols-3 gap-8 items-start">
-                
-                <div class="reveal fade-bottom delay-200 bg-[#F2F2F2] text-[#0A2626] border-2 border-[#F24607] rounded-sm p-8 flex flex-col h-full relative shadow-[0_15px_30px_rgba(242,70,7,0.15)] transform lg:-translate-y-4 hover:scale-[1.03] hover:shadow-[0_0_80px_rgba(242,70,7,0.5)] transition-all duration-500 z-10 hover:z-20">
-                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#F24607] text-[#F2F2F2] px-4 py-1 text-xs font-bold uppercase tracking-wider rounded-sm shadow-md">
-                        Máxima Automatización
-                    </div>
-                    <div class="mb-6">
-                        <h3 class="text-2xl font-bold mb-2">Full 360</h3>
-                        <p class="text-[#0A2626]/70 text-sm h-10">Para empresas que exigen procesos totalmente automatizados.</p>
-                    </div>
-                    <div class="mb-8">
-                        <span class="text-4xl font-bold text-[#F24607]">11.500</span><span class="text-xl text-[#0A2626]/60"> bs/mes</span>
-                    </div>
-                    <ul class="space-y-4 mb-8 flex-grow font-medium">
-                        <li class="flex items-start gap-3 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span>3 reuniones/mes para planificación</span></li>
-                        <li class="flex items-start gap-3 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span>Calendario (Facebook, Instagram y TikTok)</span></li>
-                        <li class="flex items-start gap-3 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span>10 videos Reels, 10 artes gráficos</span></li>
-                        <li class="flex items-start gap-3 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span>12 historias interactivas (encuestas, datos)</span></li>
-                        <li class="flex items-start gap-3 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span>Gestión de campañas publicitarias en Facebook & TikTok Ads</span></li>
-                        <li class="flex items-start gap-3 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <strong>Integración Asistente IA WhatsApp</strong></li>
-                        <li class="flex items-start gap-3 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span>CRM integrado al asistente IA</span></li>
-                        <li class="flex items-start gap-3 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span>Community Manager dedicado</span></li>
-                        <li class="flex items-start gap-3 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span>Reporte ejecutivo mensual</span></li>
-                    </ul>
-                    <a href="#contacto" class="block text-center w-full py-4 bg-[#F24607] hover:bg-[#d13c06] text-[#F2F2F2] transition-colors font-bold text-lg rounded-sm shadow-[0_10px_20px_rgba(242,70,7,0.3)] hover:shadow-[0_0_25px_rgba(242,70,7,0.6)] hover:scale-[1.03] duration-300">
-                        Seleccionar Full 360
-                    </a>
-                </div>
-
-                <div class="reveal fade-bottom delay-100 bg-[#0A2626] border border-[#F2F2F2]/20 hover:border-[#F24607]/80 rounded-sm p-8 flex flex-col h-full relative transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_60px_rgba(242,70,7,0.4)] z-10 hover:z-20">
-                    <div class="mb-6">
-                        <h3 class="text-2xl font-bold text-[#F2F2F2] mb-2">Pro</h3>
-                        <p class="text-[#F2F2F2]/60 text-sm h-10">Para negocios en etapa de escalamiento sostenido en ventas.</p>
-                    </div>
-                    <div class="mb-8">
-                        <span class="text-4xl font-bold">8.500</span><span class="text-xl text-[#F2F2F2]/60"> bs/mes</span>
-                    </div>
-                    <ul class="space-y-4 mb-8 flex-grow">
-                        <li class="flex items-start gap-3 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span>2 reuniones mensuales de planificación</span></li>
-                        <li class="flex items-start gap-3 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span>Calendario (Facebook, Instagram y TikTok)</span></li>
-                        <li class="flex items-start gap-3 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span>8 videos Reels, 8 artes gráficos</span></li>
-                        <li class="flex items-start gap-3 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span>10 historias interactivas y dirigidas</span></li>
-                        <li class="flex items-start gap-3 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span>Reporte de métricas mensual</span></li>
-                        <li class="flex items-start gap-3 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span>Gestión de campañas publicitarias en Facebook</span></li>
-                    </ul>
-                    <a href="#contacto" class="block text-center w-full py-3 border border-[#F2F2F2]/30 hover:bg-[#F24607]/10 hover:border-[#F24607]/50 hover:text-[#F24607] transition-all font-semibold rounded-sm">
-                        Seleccionar Pro
-                    </a>
-                </div>
-
-                <div class="reveal fade-bottom delay-300 bg-[#0A2626] border border-[#F2F2F2]/20 hover:border-[#F24607]/80 rounded-sm p-8 flex flex-col h-full relative transition-all duration-500 hover:scale-[1.02] hover:shadow-[0_0_60px_rgba(242,70,7,0.4)] z-10 hover:z-20">
-                    <div class="mb-6">
-                        <h3 class="text-2xl font-bold text-[#F2F2F2] mb-2">Essential</h3>
-                        <p class="text-[#F2F2F2]/60 text-sm h-10">Ideal para negocios pequeños y emprendimientos emergentes.</p>
-                    </div>
-                    <div class="mb-8">
-                        <span class="text-4xl font-bold">5.500</span><span class="text-xl text-[#F2F2F2]/60"> bs/mes</span>
-                    </div>
-                    <ul class="space-y-4 mb-8 flex-grow">
-                        <li class="flex items-start gap-3 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span>1 reunión mensual de planificación</span></li>
-                        <li class="flex items-start gap-3 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span>Calendario de contenido (FB e IG)</span></li>
-                        <li class="flex items-start gap-3 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span>6 videos Reels, 6 artes gráficos</span></li>
-                        <li class="flex items-start gap-3 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span>8 historias (solo imágenes)</span></li>
-                        <li class="flex items-start gap-3 text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] shrink-0"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg> <span>Reporte de métricas mensual</span></li>
-                    </ul>
-                    <a href="#contacto" class="block text-center w-full py-3 border border-[#F2F2F2]/30 hover:bg-[#F24607]/10 hover:border-[#F24607]/50 hover:text-[#F24607] transition-all font-semibold rounded-sm">
-                        Seleccionar Essential
-                    </a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="contacto" class="px-6 py-24 bg-[#041010] border-t border-[#F2F2F2]/5 relative z-10">
-        <div class="max-w-4xl mx-auto">
-            <div class="reveal fade-bottom text-center mb-12">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">Contacto Estratégico</h2>
-                <p class="text-[#F2F2F2]/70 text-lg">Comuníquese con nuestro equipo de asesores para estructurar la próxima campaña de marketing de su empresa. Procesaremos su solicitud de inmediato vía WhatsApp.</p>
-            </div>
-
-            <div class="reveal fade-bottom delay-100 bg-[#0A2626] border border-[#F2F2F2]/10 p-8 md:p-12 rounded-sm shadow-2xl">
-                <form id="wa-form" class="space-y-6">
+            <!-- VSL CONTENEDOR CENTRAL (MODO CONSTRUCCIÓN) -->
+            <div class="reveal fade-bottom delay-200 max-w-4xl mx-auto mb-12 w-full px-4">
+                <div class="relative w-full aspect-video bg-[#041010] border border-[#F2F2F2]/10 rounded-sm flex flex-col items-center justify-center overflow-hidden shadow-[0_0_40px_rgba(242,70,7,0.05)]">
+                    <!-- Destello de fondo -->
+                    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#F24607]/10 via-transparent to-transparent opacity-60 pointer-events-none"></div>
                     
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="space-y-2">
+                    <!-- Icono Técnico (Micrófono) -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#F24607] mb-6 opacity-80">
+                        <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                        <line x1="12" y1="19" x2="12" y2="22"/>
+                    </svg>
+                    
+                    <h3 class="text-2xl md:text-4xl font-black text-white uppercase tracking-[0.2em] mb-3 relative z-10 text-center px-4">
+                        Servicio en Construcción
+                    </h3>
+                    <p class="text-[#F2F2F2]/50 text-sm md:text-base font-semibold tracking-widest uppercase relative z-10 text-center px-4">
+                        Próximamente Disponible
+                    </p>
+                    
+                    <div class="absolute bottom-0 left-0 w-full h-[2px] bg-[#F2F2F2]/10">
+                        <div class="h-full bg-[#F24607] w-1/4 animate-[pulse_2s_ease-in-out_infinite]"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal fade-bottom delay-300 flex flex-col sm:flex-row gap-4 justify-center w-full px-4">
+                <a href="#contacto" class="bg-[#F24607] hover:bg-[#d13c06] hover:scale-105 transition-all duration-300 px-8 py-4 rounded-sm font-bold text-lg flex items-center justify-center gap-3 shadow-[0_10px_20px_rgba(242,70,7,0.3)] uppercase tracking-wide w-full sm:w-auto text-white">
+                    Reservar mi fecha ahora
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] max-w-[100vw] bg-[#F24607]/5 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+    </header>
+
+    <!-- PROPUESTA DE VALOR -->
+    <section class="px-6 py-24 bg-[#041010] relative z-10 w-full overflow-hidden">
+        <div class="max-w-7xl mx-auto w-full">
+            <div class="reveal fade-bottom text-center mb-16 px-4">
+                <h2 class="text-3xl md:text-5xl font-black mb-4 text-white">¿Por qué elegirnos?</h2>
+                <p class="text-[#F2F2F2]/60 max-w-2xl mx-auto text-lg">Nos encargamos de toda la complejidad técnica para que usted se enfoque en lo más importante: su mensaje.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 w-full px-4">
+                <!-- Tarjeta 1 -->
+                <div class="reveal fade-bottom delay-100 bg-[#0A2626] border border-[#F2F2F2]/5 p-8 rounded-sm hover:border-[#F24607]/50 transition-all duration-500 shadow-lg hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-[#041010] border border-[#F24607]/20 rounded-sm flex items-center justify-center text-[#F24607] mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Adiós a la complejidad técnica</h3>
+                    <p class="text-[#F2F2F2]/60 leading-relaxed">Tú solo traes tu conocimiento; nosotros ponemos la tecnología y la producción de principio a fin.</p>
+                </div>
+                
+                <!-- Tarjeta 2 -->
+                <div class="reveal fade-bottom delay-200 bg-[#0A2626] border border-[#F2F2F2]/5 p-8 rounded-sm hover:border-[#F24607]/50 transition-all duration-500 shadow-lg hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-[#041010] border border-[#F24607]/20 rounded-sm flex items-center justify-center text-[#F24607] mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Imagen de Autoridad</h3>
+                    <p class="text-[#F2F2F2]/60 leading-relaxed">No grabamos con celulares. Utilizamos equipos de cine y televisión para que proyectes una imagen 100% profesional e imponente.</p>
+                </div>
+
+                <!-- Tarjeta 3 -->
+                <div class="reveal fade-bottom delay-100 bg-[#0A2626] border border-[#F2F2F2]/5 p-8 rounded-sm hover:border-[#F24607]/50 transition-all duration-500 shadow-lg hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-[#041010] border border-[#F24607]/20 rounded-sm flex items-center justify-center text-[#F24607] mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 3v18"/><path d="M17 3v18"/><path d="M3 9h18"/><path d="M3 15h18"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Contenido Multiformato</h3>
+                    <p class="text-[#F2F2F2]/60 leading-relaxed">No solo obtienes un video largo; te entregamos piezas cortas listas para dominar y viralizar en TikTok, Reels y Shorts.</p>
+                </div>
+
+                <!-- Tarjeta 4 -->
+                <div class="reveal fade-bottom delay-200 bg-[#0A2626] border border-[#F2F2F2]/5 p-8 rounded-sm hover:border-[#F24607]/50 transition-all duration-500 shadow-lg hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-[#041010] border border-[#F24607]/20 rounded-sm flex items-center justify-center text-[#F24607] mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Eficiencia Total</h3>
+                    <p class="text-[#F2F2F2]/60 leading-relaxed">Respetamos tu tiempo. Somos capaces de grabar toda una temporada completa de tu podcast en solo dos mañanas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EQUIPAMIENTO Y SET -->
+    <section class="px-6 py-24 bg-[#0A2626] border-y border-[#F2F2F2]/5 relative z-10 w-full overflow-hidden">
+        <div class="max-w-6xl mx-auto w-full">
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                
+                <div class="w-full lg:w-1/3 reveal fade-right px-4">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-sm border border-[#F24607]/30 text-[#F24607] text-xs font-bold uppercase tracking-widest mb-4">
+                        Ingeniería Técnica
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-black text-white leading-tight mb-6">
+                        Equipamiento<br>& Set <span class="text-[#F24607]">Profesional</span>
+                    </h2>
+                    <p class="text-[#F2F2F2]/60 text-lg border-l-4 border-[#F24607] pl-4">El entorno perfecto exige herramientas impecables. Capturamos su mensaje utilizando la mejor tecnología disponible en la industria audiovisual.</p>
+                </div>
+
+                <div class="w-full lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4 reveal fade-left px-4">
+                    <div class="flex items-start gap-4 p-6 bg-[#041010] border border-[#F2F2F2]/5 rounded-sm group hover:border-[#F24607]/30 transition-colors">
+                        <div class="text-[#F24607] shrink-0 mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>
+                        <div>
+                            <h4 class="text-white font-bold mb-1">Cámaras Profesionales</h4>
+                            <p class="text-[#F2F2F2]/50 text-sm leading-relaxed">Configuración de 3 ángulos de cámara simultáneos para un ritmo visual dinámico y puramente cinematográfico.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 p-6 bg-[#041010] border border-[#F2F2F2]/5 rounded-sm group hover:border-[#F24607]/30 transition-colors">
+                        <div class="text-[#F24607] shrink-0 mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></div>
+                        <div>
+                            <h4 class="text-white font-bold mb-1">Audio de Alta Gama</h4>
+                            <p class="text-[#F2F2F2]/50 text-sm leading-relaxed">Microfonía profesional diseñada para capturar una voz imponente y clara, bloqueando y eliminando ruidos externos.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 p-6 bg-[#041010] border border-[#F2F2F2]/5 rounded-sm group hover:border-[#F24607]/30 transition-colors">
+                        <div class="text-[#F24607] shrink-0 mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg></div>
+                        <div>
+                            <h4 class="text-white font-bold mb-1">Sistema de Prompter</h4>
+                            <p class="text-[#F2F2F2]/50 text-sm leading-relaxed">Mantenga la mirada directa a cámara y total naturalidad. Siga su guion sin distracciones ni bloqueos mentales.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 p-6 bg-[#041010] border border-[#F2F2F2]/5 rounded-sm group hover:border-[#F24607]/30 transition-colors">
+                        <div class="text-[#F24607] shrink-0 mt-1"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" x2="12" y1="1" y2="3"/><line x1="12" x2="12" y1="21" y2="23"/><line x1="4.22" x2="5.64" y1="4.22" y2="5.64"/><line x1="18.36" x2="19.78" y1="18.36" y2="19.78"/><line x1="1" x2="3" y1="12" y2="12"/><line x1="21" x2="23" y1="12" y2="12"/><line x1="4.22" x2="5.64" y1="19.78" y2="18.36"/><line x1="18.36" x2="19.78" y1="5.64" y2="4.22"/></svg></div>
+                        <div>
+                            <h4 class="text-white font-bold mb-1">Iluminación y Ambientación</h4>
+                            <p class="text-[#F2F2F2]/50 text-sm leading-relaxed">Set diseñado profesionalmente con esquemas de iluminación controlada para que usted y sus invitados luzcan impecables.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EL PAQUETE INTEGRAL -->
+    <section id="planes" class="px-6 py-24 bg-[#061818] relative w-full overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] max-w-[100vw] h-[400px] bg-[#F24607]/5 rounded-[100%] blur-[80px] pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto relative z-10 w-full">
+            <div class="reveal fade-bottom text-center mb-16 px-4">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-sm border border-[#F24607]/30 text-[#F24607] text-xs font-bold uppercase tracking-widest mb-4">
+                    Contenido del Mes
+                </div>
+                <h2 class="text-3xl md:text-5xl font-black mb-4 text-white">El Paquete <span class="text-[#F24607]">Integral</span></h2>
+                <p class="text-[#F2F2F2]/70 max-w-2xl mx-auto text-lg">Ideal para marcas personales y empresas que buscan posicionarse rápidamente con autoridad.</p>
+            </div>
+
+            <!-- Entregables Destacados -->
+            <div class="reveal fade-bottom delay-100 max-w-4xl mx-auto bg-[#041010] border border-[#F2F2F2]/10 rounded-sm p-6 mb-12 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-4">
+                    <div class="text-[#F24607]"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+                    <div><span class="block text-white font-bold text-xl">4 Episodios</span><span class="text-[#F2F2F2]/50 text-xs uppercase tracking-widest">Grabados en 2 medias jornadas</span></div>
+                </div>
+                <div class="hidden md:block w-px h-12 bg-[#F2F2F2]/10"></div>
+                <div class="flex items-center gap-4">
+                    <div class="text-[#F24607]"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 3v18"/><path d="M17 3v18"/><path d="M3 9h18"/><path d="M3 15h18"/></svg></div>
+                    <div><span class="block text-white font-bold text-xl">16 Shorts</span><span class="text-[#F2F2F2]/50 text-xs uppercase tracking-widest">Listos para viralizar</span></div>
+                </div>
+                <div class="hidden md:block w-px h-12 bg-[#F2F2F2]/10"></div>
+                <div class="flex items-center gap-4">
+                    <div class="text-[#F24607]"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
+                    <div><span class="block text-white font-bold text-xl">Teaser + Edición</span><span class="text-[#F2F2F2]/50 text-xs uppercase tracking-widest">Post-producción profesional</span></div>
+                </div>
+            </div>
+
+            <!-- Inversión y Ubicación -->
+            <div class="grid md:grid-cols-2 gap-8 w-full px-4">
+                
+                <!-- Plan 1: En Estudio -->
+                <div class="reveal fade-bottom delay-200 bg-[#0A2626] border border-[#F2F2F2]/10 rounded-sm p-8 flex flex-col h-full relative transition-all duration-300 hover:border-[#F24607]/50 hover:shadow-[0_15px_30px_rgba(242,70,7,0.1)] w-full">
+                    <h3 class="text-2xl font-black text-white uppercase tracking-wider mb-2">En nuestro estudio</h3>
+                    <p class="text-sm text-[#F2F2F2]/50 mb-8 font-medium h-10">Grabe en nuestras instalaciones equipadas y aisladas acústicamente.</p>
+                    
+                    <div class="text-5xl font-black text-[#F24607] mb-8 pb-8 border-b border-[#F2F2F2]/10 flex items-baseline gap-2">
+                        4.800 <span class="text-xl text-[#F2F2F2]/50 font-normal uppercase">Bs</span>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start gap-3"><span class="text-[#F24607] mt-1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="text-[#F2F2F2]/80">El Paquete Integral (4 Episodios + 16 Shorts + 1 Teaser).</span></li>
+                        <li class="flex items-start gap-3"><span class="text-[#F24607] mt-1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="text-[#F2F2F2]/80">Uso exclusivo del set y mobiliario.</span></li>
+                        <li class="flex items-start gap-3"><span class="text-[#F24607] mt-1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="text-[#F2F2F2]/80">Todo incluido (sin costos ocultos).</span></li>
+                    </ul>
+
+                    <a href="https://wa.me/59177693829?text=Hola,%20deseo%20reservar%20el%20Paquete%20Integral%20de%20Podcast%20en%20su%20Estudio%20(4.800%20Bs)." target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 py-4 bg-[#F24607] text-white font-black uppercase tracking-widest text-sm rounded-sm transition-all duration-300 hover:bg-[#d13c06] mt-auto">
+                        Reservar en Estudio
+                    </a>
+                </div>
+
+                <!-- Plan 2: En Empresa -->
+                <div class="reveal fade-bottom delay-300 bg-[#0A2626] border border-[#F2F2F2]/10 rounded-sm p-8 flex flex-col h-full relative transition-all duration-300 hover:border-[#F24607]/50 hover:shadow-[0_15px_30px_rgba(242,70,7,0.1)] md:-translate-y-4 w-full">
+                    
+                    <h3 class="text-2xl font-black text-white uppercase tracking-wider mb-2">En tu empresa o exteriores</h3>
+                    <p class="text-sm text-[#F2F2F2]/50 mb-8 font-medium h-10">Convertimos su oficina en un estudio de grabación de alta gama.</p>
+                    
+                    <div class="text-5xl font-black text-[#F24607] mb-8 pb-8 border-b border-[#F2F2F2]/10 flex items-baseline gap-2">
+                        5.800 <span class="text-xl text-[#F2F2F2]/50 font-normal uppercase">Bs</span>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start gap-3"><span class="text-[#F24607] mt-1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="text-[#F2F2F2]/80">El Paquete Integral (4 Episodios + 16 Shorts + 1 Teaser).</span></li>
+                        <li class="flex items-start gap-3"><span class="text-[#F24607] mt-1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="text-[#F2F2F2]/80">Trasladamos y armamos todo nuestro set profesional.</span></li>
+                        <li class="flex items-start gap-3"><span class="text-[#F24607] mt-1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> <span class="text-[#F2F2F2]/80">Incluye logística dentro de Santa Cruz.</span></li>
+                    </ul>
+
+                    <a href="https://wa.me/59177693829?text=Hola,%20deseo%20reservar%20el%20Paquete%20Integral%20de%20Podcast%20en%20mi%20Empresa%20(5.800%20Bs)." target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 py-4 bg-[#F24607] text-white font-black uppercase tracking-widest text-sm rounded-sm transition-all duration-300 hover:bg-[#d13c06] mt-auto">
+                        Reservar en Empresa
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="px-6 py-24 bg-[#041010] border-t border-[#F2F2F2]/5 relative z-10 w-full overflow-hidden">
+        <div class="max-w-4xl mx-auto w-full">
+            <div class="reveal fade-bottom text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 px-2">¿Listo para ser el host de tu propio show?</h2>
+                <p class="text-[#F2F2F2]/70 text-lg px-2">Convierte tu expertise en el podcast más escuchado de Santa Cruz. Agenda tu sesión aquí o consulta disponibilidad de fechas.</p>
+            </div>
+
+            <div class="reveal fade-bottom delay-100 bg-[#0A2626] border border-[#F2F2F2]/10 p-6 md:p-12 rounded-sm shadow-2xl w-full">
+                <form id="wa-form" class="space-y-6 w-full">
+                    
+                    <div class="grid md:grid-cols-2 gap-6 w-full">
+                        <div class="space-y-2 w-full">
                             <label for="wp-name" class="block text-sm font-semibold text-[#F2F2F2]/90">Nombre Completo <span class="text-[#F24607]">*</span></label>
                             <input type="text" id="wp-name" required class="w-full bg-[#041010] border border-[#F2F2F2]/20 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#F24607] transition-colors" placeholder="Ej. Carlos Mendoza">
                         </div>
                         
-                        <div class="space-y-2">
+                        <div class="space-y-2 w-full">
                             <label for="wp-company" class="block text-sm font-semibold text-[#F2F2F2]/90">Empresa / Marca <span class="text-[#F24607]">*</span></label>
                             <input type="text" id="wp-company" required class="w-full bg-[#041010] border border-[#F2F2F2]/20 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#F24607] transition-colors" placeholder="Nombre de su organización">
                         </div>
                     </div>
 
-                    <div class="space-y-2">
-                        <label for="wp-service" class="block text-sm font-semibold text-[#F2F2F2]/90">Plan de Interés <span class="text-[#F24607]">*</span></label>
+                    <div class="space-y-2 w-full">
+                        <label for="wp-service" class="block text-sm font-semibold text-[#F2F2F2]/90">Paquete de Interés <span class="text-[#F24607]">*</span></label>
                         <select id="wp-service" required class="w-full bg-[#041010] border border-[#F2F2F2]/20 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#F24607] transition-colors appearance-none">
-                            <option value="Consulta General sobre Ecosistema 360">Seleccione un Plan Mensual</option>
-                            <option value="Plan Marketing ESSENTIAL (5.500 Bs)">Plan ESSENTIAL (5.500 Bs)</option>
-                            <option value="Plan Marketing PRO (8.500 Bs)">Plan PRO (8.500 Bs)</option>
-                            <option value="Plan Marketing FULL 360 (11.500 Bs)">Plan FULL 360 (11.500 Bs)</option>
-                            <option value="Consultoría Estratégica a Medida">Consultoría Estratégica a Medida</option>
+                            <option value="Consultar disponibilidad de fechas">Deseo consultar disponibilidad de fechas</option>
+                            <option value="Paquete Integral en Estudio (4.800 Bs)">Paquete Integral en Estudio (4.800 Bs)</option>
+                            <option value="Paquete Integral en Empresa/Exteriores (5.800 Bs)">Paquete Integral en Empresa (5.800 Bs)</option>
                         </select>
                     </div>
 
-                    <div class="space-y-2">
-                        <label for="wp-details" class="block text-sm font-semibold text-[#F2F2F2]/90">Objetivo Comercial <span class="text-[#F24607]">*</span></label>
-                        <textarea id="wp-details" required rows="4" class="w-full bg-[#041010] border border-[#F2F2F2]/20 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#F24607] transition-colors resize-none" placeholder="Indique qué objetivos desea alcanzar con su estrategia de marketing..."></textarea>
+                    <div class="space-y-2 w-full">
+                        <label for="wp-details" class="block text-sm font-semibold text-[#F2F2F2]/90">Detalles del Proyecto <span class="text-[#F24607]">*</span></label>
+                        <textarea id="wp-details" required rows="4" class="w-full bg-[#041010] border border-[#F2F2F2]/20 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#F24607] transition-colors resize-none" placeholder="¿De qué trata su podcast? ¿Tiene invitados en mente?"></textarea>
                     </div>
 
-                    <button type="submit" class="w-full bg-[#F24607] hover:bg-[#d13c06] text-white font-bold text-lg py-4 rounded-sm transition-all duration-300 shadow-[0_10px_20px_rgba(242,70,7,0.2)] flex items-center justify-center gap-2 hover:scale-[1.01]">
-                        Enviar solicitud por WhatsApp
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4Z"/></svg>
+                    <button type="submit" class="w-full bg-[#25D366] hover:bg-[#1ebe57] text-white font-bold text-lg py-4 rounded-sm transition-all duration-300 shadow-[0_10px_20px_rgba(37,211,102,0.2)] flex items-center justify-center gap-3 hover:scale-[1.01] uppercase tracking-wide">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                        Agendar Sesión
                     </button>
-                    <p class="text-center text-xs text-[#F2F2F2]/40 mt-4">Su información será compilada y enviada de forma segura a través de la aplicación WhatsApp al +591 77693829.</p>
+                    <p class="text-center text-xs text-[#F2F2F2]/40 mt-4 px-2">Su información será enviada de forma segura a nuestro equipo en Santa Cruz de la Sierra.</p>
                 </form>
             </div>
         </div>
     </section>
 
-    <footer class="bg-[#020808] py-12 px-6 border-t border-[#F2F2F2]/10 relative z-10">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+    <!-- FOOTER -->
+    <footer class="bg-[#041010] py-12 px-6 border-t border-[#F2F2F2]/10 relative z-10 w-full overflow-hidden">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 w-full">
             <div class="flex items-center justify-center">
                  <img src="logo.jpg" alt="591 Creative Studio Logo" class="h-10 w-auto object-contain rounded-md" onerror="this.style.display='none'">
             </div>
-            <div class="text-[#F2F2F2]/50 text-sm text-center md:text-right">
+            <div class="text-[#F2F2F2]/50 text-sm text-center md:text-right px-2">
                 <p>© 2026 591 Creative Studio. Todos los derechos reservados.</p>
-                <p class="mt-1">Santa Cruz de la Sierra, Bolivia. Agencia de Marketing Estratégico.</p>
+                <p class="mt-1">Santa Cruz de la Sierra, Bolivia.</p>
             </div>
         </div>
     </footer>
 
+    <!-- SCRIPT DE INTERSECTION OBSERVER PARA ANIMACIONES Y SMART NAV -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const reveals = document.querySelectorAll('.reveal');
@@ -420,7 +439,7 @@
                 
                 lastScrollY = currentScrollY;
             }, { passive: true });
-
+            
             const waForm = document.getElementById('wa-form');
             if (waForm) {
                 waForm.addEventListener('submit', function(event) {
@@ -431,7 +450,7 @@
                     const service = document.getElementById('wp-service').value;
                     const details = document.getElementById('wp-details').value.trim();
 
-                    const textMessage = `*NUEVO CONTACTO: MARKETING DIGITAL 360*%0A%0A*Nombre:* ${name}%0A*Empresa:* ${company}%0A*Plan Seleccionado:* ${service}%0A*Objetivo Comercial:* ${details}`;
+                    const textMessage = `*NUEVO CONTACTO: PODCASTS*%0A%0A*Nombre:* ${name}%0A*Empresa:* ${company}%0A*Paquete Seleccionado:* ${service}%0A*Detalles:* ${details}`;
                     
                     const phone = "59177693829";
 
@@ -448,6 +467,3 @@
     </script>
 </body>
 </html>
-
-
-```
